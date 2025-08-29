@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1756450241
+README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
+::res://assets/::1756449821
+placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
+::res://scenes/::1756450192
+card.tscn::PackedScene::-1::1756450152::0::1::::<><><>0<>0<><>::res://scripts/card.gd<>res://assets/placeholder.svg
+card_table.tscn::PackedScene::-1::1756450192::0::1::::<><><>0<>0<><>::res://scripts/card_table.gd
+::res://scripts/::1756449820
+card.gd::GDScript/GDScript::509745738702368559::1756449696::0::1::::<>Control<><>0<>0<><>::
+card_table.gd::GDScript/GDScript::7684268962971688221::1756449696::0::1::::<>Control<><>0<>0<><>::
