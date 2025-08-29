@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=4]
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(80, 120)
+script = preload("res://scripts/card.gd")
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 1, 1)
+
+[node name="Icon" type="TextureRect" parent="."]
+texture = preload("res://assets/placeholder.svg")
+position = Vector2(10, 10)
+size = Vector2(40, 40)
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "1"
