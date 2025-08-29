@@ -1,0 +1,10 @@
+; Engine configuration file.
+
+config_version=5
+
+[application]
+config/name="Fortune Realms"
+run/main_scene="res://scenes/card_table.tscn"
+
+[rendering]
+renderer="forward_plus"
