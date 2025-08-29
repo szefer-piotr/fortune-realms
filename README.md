@@ -2,7 +2,7 @@
 
 Build your dream kingdom, collect magical creatures, and test your luck in the cutest Blackjack adventure ever!
 
-In Lucky Kingdoms, every hand of cards brings you closer to fortune and glory. Flip cards, chase the magic number 21, and unlock amazing rewards! Use your winnings to upgrade castles, build villages, and explore enchanting worlds filled with adorable characters.
+In Fortune Realms, every hand of cards brings you closer to fortune and glory. Flip cards, chase the magic number 21, and unlock amazing rewards! Use your winnings to upgrade castles, build villages, and explore enchanting worlds filled with adorable characters.
 
 ⭐ Features:
 
