@@ -1,11 +1,37 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1756450241
+::res://::1756652534
+mousebrain.gd::GDScript/GDScript::2706747860605514913::1756532895::0::1::::<>Node<><>0<>0<><>::
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
-::res://assets/::1756449821
+::res://assets/::1756529663
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
-::res://scenes/::1756450192
-card.tscn::PackedScene::-1::1756450152::0::1::::<><><>0<>0<><>::res://scripts/card.gd<>res://assets/placeholder.svg
-card_table.tscn::PackedScene::-1::1756450192::0::1::::<><><>0<>0<><>::res://scripts/card_table.gd
-::res://scripts/::1756449820
+::res://assets/cards_png/::1756529683
+::res://assets/cards_png/Tarot Cats/::1756529699
+0. The Fool.png::CompressedTexture2D/CompressedTexture2D::5424087077279932885::1756529683::1756529699::1::::<><><>0<>0<>d71ce0366320055bdffa3cd4d8a0c18a<>res://.godot/imported/0. The Fool.png-bdf8dedd80d4c84a81859737d4143d32.ctex::
+1. The Magician.png::CompressedTexture2D/CompressedTexture2D::8729792989712979808::1756529683::1756529698::1::::<><><>0<>0<>5fa9784c65259d9236de591e3b340104<>res://.godot/imported/1. The Magician.png-bb916ef534b0e47ec3cf9fb24033c23c.ctex::
+2. The Priestess.png::CompressedTexture2D/CompressedTexture2D::4796503511750184191::1756529683::1756529697::1::::<><><>0<>0<>7f61604235e70e78aa8bf45a0a789e5e<>res://.godot/imported/2. The Priestess.png-6a0dabfa8dd08745d46bc7949a9b5c76.ctex::
+3. The Empress.png::CompressedTexture2D/CompressedTexture2D::4621349073116566031::1756529683::1756529697::1::::<><><>0<>0<>03da72719a21863017ba3711092f7ef8<>res://.godot/imported/3. The Empress.png-ba866c17c64f173413a800b8486be7fb.ctex::
+4. The Emperor.png::CompressedTexture2D/CompressedTexture2D::4201074972106282683::1756529683::1756529695::1::::<><><>0<>0<>dc13cf1768ed4dad8344695a37f46a37<>res://.godot/imported/4. The Emperor.png-da653591518e647aaa5677c8eae876d5.ctex::
+5. The Hierophant.png::CompressedTexture2D/CompressedTexture2D::4975826279023586790::1756529683::1756529694::1::::<><><>0<>0<>e3cca901ad00d0570ba3d1d94bd2706e<>res://.godot/imported/5. The Hierophant.png-95c5a7de0ea350f20ef73d7ef66e0f69.ctex::
+6. The Lovers.png::CompressedTexture2D/CompressedTexture2D::7415971627024618909::1756529683::1756529694::1::::<><><>0<>0<>f9d65351bcda0a437ab136959df42d40<>res://.godot/imported/6. The Lovers.png-8c94d8a989f3229cbfbdc7e63398c166.ctex::
+7. The Chariot.png::CompressedTexture2D/CompressedTexture2D::6563272622063020419::1756529683::1756529693::1::::<><><>0<>0<>ec1b4b60826bb1ebb3629625d6c94436<>res://.godot/imported/7. The Chariot.png-660986527c905e7224c7e417018dfe98.ctex::
+8. Justice.png::CompressedTexture2D/CompressedTexture2D::8859681639839401133::1756529683::1756529692::1::::<><><>0<>0<>fbc3ff0406ab4efe658907e98d133783<>res://.godot/imported/8. Justice.png-01eb8039c27fdc83351e4389969bc6e7.ctex::
+9. The Hermit.png::CompressedTexture2D/CompressedTexture2D::890362240778135627::1756529683::1756529692::1::::<><><>0<>0<>2f3ae79cde6f382b6a5796103dcea77a<>res://.godot/imported/9. The Hermit.png-d6f30b232d781f943f5bc9d2ba5eb421.ctex::
+10. Wheel of Fortune.png::CompressedTexture2D/CompressedTexture2D::6638466269097830054::1756529683::1756529691::1::::<><><>0<>0<>00dcaef5116db860d8036c541c35d11e<>res://.godot/imported/10. Wheel of Fortune.png-2ab74e08c6b2b8e52607117919191c75.ctex::
+11. Strength.png::CompressedTexture2D/CompressedTexture2D::8506987069661449123::1756529683::1756529690::1::::<><><>0<>0<>d56243d7e23b2bdbe973d3a8839379c2<>res://.godot/imported/11. Strength.png-d51fad75563c18f41278305f682ed065.ctex::
+12. The Hanged Man.png::CompressedTexture2D/CompressedTexture2D::4782750338106181928::1756529683::1756529690::1::::<><><>0<>0<>689631f35e8e482ce3dbc72d4a7a2cdc<>res://.godot/imported/12. The Hanged Man.png-5b2cf2fa7fb9e6daaffd790bde696668.ctex::
+13. Death.png::CompressedTexture2D/CompressedTexture2D::717325946052058179::1756529683::1756529689::1::::<><><>0<>0<>5091396f98e00e0a76204d8cfb7dffc7<>res://.godot/imported/13. Death.png-7111186fb03308afe7a80d333689e4e1.ctex::
+14. Temperance.png::CompressedTexture2D/CompressedTexture2D::7444920031750213663::1756529683::1756529689::1::::<><><>0<>0<>4646498008633e965e42b592a56a3ffc<>res://.godot/imported/14. Temperance.png-67680c2ed096bdd9993af8eaa5509277.ctex::
+15. The Devil.png::CompressedTexture2D/CompressedTexture2D::4093731686830908051::1756529683::1756529689::1::::<><><>0<>0<>f76db396ee6aeffbb23970f63d35e777<>res://.godot/imported/15. The Devil.png-46e6f09f1cfa3782a948c5586037bb88.ctex::
+16. The Star.png::CompressedTexture2D/CompressedTexture2D::1609692658220624738::1756529683::1756529687::1::::<><><>0<>0<>8361f7d644289f94ef3025b9a48ed8b1<>res://.godot/imported/16. The Star.png-09a9f50e580843e22ccb91a085f5f9c1.ctex::
+17. The Tower.png::CompressedTexture2D/CompressedTexture2D::7659225362579135918::1756529683::1756529687::1::::<><><>0<>0<>32cc4434c55056194a38fb0292e80383<>res://.godot/imported/17. The Tower.png-f840cc33f54e4346c2321b5236169ccb.ctex::
+18. The Moon.png::CompressedTexture2D/CompressedTexture2D::6437363488066757972::1756529683::1756529687::1::::<><><>0<>0<>96cbb1a78a32a7b8f378d7967ccca864<>res://.godot/imported/18. The Moon.png-85d5438e56f57be1c29b76588b547e44.ctex::
+19. The Sun.png::CompressedTexture2D/CompressedTexture2D::7927307972153282030::1756529683::1756529685::1::::<><><>0<>0<>168da81f8d13c8c70e6ba82da3867992<>res://.godot/imported/19. The Sun.png-b6d93cb82bd438e69c567cc516b70363.ctex::
+20. Judgement.png::CompressedTexture2D/CompressedTexture2D::1051445267234111275::1756529683::1756529685::1::::<><><>0<>0<>ea8771c18d6128bb0a7b05bbda07379e<>res://.godot/imported/20. Judgement.png-760ee5b753b41f6616e91b4429f65ecc.ctex::
+21. The World.png::CompressedTexture2D/CompressedTexture2D::8538805643762077287::1756529683::1756529685::1::::<><><>0<>0<>ad99e1e9ab4593d7ca3f3525913ecc23<>res://.godot/imported/21. The World.png-cceefa9fdcfe2b578ac02a72e536d6e6.ctex::
+::res://scenes/::1756534423
+Card.gd::GDScript/GDScript::4811652287285766181::1756533932::0::1::::<>Control<><>0<>0<><>::
+card.tscn::PackedScene/PackedScene::6427528538277471693::1756534385::0::1::::<><><>0<>0<><>::uid://cas2he76vtift::::res://scenes/Card.gd<>uid://cjjp6lqis22ov::::res://assets/cards_png/Tarot Cats/0. The Fool.png
+card_table.tscn::PackedScene/PackedScene::6378362022240781758::1756534423::0::1::::<><><>0<>0<><>::uid://dhqk106sbdx54::::res://scripts/card_table.gd
+::res://scripts/::1756451758
 card.gd::GDScript/GDScript::509745738702368559::1756449696::0::1::::<>Control<><>0<>0<><>::
-card_table.gd::GDScript/GDScript::7684268962971688221::1756449696::0::1::::<>Control<><>0<>0<><>::
+card_table.gd::GDScript/GDScript::7684268962971688221::1756451758::0::1::::<>Control<><>0<>0<><>::
