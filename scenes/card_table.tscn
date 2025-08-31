@@ -38,9 +38,3 @@ position = Vector2(20, 80)
 [node name="AceMenu" type="PopupMenu" parent="."]
 
 [node name="StarMenu" type="PopupMenu" parent="."]
-
-[node name="Card" parent="." instance=ExtResource("2_7cuvy")]
-offset_left = 222.0
-offset_top = 184.0
-offset_right = 309.0
-offset_bottom = 328.0
