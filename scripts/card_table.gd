@@ -18,14 +18,14 @@ func _ready():
 		$StarMenu.add_item(str(i), i)
 
 func _on_draw_pressed():
-        var num := randi() % 6 + 1
-        var card = card_scene.instantiate()
-        $CardsContainer.add_child(card)
-        card.position = Vector2(cards.size() * 60, 0)
-        cards.append(card)
-        card.set_number(num)
-        total_score += num
-        _update_score()
+		var num := randi() % 6 + 1
+		var card = card_scene.instantiate()
+		$CardsContainer.add_child(card)
+		card.position = Vector2(cards.size() * 60, 0)
+		cards.append(card)
+		card.set_number(num)
+		total_score += num
+		_update_score()
 
 func _on_ace_selected(id):
 	current_card.set_value(id)

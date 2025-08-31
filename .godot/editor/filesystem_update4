@@ -1,3 +1,4 @@
 res://scenes/card_table.tscn
 res://scenes/card.tscn
 res://scenes/Card.gd
+res://scripts/card_table.gd

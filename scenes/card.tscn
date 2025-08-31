@@ -25,8 +25,9 @@ texture = ExtResource("1_d81rb")
 
 [node name="NumberLabel" type="Label" parent="."]
 layout_mode = 0
+offset_top = 2.0
 offset_right = 87.0
-offset_bottom = 20.0
+offset_bottom = 25.0
 horizontal_alignment = 1
 vertical_alignment = 1
 

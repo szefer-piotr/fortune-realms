@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw4yxql77t2wo"]
+[gd_scene load_steps=2 format=3 uid="uid://cw4yxql77t2wo"]
 
 [ext_resource type="Script" uid="uid://dhqk106sbdx54" path="res://scripts/card_table.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://cxtsprcy0piqf" path="res://scenes/card.tscn" id="2_7cuvy"]
 
 [node name="CardTable" type="Control"]
 layout_mode = 3
