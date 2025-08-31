@@ -1,7 +1,31 @@
 extends Control
 
+const CARD_TEXTURES: Dictionary = {
+    1: preload("res://assets/cards_png/Tarot Cats/1. The Magician.png"),
+    2: preload("res://assets/cards_png/Tarot Cats/2. The Priestess.png"),
+    3: preload("res://assets/cards_png/Tarot Cats/3. The Empress.png"),
+    4: preload("res://assets/cards_png/Tarot Cats/4. The Emperor.png"),
+    5: preload("res://assets/cards_png/Tarot Cats/5. The Hierophant.png"),
+    6: preload("res://assets/cards_png/Tarot Cats/6. The Lovers.png"),
+}
+
 var mouse_in: bool = false
 var is_dragging: bool = false
+var value := ""
+
+func set_number(num: int) -> void:
+        $NumberLabel.text = str(num)
+        var tex: Texture2D = CARD_TEXTURES.get(num, null)
+        if tex:
+                $Sprite2D.texture = tex
+                $Sprite2D/Shadow.texture = tex
+
+func set_value(v):
+        value = str(v)
+        if typeof(v) == TYPE_INT:
+                set_number(v)
+        else:
+                $NumberLabel.text = value
 
 func _physics_process(delta: float) -> void:
 	drag_logic(delta)
