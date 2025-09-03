@@ -11,11 +11,18 @@ anchor_bottom = 1.0
 script = ExtResource("1_4dx8l")
 
 [node name="Front" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 920.0
-offset_bottom = 1463.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource("2_qf083")
+stretch_mode = 3
+visible = false
 
 [node name="Back" type="TextureRect" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource("3_40ytf")
+stretch_mode = 3
