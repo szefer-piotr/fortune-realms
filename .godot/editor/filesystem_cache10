@@ -1,12 +1,18 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1756652534
-mousebrain.gd::GDScript/GDScript::2706747860605514913::1756532895::0::1::::<>Node<><>0<>0<><>::
+::res://::1756875066
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
 ::res://assets/::1756529663
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
-::res://assets/cards_png/::1756529683
-::res://assets/cards_png/Tarot Cats/::1756529699
-0. The Fool.png::CompressedTexture2D/CompressedTexture2D::5424087077279932885::1756529683::1756529699::1::::<><><>0<>0<>d71ce0366320055bdffa3cd4d8a0c18a<>res://.godot/imported/0. The Fool.png-bdf8dedd80d4c84a81859737d4143d32.ctex::
+::res://assets/cards_png/::1756796101
+::res://assets/cards_png/gpt_game_assets/::1756795708
+::res://assets/cards_png/gpt_game_assets/cards/::1756796156
+card_back.png::CompressedTexture2D/CompressedTexture2D::3899345639527221413::1756705108::1756796102::1::::<><><>0<>0<>76d6bfb2eec5fe37f7ed673b2e37155c<>res://.godot/imported/card_back.png-f7fe79c07d5484f4fecbfaa1b0e6fa89.s3tc.ctex::
+coins.png::CompressedTexture2D/CompressedTexture2D::5008743227507880461::1756796090::1756796156::1::::<><><>0<>0<>65f98ab773d8941b26fd23f1e58abbdc<>res://.godot/imported/coins.png-f5e0d86780828fa00275b8d6f9fa6959.s3tc.ctex::
+draws.png::CompressedTexture2D/CompressedTexture2D::4617571126627208821::1756796090::1756796092::1::::<><><>0<>0<>cff7b24b26d13c6aa5ae717adde26dcf<>res://.godot/imported/draws.png-8ca8a157d5c5c30e160dd9bd3758d3b7.ctex::
+knight.png::CompressedTexture2D/CompressedTexture2D::4731952025399999078::1756796090::1756796091::1::::<><><>0<>0<>d19e539475cafc56924e9c7be8e7706a<>res://.godot/imported/knight.png-aa6efb0e48d3cfa3101fb34d583172bb.ctex::
+thief.png::CompressedTexture2D/CompressedTexture2D::342318287627337656::1756796090::1756796092::1::::<><><>0<>0<>34e4ace0aee8dee90da0c52b35d845b1<>res://.godot/imported/thief.png-48fc2cb470db247adf9aeaa19cd96198.ctex::
+::res://assets/cards_png/Tarot Cats/::1756705146
+0. The Fool.png::CompressedTexture2D/CompressedTexture2D::5424087077279932885::1756529683::1756705146::1::::<><><>0<>0<>7d7b7149e6478f4c1756388016fd5851<>res://.godot/imported/0. The Fool.png-bdf8dedd80d4c84a81859737d4143d32.s3tc.ctex::
 1. The Magician.png::CompressedTexture2D/CompressedTexture2D::8729792989712979808::1756529683::1756529698::1::::<><><>0<>0<>5fa9784c65259d9236de591e3b340104<>res://.godot/imported/1. The Magician.png-bb916ef534b0e47ec3cf9fb24033c23c.ctex::
 2. The Priestess.png::CompressedTexture2D/CompressedTexture2D::4796503511750184191::1756529683::1756529697::1::::<><><>0<>0<>7f61604235e70e78aa8bf45a0a789e5e<>res://.godot/imported/2. The Priestess.png-6a0dabfa8dd08745d46bc7949a9b5c76.ctex::
 3. The Empress.png::CompressedTexture2D/CompressedTexture2D::4621349073116566031::1756529683::1756529697::1::::<><><>0<>0<>03da72719a21863017ba3711092f7ef8<>res://.godot/imported/3. The Empress.png-ba866c17c64f173413a800b8486be7fb.ctex::
@@ -28,10 +34,12 @@ placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1
 19. The Sun.png::CompressedTexture2D/CompressedTexture2D::7927307972153282030::1756529683::1756529685::1::::<><><>0<>0<>168da81f8d13c8c70e6ba82da3867992<>res://.godot/imported/19. The Sun.png-b6d93cb82bd438e69c567cc516b70363.ctex::
 20. Judgement.png::CompressedTexture2D/CompressedTexture2D::1051445267234111275::1756529683::1756529685::1::::<><><>0<>0<>ea8771c18d6128bb0a7b05bbda07379e<>res://.godot/imported/20. Judgement.png-760ee5b753b41f6616e91b4429f65ecc.ctex::
 21. The World.png::CompressedTexture2D/CompressedTexture2D::8538805643762077287::1756529683::1756529685::1::::<><><>0<>0<>ad99e1e9ab4593d7ca3f3525913ecc23<>res://.godot/imported/21. The World.png-cceefa9fdcfe2b578ac02a72e536d6e6.ctex::
-::res://scenes/::1756534423
-Card.gd::GDScript/GDScript::4811652287285766181::1756533932::0::1::::<>Control<><>0<>0<><>::
-card.tscn::PackedScene/PackedScene::6427528538277471693::1756534385::0::1::::<><><>0<>0<><>::uid://cas2he76vtift::::res://scenes/Card.gd<>uid://cjjp6lqis22ov::::res://assets/cards_png/Tarot Cats/0. The Fool.png
-card_table.tscn::PackedScene/PackedScene::6378362022240781758::1756534423::0::1::::<><><>0<>0<><>::uid://dhqk106sbdx54::::res://scripts/card_table.gd
-::res://scripts/::1756451758
-card.gd::GDScript/GDScript::509745738702368559::1756449696::0::1::::<>Control<><>0<>0<><>::
-card_table.gd::GDScript/GDScript::7684268962971688221::1756451758::0::1::::<>Control<><>0<>0<><>::
+::res://scenes/::1756875066
+Card.tscn::PackedScene/PackedScene::7102520561853266705::1756875021::0::1::::<><><>0<>0<><>::uid://n4d1y6v1lio2::::res://scripts/card_3d.gd<>uid://cdmjjffqij7s8::::res://assets/cards_png/gpt_game_assets/cards/coins.png<>uid://bvs4wg31wwq50::::res://assets/cards_png/gpt_game_assets/cards/card_back.png
+CardTable.tscn::PackedScene/PackedScene::6378362022240781758::1756874907::0::1::::<><><>0<>0<><>::uid://cas2he76vtift::::res://scenes/Card.gd<>uid://cjjp6lqis22ov::::res://assets/cards_png/Tarot Cats/0. The Fool.png
+DeckManager.tscn::PackedScene::2318081178109790210::1756875066::0::1::::<><><>0<>0<><>::uid://bdo0x2sl4ijw8::::res://scripts/DeckManager.gd
+::res://scripts/::1756875066
+Card.gd::GDScript/GDScript::972551813220652271::1756796811::0::1::::<>RigidBody3D<><>0<>0<><>::
+CardTable.gd::GDScript/GDScript::7684268962971688221::1756875013::0::1::::<>Control<><>0<>0<><>::
+DeckManager.gd::GDScript::2627448947718811681::1756874630::0::1::::<>Node3D<><>0<>0<><>::
+mousebrain.gd::GDScript/GDScript::2706747860605514913::1756532895::0::1::::<>Node<><>0<>0<><>::

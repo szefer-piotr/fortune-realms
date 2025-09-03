@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjjp6lqis22ov"
-path.s3tc="res://.godot/imported/0. The Fool.png-bdf8dedd80d4c84a81859737d4143d32.s3tc.ctex"
+uid="uid://cdmjjffqij7s8"
+path.s3tc="res://.godot/imported/coins.png-f5e0d86780828fa00275b8d6f9fa6959.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/cards_png/Tarot Cats/0. The Fool.png"
-dest_files=["res://.godot/imported/0. The Fool.png-bdf8dedd80d4c84a81859737d4143d32.s3tc.ctex"]
+source_file="res://assets/cards_png/gpt_game_assets/cards/coins.png"
+dest_files=["res://.godot/imported/coins.png-f5e0d86780828fa00275b8d6f9fa6959.s3tc.ctex"]
 
 [params]
 

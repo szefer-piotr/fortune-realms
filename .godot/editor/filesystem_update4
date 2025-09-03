@@ -1,4 +1,7 @@
+res://DeckManager.tscn
+res://scripts/card_table.gd
+res://deck_manager.gd
+res://scenes/card3d.tscn
 res://scenes/card_table.tscn
 res://scenes/card.tscn
-res://scenes/Card.gd
-res://scripts/card_table.gd
+res://scenes/Card.tscn

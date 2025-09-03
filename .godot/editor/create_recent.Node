@@ -1,3 +1,12 @@
-Label
-Sprite2D
+TextureRect
 Control
+Marker3D
+Node3D
+Button
+CanvasLayer
+Camera3D
+RigidBody3D
+CollisionShape3D
+Sprite3D
+Sprite2D
+Label

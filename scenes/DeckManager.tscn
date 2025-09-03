@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://8a5pt3dvpqmc"]
+
+[ext_resource type="Script" uid="uid://bdo0x2sl4ijw8" path="res://scripts/DeckManager.gd" id="1_wpry7"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="DeckManager" type="Node3D" parent="."]
+script = ExtResource("1_wpry7")
+
+[node name="DeckRoot" type="Node3D" parent="DeckManager"]
+
+[node name="DeckSpawn" type="Marker3D" parent="DeckManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.303163, -0.825155)
+
+[node name="DealTargets" type="Node3D" parent="DeckManager"]
+
+[node name="Slot1" type="Marker3D" parent="DeckManager/DealTargets"]
+
+[node name="Slot2" type="Marker3D" parent="DeckManager/DealTargets"]
+
+[node name="Slot3" type="Marker3D" parent="DeckManager/DealTargets"]
+
+[node name="Slot4" type="Marker3D" parent="DeckManager/DealTargets"]
+
+[node name="Slot5" type="Marker3D" parent="DeckManager/DealTargets"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DrawButton" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0

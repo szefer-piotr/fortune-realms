@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="Fortune Realms"
-run/main_scene="res://scenes/card_table.tscn"
+run/main_scene="res://scenes/CardTable.tscn"
 config/features=PackedStringArray("4.4")
 
 [autoload]
 
-Mousebrain="*res://mousebrain.gd"
+Mousebrain="*res://scripts/MouseBrain.gd"
 
 [input]
 
