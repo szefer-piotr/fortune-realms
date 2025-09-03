@@ -1,6 +1,6 @@
 extends Control
 
-var card_scene: PackedScene = preload("res://scenes/card.tscn")
+var card_scene: PackedScene = preload("res://scenes/Card.tscn")
 var total_score := 0
 var current_score := 0
 var cards := []
