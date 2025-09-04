@@ -1,10 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1756875066
+::res://::1756961600
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
 ::res://assets/::1756529663
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
 ::res://assets/cards_png/::1756796101
-::res://assets/cards_png/gpt_game_assets/::1756795708
+::res://assets/cards_png/gpt_game_assets/::1756963235
+background.png::CompressedTexture2D::9167933128310168061::1756963235::1756963314::1::::<><><>0<>0<>a7d1f4f84ae0482d54ea8afae7c748bd<>res://.godot/imported/background.png-ac6fe33b182c26825b984e0444e84bef.ctex::
 ::res://assets/cards_png/gpt_game_assets/cards/::1756796156
 card_back.png::CompressedTexture2D/CompressedTexture2D::3899345639527221413::1756705108::1756796102::1::::<><><>0<>0<>76d6bfb2eec5fe37f7ed673b2e37155c<>res://.godot/imported/card_back.png-f7fe79c07d5484f4fecbfaa1b0e6fa89.s3tc.ctex::
 coins.png::CompressedTexture2D/CompressedTexture2D::5008743227507880461::1756796090::1756796156::1::::<><><>0<>0<>65f98ab773d8941b26fd23f1e58abbdc<>res://.godot/imported/coins.png-f5e0d86780828fa00275b8d6f9fa6959.s3tc.ctex::
@@ -34,12 +35,15 @@ thief.png::CompressedTexture2D/CompressedTexture2D::342318287627337656::17567960
 19. The Sun.png::CompressedTexture2D/CompressedTexture2D::7927307972153282030::1756529683::1756529685::1::::<><><>0<>0<>168da81f8d13c8c70e6ba82da3867992<>res://.godot/imported/19. The Sun.png-b6d93cb82bd438e69c567cc516b70363.ctex::
 20. Judgement.png::CompressedTexture2D/CompressedTexture2D::1051445267234111275::1756529683::1756529685::1::::<><><>0<>0<>ea8771c18d6128bb0a7b05bbda07379e<>res://.godot/imported/20. Judgement.png-760ee5b753b41f6616e91b4429f65ecc.ctex::
 21. The World.png::CompressedTexture2D/CompressedTexture2D::8538805643762077287::1756529683::1756529685::1::::<><><>0<>0<>ad99e1e9ab4593d7ca3f3525913ecc23<>res://.godot/imported/21. The World.png-cceefa9fdcfe2b578ac02a72e536d6e6.ctex::
-::res://scenes/::1756875066
-Card.tscn::PackedScene/PackedScene::7102520561853266705::1756875021::0::1::::<><><>0<>0<><>::uid://n4d1y6v1lio2::::res://scripts/card_3d.gd<>uid://cdmjjffqij7s8::::res://assets/cards_png/gpt_game_assets/cards/coins.png<>uid://bvs4wg31wwq50::::res://assets/cards_png/gpt_game_assets/cards/card_back.png
-CardTable.tscn::PackedScene/PackedScene::6378362022240781758::1756874907::0::1::::<><><>0<>0<><>::uid://cas2he76vtift::::res://scenes/Card.gd<>uid://cjjp6lqis22ov::::res://assets/cards_png/Tarot Cats/0. The Fool.png
-DeckManager.tscn::PackedScene::2318081178109790210::1756875066::0::1::::<><><>0<>0<><>::uid://bdo0x2sl4ijw8::::res://scripts/DeckManager.gd
-::res://scripts/::1756875066
-Card.gd::GDScript/GDScript::972551813220652271::1756796811::0::1::::<>RigidBody3D<><>0<>0<><>::
-CardTable.gd::GDScript/GDScript::7684268962971688221::1756875013::0::1::::<>Control<><>0<>0<><>::
-DeckManager.gd::GDScript::2627448947718811681::1756874630::0::1::::<>Node3D<><>0<>0<><>::
-mousebrain.gd::GDScript/GDScript::2706747860605514913::1756532895::0::1::::<>Node<><>0<>0<><>::
+::res://scenes/::1756961919
+Card.tscn::PackedScene::7102520561853266705::1756961918::0::1::::<><><>0<>0<><>::uid://n4d1y6v1lio2::::res://scripts/Card.gd<>uid://cdmjjffqij7s8::::res://assets/cards_png/gpt_game_assets/cards/coins.png<>uid://bvs4wg31wwq50::::res://assets/cards_png/gpt_game_assets/cards/card_back.png
+CardTable.tscn::PackedScene::6378362022240781758::1756961919::0::1::::<><><>0<>0<><>::uid://cjjp6lqis22ov::::res://assets/cards_png/Tarot Cats/0. The Fool.png
+DeckManager.tscn::PackedScene::2318081178109790210::1756961919::0::1::::<><><>0<>0<><>::uid://bdo0x2sl4ijw8::::res://scripts/DeckManager.gd
+Main.tscn::PackedScene::3550958129272081888::1756961919::0::1::::<><><>0<>0<><>::uid://bvs4wg31wwq50::::res://assets/cards_png/gpt_game_assets/cards/card_back.png<>uid://yd2v5eua5t0e::::res://scripts/Main.gd
+::res://scripts/::1756961630
+Card.gd::GDScript::972551813220652271::1756961630::0::1::::<>Control<><>0<>0<><>::
+CardTable.gd::GDScript::7684268962971688221::1756877595::0::1::::<>Control<><>0<>0<><>::
+card_table.gd::GDScript::216822210400314648::1756961316::0::1::::<>Control<><>0<>0<><>::
+DeckManager.gd::GDScript/GDScript::2627448947718811681::1756874630::0::1::::<>Node3D<><>0<>0<><>::
+Main.gd::GDScript::1692403823841286290::1756961549::0::1::::<>Control<><>0<>0<><>::
+MouseBrain.gd::GDScript::2706747860605514913::1756532895::0::1::::<>Node<><>0<>0<><>::
