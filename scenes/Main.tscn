@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqud05no8e2f1"]
+[gd_scene load_steps=3 format=3 uid="uid://bqud05no8e2f1"]
 
 [ext_resource type="Texture2D" uid="uid://bvs4wg31wwq50" path="res://assets/cards_png/gpt_game_assets/cards/card_back.png" id="1"]
+[ext_resource type="Script" uid="uid://dda993d9293a" path="res://scripts/card_table.gd" id="2"]
 
 [node name="Main" type="Control"]
+script = ExtResource("2")
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3
