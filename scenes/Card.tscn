@@ -6,23 +6,27 @@
 
 [node name="Card" type="Control"]
 layout_mode = 3
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
+scale = Vector2(0.17, 0.17)
 script = ExtResource("1_4dx8l")
 
 [node name="Front" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_qf083")
 stretch_mode = 3
-visible = false
 
 [node name="Back" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_40ytf")
 stretch_mode = 3
