@@ -3,6 +3,7 @@ extends Node3D
 @export var card_scene: PackedScene
 @export var deal_flip_after_move := true
 @export var deal_time := 0.35
+@export var flip_time := 0.2
 @export var deck_size := 24
 @export var stack_offset := Vector3(0.0, 0.003, 0.002)
 
@@ -59,5 +60,5 @@ func _on_draw_pressed() -> void:
 	tw.parallel().tween_property(card, "global_rotation", target.global_rotation, deal_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	
 	if deal_flip_after_move and ("flip" in card):
-		tw.tween_callback(Callable(card, "flip")).set_delay(0.02)
+		tw.tween_callback(Callable(card, "flip").bind(flip_time)).set_delay(0.02)
 	
