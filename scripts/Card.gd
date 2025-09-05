@@ -23,9 +23,6 @@ func show_back() -> void:
 	back.visible = true
 	_face_up = false
 
-<<<<<<< HEAD
-func flip() -> void:
-=======
 func flip(duration: float = flip_time) -> void:
 	var tw := create_tween()
 	tw.tween_property(self, "scale:x", 0.0, duration / 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
@@ -33,7 +30,6 @@ func flip(duration: float = flip_time) -> void:
 	tw.tween_property(self, "scale:x", 1.0, duration / 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 func _swap_face() -> void:
->>>>>>> 1d72b4ee72ed8cac31e964ac2a976377552ef88a
 	if _face_up:
 		show_back()
 	else:
