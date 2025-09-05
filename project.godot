@@ -26,6 +26,10 @@ click={
 ]
 }
 
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
 [rendering]
 
 renderer="forward_plus"

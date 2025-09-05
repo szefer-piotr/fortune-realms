@@ -6,8 +6,8 @@ extends Node3D
 @export var flip_time := 0.2
 @export var deck_size := 24
 @export var stack_offset := Vector3(0.0, 0.03, 0.02)
-@export var deck_jitter := Vector3(0.002, 0.02, 0.02)
-@export var target_jitter := Vector3(0.02, 0.0, 0.02)
+@export var deck_jitter := Vector3(0.02, 0.02, 0.02)
+@export var target_jitter := Vector3(0.22, 0.2, 0.02)
 
 @onready var deck_root: Node3D = $DeckRoot
 @onready var deck_spawn: Node3D = $DeckSpawn
