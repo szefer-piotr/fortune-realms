@@ -52,17 +52,18 @@ func _on_draw_pressed() -> void:
 		return
 	if next_target_idx >= targets.size():
 		return
-		
-		var card: Variant = deck.pop_front()
-		var target := targets[next_target_idx]
-		next_target_idx += 1
 
-		var dest_pos := target.global_position + _random_offset(target_jitter)
-		var tw := create_tween()
-		tw.tween_property(card, "global_position", dest_pos, deal_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-		tw.parallel().tween_property(card, "global_rotation", target.global_rotation, deal_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-		if deal_flip_after_move and ("flip" in card):
-				tw.tween_callback(Callable(card, "flip")).set_delay(0.02)
+	
+	var card: Variant = deck.pop_front()
+	var target := targets[next_target_idx]
+	next_target_idx += 1
+
+	var dest_pos := target.global_position + _random_offset(target_jitter)
+	var tw := create_tween()
+	tw.tween_property(card, "global_position", target.global_position, deal_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tw.parallel().tween_property(card, "global_rotation", target.global_rotation, deal_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	if deal_flip_after_move and ("flip" in card):
+		tw.tween_callback(Callable(card, "flip").bind(flip_time)).set_delay(0.02)
 
 
 func _random_offset(range: Vector3) -> Vector3:
