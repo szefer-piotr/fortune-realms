@@ -5,6 +5,15 @@ extends Control
 
 @export var flip_time := 0.2
 var _face_up: bool = false
+var _base_scale: Vector2
+
+func _ready() -> void:
+        _center_pivot()
+        _base_scale = scale
+        resized.connect(_center_pivot)
+
+func _center_pivot() -> void:
+	pivot_offset = size / 2
 
 func _ready() -> void:
 	_center_pivot()
@@ -24,10 +33,11 @@ func show_back() -> void:
 	_face_up = false
 
 func flip(duration: float = flip_time) -> void:
-	var tw := create_tween()
-	tw.tween_property(self, "scale:x", 0.0, duration / 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tw.tween_callback(Callable(self, "_swap_face"))
-	tw.tween_property(self, "scale:x", 1.0, duration / 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+  scale = _base_scale
+  var tw := create_tween()
+  tw.tween_property(self, "scale:x", 0.0, duration / 2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+  tw.tween_callback(Callable(self, "_swap_face"))
+  tw.tween_property(self, "scale:x", _base_scale.x, duration / 2).set_trans(Tween.TRANS_SINE).set_ease
 
 func _swap_face() -> void:
 	if _face_up:
