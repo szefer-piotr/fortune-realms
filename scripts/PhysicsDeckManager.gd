@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var card_scene: PackedScene = preload("res://scenes/PhysicsCard3d.tscn")
+@export var card_scene: PackedScene = preload("res://scenes/Card3D.tscn")
 @export var spawn_height := 2.0
 @export var throw_strength := 3.0
 
