@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bn4adcbcwsgii"]
 
-[ext_resource type="Texture2D" uid="uid://bdob48q2o5xk6" path="res://assets/cards_png/gpt_game_assets/cards_simple/thief.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://b5pqtkn55oitp" path="res://assets/cards_png/gpt_game_assets/cards_simple/Back.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://2pfq0a84pyh" path="res://assets/cards_png/gpt_game_assets/cards_simple/thief.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bwwxasdeyh3la" path="res://assets/cards_png/gpt_game_assets/cards_simple/Back.png" id="2"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.2
@@ -12,11 +12,11 @@ albedo_texture = ExtResource("1")
 [sub_resource type="PlaneMesh" id="2"]
 size = Vector2(1, 1.5)
 
-[sub_resource type="BoxShape3D" id="4"]
-size = Vector3(1, 0.0565137, 1.5)
-
 [sub_resource type="StandardMaterial3D" id="5"]
 albedo_texture = ExtResource("2")
+
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(1, 0.0565137, 1.5)
 
 [node name="PhysicsCard3d" type="RigidBody3D"]
 physics_material_override = SubResource("1")
