@@ -3,6 +3,7 @@ extends Node3D
 @export var card_scene: PackedScene = preload("res://scenes/PhysicsCard3d.tscn")
 @export var spawn_height := 2.0
 @export var throw_strength := 3.0
+
 # Amount of rotation in radians performed during the fall. A default of 270
 # degrees makes the card land face up when dropped from the spawn height.
 @export var flip_strength := TAU * 0.75
