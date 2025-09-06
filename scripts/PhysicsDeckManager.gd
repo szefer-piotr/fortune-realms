@@ -3,6 +3,7 @@ extends Node3D
 @export var card_scene: PackedScene = preload("res://scenes/PhysicsCard3d.tscn")
 @export var spawn_height := 2.0
 @export var throw_strength := 3.0
+@export var flip_strength := 6.0
 
 @onready var deck_spawn: Marker3D = $DeckSpawn
 @onready var draw_button: Button = $UI/DrawButton
@@ -17,5 +18,6 @@ func _on_draw_pressed() -> void:
 	var pos := deck_spawn.global_transform.origin
 	pos.y += spawn_height
 	card.global_transform.origin = pos
-	card.rotation = Vector3(0.0, randf_range(-PI, PI), 0.0)
-	card.linear_velocity = Vector3(randf_range(-1.0, 1.0), -1.0, -throw_strength)
+        card.rotation = Vector3(0.0, randf_range(-PI, PI), 0.0)
+        card.linear_velocity = Vector3(randf_range(-1.0, 1.0), -1.0, -throw_strength)
+        card.angular_velocity = Vector3(randf_range(flip_strength - 1.0, flip_strength + 2.0), 0.0, 0.0)
