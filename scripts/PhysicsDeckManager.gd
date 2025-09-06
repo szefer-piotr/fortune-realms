@@ -15,9 +15,23 @@ func _ready() -> void:
 func _on_draw_pressed() -> void:
 	var card := card_scene.instantiate() as RigidBody3D
 	add_child(card)
+	
 	var pos := deck_spawn.global_transform.origin
 	pos.y += spawn_height
 	card.global_transform.origin = pos
-        card.rotation = Vector3(0.0, randf_range(-PI, PI), 0.0)
-        card.linear_velocity = Vector3(randf_range(-1.0, 1.0), -1.0, -throw_strength)
-        card.angular_velocity = Vector3(randf_range(flip_strength - 1.0, flip_strength + 2.0), 0.0, 0.0)
+	
+	var yaw := randf_range(-PI, PI)
+	
+	card.global_transform.basis = Basis(Vector3.UP, yaw) * Basis(Vector3.RIGHT, PI)
+	card.rotate_object_local(Vector3.FORWARD, randf_range(-0.05, 0.05))
+	card.linear_velocity = Vector3(randf_range(-1.0, 1.0), -1.0, -throw_strength)
+
+	# HORIZONTAL FLIP: spin around *local X* so it goes from PI -> 0 (face-up).
+	# HORIZONTAL FLIP: spin around local X so it goes from PI -> 0 (face-up).
+	var omega := randf_range(flip_strength - 1.0, flip_strength + 2.0)
+	var local_axis := Vector3.RIGHT  # X axis
+	card.angular_velocity = card.global_transform.basis * (local_axis * -omega)
+
+
+	# Optional settling (prevents endless wobble)
+	card.angular_damp = 6.0

@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://durc7b7iguq8j"]
+
+[ext_resource type="Texture2D" uid="uid://b4g3082mkfsxo" path="res://assets/cards_png/gpt_game_assets/background_2.png" id="1"]
+[ext_resource type="Script" uid="uid://wvect22etct2" path="res://scripts/PhysicsDeckManager.gd" id="2"]
+
+[sub_resource type="PhysicsMaterial" id="1"]
+friction = 0.2
+
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(6, 0.1, 6)
+
+[sub_resource type="StandardMaterial3D" id="3"]
+albedo_texture = ExtResource("1")
+
+[sub_resource type="PlaneMesh" id="2"]
+size = Vector2(6, 6)
+
+[sub_resource type="Environment" id="Environment_i431q"]
+
+[node name="PhysicsTable" type="Node3D"]
+script = ExtResource("2")
+
+[node name="Table" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table"]
+shape = SubResource("4")
+
+[node name="Mesh" type="MeshInstance3D" parent="Table"]
+material_override = SubResource("3")
+mesh = SubResource("2")
+
+[node name="DeckSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.74501)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4, 0)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DrawButton" type="Button" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -50.0
+offset_right = -10.0
+offset_bottom = -10.0
+text = "Draw"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i431q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.66088, 0.750492, 0, -0.750492, 0.66088, 0, 2.30908, 2.74054)
