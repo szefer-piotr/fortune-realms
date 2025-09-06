@@ -9,7 +9,7 @@ friction = 0.6
 bounce = 0.05
 
 [sub_resource type="BoxShape3D" id="2"]
-size = Vector3(0.063, 0.00432832, 0.088)
+size = Vector3(0.0666533, 0.0169026, 0.094876)
 
 [sub_resource type="StandardMaterial3D" id="4"]
 albedo_color = Color(0.862745, 0.862745, 0.862745, 1)
@@ -42,7 +42,7 @@ angular_damp = 0.25
 script = ExtResource("3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-15, 1.31134e-06, 0, -1.31134e-06, -15, 0, 0, 0, 15, 2.64176e-10, -0.00287812, 0)
+transform = Transform3D(-15, 1.31134e-06, 0, -1.31134e-06, -15, 0, 0, 0, 15, 0.00547115, 0.00414352, -0.0135278)
 shape = SubResource("2")
 
 [node name="Edge" type="MeshInstance3D" parent="."]
