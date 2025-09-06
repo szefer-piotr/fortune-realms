@@ -6,7 +6,7 @@ extends Node3D
 
 # Amount of rotation in radians performed during the fall. A default of 270
 # degrees makes the card land face up when dropped from the spawn height.
-@export var flip_strength := TAU * 0.75
+@export var flip_strength := TAU * 0.5
 
 @onready var deck_spawn: Marker3D = $DeckSpawn
 @onready var draw_button: Button = $UI/DrawButton
@@ -22,8 +22,8 @@ func _on_draw_pressed() -> void:
 	var pos := deck_spawn.global_transform.origin
 	pos.y += spawn_height
 	card.global_transform.origin = pos
-	card.rotation = Vector3(0.0, randf_range(-PI, PI), 0.0)
+	card.rotation = Vector3(0.0, randf_range(-0.1*PI, 0.1*PI), 0.0)
 	card.linear_velocity = Vector3(randf_range(-1.0, 1.0), -1.0, -throw_strength)
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
-	card.angular_velocity = Vector3(flip_strength / fall_time, 0.0, 0.0)
+	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
