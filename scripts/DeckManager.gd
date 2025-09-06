@@ -13,10 +13,12 @@ extends Node3D
 @onready var deck_spawn: Node3D = $DeckSpawn
 @onready var targets_parent: Node3D = $DealTargets
 @onready var draw_button: Button = $"../CanvasLayer/DrawButton"
+@onready var score_label: Label = $"../CanvasLayer/ScoreLabel"
 
 var targets: Array[Node3D] = []
 var deck: Array[Node3D] = []
 var next_target_idx := 0
+var current_score: int = 0
 
 func _ready() -> void:
 	for c in targets_parent.get_children():
@@ -30,11 +32,14 @@ func _ready() -> void:
 	
 
 func _build_deck() -> void:
-	for c in deck:
-		if is_instance_valid(c):
-			c.queue_free()
-	deck.clear()
-	next_target_idx = 0
+        for c in deck:
+                if is_instance_valid(c):
+                        c.queue_free()
+        deck.clear()
+        next_target_idx = 0
+        current_score = 0
+        if score_label:
+                score_label.text = "CURRENT SCORE: 0"
 	
 	var base := deck_spawn.global_transform
 	for i in range(deck_size):
@@ -54,16 +59,19 @@ func _on_draw_pressed() -> void:
 		return
 
 	
-	var card: Variant = deck.pop_front()
-	var target := targets[next_target_idx]
-	next_target_idx += 1
+        var card: Variant = deck.pop_front()
+        var target := targets[next_target_idx]
+        next_target_idx += 1
 
 	var dest_pos := target.global_position + _random_offset(target_jitter)
 	var tw := create_tween()
 	tw.tween_property(card, "global_position", target.global_position, deal_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tw.parallel().tween_property(card, "global_rotation", target.global_rotation, deal_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	if deal_flip_after_move and ("flip" in card):
-		tw.tween_callback(Callable(card, "flip").bind(flip_time)).set_delay(0.02)
+        tw.parallel().tween_property(card, "global_rotation", target.global_rotation, deal_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+        if deal_flip_after_move and ("flip" in card):
+                tw.tween_callback(Callable(card, "flip").bind(flip_time)).set_delay(0.02)
+        if score_label and "number_value" in card:
+                current_score += card.number_value
+                score_label.text = "CURRENT SCORE: %d" % current_score
 
 
 func _random_offset(range: Vector3) -> Vector3:

@@ -31,3 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.303163, -0.825155)
 [node name="DrawButton" type="Button" parent="CanvasLayer"]
 offset_right = 8.0
 offset_bottom = 8.0
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 10.0
+text = "CURRENT SCORE: 0"
