@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bn4adcbcwsgii"]
+[gd_scene load_steps=10 format=3 uid="uid://bn4adcbcwsgii"]
 
 [ext_resource type="Texture2D" uid="uid://2pfq0a84pyh" path="res://assets/cards_png/gpt_game_assets/cards_simple/thief.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bwwxasdeyh3la" path="res://assets/cards_png/gpt_game_assets/cards_simple/Back.png" id="2"]
@@ -9,6 +9,7 @@ friction = 0.2
 [sub_resource type="StandardMaterial3D" id="3"]
 cull_mode = 2
 albedo_texture = ExtResource("1")
+cull_mode = 2
 
 [sub_resource type="PlaneMesh" id="2"]
 size = Vector2(1, 1.5)
@@ -16,21 +17,34 @@ size = Vector2(1, 1.5)
 [sub_resource type="StandardMaterial3D" id="5"]
 cull_mode = 2
 albedo_texture = ExtResource("2")
+cull_mode = 2
 
 [sub_resource type="BoxShape3D" id="4"]
 size = Vector3(1, 0.0565137, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="6"]
+albedo_color = Color(0.9, 0.9, 0.9)
+cull_mode = 2
+
+[sub_resource type="BoxMesh" id="7"]
+size = Vector3(0.99, 0.0565137, 1.49)
 
 [node name="PhysicsCard3d" type="RigidBody3D"]
 physics_material_override = SubResource("1")
 
 [node name="FrontMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0282569, 0)
 material_override = SubResource("3")
 mesh = SubResource("2")
 
 [node name="BackMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, -0.0282569, 0)
 material_override = SubResource("5")
 mesh = SubResource("2")
+
+[node name="EdgeMesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("6")
+mesh = SubResource("7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000551756, 0)
