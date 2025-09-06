@@ -8,12 +8,14 @@ friction = 0.2
 
 [sub_resource type="StandardMaterial3D" id="3"]
 albedo_texture = ExtResource("1")
+cull_mode = 2
 
 [sub_resource type="PlaneMesh" id="2"]
 size = Vector2(1, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="5"]
 albedo_texture = ExtResource("2")
+cull_mode = 2
 
 [sub_resource type="BoxShape3D" id="4"]
 size = Vector3(1, 0.0565137, 1.5)
