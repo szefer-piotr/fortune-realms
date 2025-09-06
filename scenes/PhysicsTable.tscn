@@ -54,4 +54,4 @@ text = "Draw"
 environment = SubResource("Environment_i431q")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.66088, 0.750492, 0, -0.750492, 0.66088, 0, 2.30908, 2.74054)
+transform = Transform3D(1, 0, 0, 0, -0.652059, 0.758169, 0, -0.758169, -0.652059, 0, 2.30908, -3.9879)
