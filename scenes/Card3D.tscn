@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdt0hshbn36hf"]
+[gd_scene load_steps=11 format=3 uid="uid://bdt0hshbn36hf"]
 
 [ext_resource type="Texture2D" uid="uid://2pfq0a84pyh" path="res://assets/cards_png/gpt_game_assets/cards_simple/thief.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bwwxasdeyh3la" path="res://assets/cards_png/gpt_game_assets/cards_simple/Back.png" id="2"]
+[ext_resource type="Script" path="res://scripts/Card3D.gd" id="3"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.6
@@ -38,6 +39,7 @@ physics_material_override = SubResource("1")
 continuous_cd = true
 linear_damp = 0.15
 angular_damp = 0.25
+script = ExtResource("3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-15, 1.31134e-06, 0, -1.31134e-06, -15, 0, 0, 0, 15, -1.25631e-11, 0.00028741, 0)
@@ -59,3 +61,9 @@ transform = Transform3D(15, -3.57628e-06, -1.31134e-06, 3.57628e-06, 15, -1.3113
 material_override = SubResource("7")
 cast_shadow = 0
 mesh = SubResource("5")
+
+[node name="NumberLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00976899, 0)
+billboard = 1
+pixel_size = 0.004
+text = "0"
