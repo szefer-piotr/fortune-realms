@@ -13,10 +13,10 @@ coins.png::CompressedTexture2D/CompressedTexture2D::5008743227507880461::1756796
 draws.png::CompressedTexture2D/CompressedTexture2D::4617571126627208821::1756796090::1756796092::1::::<><><>0<>0<>cff7b24b26d13c6aa5ae717adde26dcf<>res://.godot/imported/draws.png-8ca8a157d5c5c30e160dd9bd3758d3b7.ctex::
 knight.png::CompressedTexture2D/CompressedTexture2D::4731952025399999078::1756796090::1756796091::1::::<><><>0<>0<>d19e539475cafc56924e9c7be8e7706a<>res://.godot/imported/knight.png-aa6efb0e48d3cfa3101fb34d583172bb.ctex::
 thief.png::CompressedTexture2D/CompressedTexture2D::342318287627337656::1756796090::1756796092::1::::<><><>0<>0<>34e4ace0aee8dee90da0c52b35d845b1<>res://.godot/imported/thief.png-48fc2cb470db247adf9aeaa19cd96198.ctex::
-::res://assets/cards_png/gpt_game_assets/cards_simple/::1757225994
+::res://assets/cards_png/gpt_game_assets/cards_simple/::1757226187
 Back.png::CompressedTexture2D/CompressedTexture2D::3977388995421594718::1757102668::1757106483::1::::<><><>0<>0<>fb87e7edaafdc7413b72e47c86437749<>res://.godot/imported/Back.png-89b2f8634a1411302cdec60423828cc0.s3tc.ctex::
 coins.png::CompressedTexture2D/CompressedTexture2D::4616558965610630502::1757175989::1757175998::1::::<><><>0<>0<>4f805c3f012c799530f2db19b05cfb87<>res://.godot/imported/coins.png-f76cdbec79ff1252421112b126d3b08e.ctex::
-draws.png::CompressedTexture2D::1143476902029924394::1757225995::1757226112::1::::<><><>0<>0<>d05bc28c2b28e0788c3661e10c6251f1<>res://.godot/imported/draws.png-aa2f4ac0a4ef45c0e9cf822e91726d43.ctex::
+draws.png::CompressedTexture2D::1143476902029924394::1757226187::1757226303::1::::<><><>0<>0<>d05bc28c2b28e0788c3661e10c6251f1<>res://.godot/imported/draws.png-aa2f4ac0a4ef45c0e9cf822e91726d43.ctex::
 thief.png::CompressedTexture2D/CompressedTexture2D::56658762259605163::1757102654::1757106483::1::::<><><>0<>0<>a71f5f687a79396b6f0f28019f61ac75<>res://.godot/imported/thief.png-b7a432b9db443a20d2c55f1c61bb2edb.s3tc.ctex::
 ::res://assets/cards_png/Tarot Cats/::1756705146
 0. The Fool.png::CompressedTexture2D/CompressedTexture2D::5424087077279932885::1756529683::1756705146::1::::<><><>0<>0<>7d7b7149e6478f4c1756388016fd5851<>res://.godot/imported/0. The Fool.png-bdf8dedd80d4c84a81859737d4143d32.s3tc.ctex::
