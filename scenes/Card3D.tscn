@@ -63,7 +63,8 @@ cast_shadow = 0
 mesh = SubResource("5")
 
 [node name="NumberLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00976899, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01076899, 0)
 pixel_size = 0.004
 billboard = 1
+no_depth_test = true
 text = "0"
