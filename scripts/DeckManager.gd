@@ -21,6 +21,7 @@ var next_target_idx := 0
 var current_score: int = 0
 
 func _ready() -> void:
+	randomize()
 	for c in targets_parent.get_children():
 		if c is Node3D:
 			targets.append(c as Node3D)
