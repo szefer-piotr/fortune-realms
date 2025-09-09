@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1757398752
+::res://::1757400369
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
 ::res://assets/::1756529663
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
@@ -41,17 +41,17 @@ thief.png::CompressedTexture2D/CompressedTexture2D::56658762259605163::175710265
 19. The Sun.png::CompressedTexture2D/CompressedTexture2D::7927307972153282030::1756529683::1756529685::1::::<><><>0<>0<>168da81f8d13c8c70e6ba82da3867992<>res://.godot/imported/19. The Sun.png-b6d93cb82bd438e69c567cc516b70363.ctex::
 20. Judgement.png::CompressedTexture2D/CompressedTexture2D::1051445267234111275::1756529683::1756529685::1::::<><><>0<>0<>ea8771c18d6128bb0a7b05bbda07379e<>res://.godot/imported/20. Judgement.png-760ee5b753b41f6616e91b4429f65ecc.ctex::
 21. The World.png::CompressedTexture2D/CompressedTexture2D::8538805643762077287::1756529683::1756529685::1::::<><><>0<>0<>ad99e1e9ab4593d7ca3f3525913ecc23<>res://.godot/imported/21. The World.png-cceefa9fdcfe2b578ac02a72e536d6e6.ctex::
-::res://scenes/::1757398125
-Card3D.tscn::PackedScene::2637741773608707711::1757398125::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
+::res://scenes/::1757398766
+Card3D.tscn::PackedScene::2637741773608707711::1757398765::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
 Card.tscn::PackedScene/PackedScene::7102520561853266705::1757176896::0::1::::<><><>0<>0<><>::uid://n4d1y6v1lio2::::res://scripts/Card.gd<>uid://cdmjjffqij7s8::::res://assets/cards_png/gpt_game_assets/cards/coins.png<>uid://bvs4wg31wwq50::::res://assets/cards_png/gpt_game_assets/cards/card_back.png
 DeckManager.tscn::PackedScene/PackedScene::2318081178109790210::1757176896::0::1::::<><><>0<>0<><>::uid://bdo0x2sl4ijw8::::res://scripts/DeckManager.gd
 Main.tscn::PackedScene/PackedScene::3550958129272081888::1757176896::0::1::::<><><>0<>0<><>::uid://yd2v5eua5t0e::::res://scripts/Main.gd<>uid://d3varwfrsdrqb::::res://assets/cards_png/gpt_game_assets/background.png
-PhysicsTable.tscn::PackedScene::8598312027378855211::1757398125::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd
-::res://scripts/::1757398717
-Card3D.gd::GDScript::2566478727186920856::1757398717::0::1::::<>RigidBody3D<><>0<>0<><>::
+PhysicsTable.tscn::PackedScene::8598312027378855211::1757398766::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd
+::res://scripts/::1757400332
+Card3D.gd::GDScript::2566478727186920856::1757398765::0::1::::<>RigidBody3D<><>0<>0<><>::
 Card.gd::GDScript/GDScript::972551813220652271::1757139764::0::1::::<>Control<><>0<>0<><>::
 CardTable.gd::GDScript/GDScript::7684268962971688221::1757139764::0::1::::<>Control<><>0<>0<><>::
-DeckManager.gd::GDScript::2627448947718811681::1757398009::0::1::::<>Node3D<><>0<>0<><>::
+DeckManager.gd::GDScript/GDScript::2627448947718811681::1757398009::0::1::::<>Node3D<><>0<>0<><>::
 Main.gd::GDScript/GDScript::1692403823841286290::1756961549::0::1::::<>Control<><>0<>0<><>::
 MouseBrain.gd::GDScript/GDScript::2706747860605514913::1757139764::0::1::::<>Node<><>0<>0<><>::
-PhysicsDeckManager.gd::GDScript/GDScript::1587753973317066913::1757149659::0::1::::<>Node3D<><>0<>0<><>::
+PhysicsDeckManager.gd::GDScript::1587753973317066913::1757400332::0::1::::<>Node3D<><>0<>0<><>::

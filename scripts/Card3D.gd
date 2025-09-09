@@ -15,7 +15,7 @@ func _ready() -> void:
 	number_label.text = str(number_value)
 
 func set_face_texture(tex: Texture2D) -> void:
-		var mat: StandardMaterial3D = $Front.material_override as StandardMaterial3D
-		mat = mat.duplicate() if mat else StandardMaterial3D.new()
-		mat.albedo_texture = tex
-		$Front.material_override = mat
+	var mat: StandardMaterial3D = $Front.material_override as StandardMaterial3D
+	mat = mat.duplicate() if mat else StandardMaterial3D.new()
+	mat.albedo_texture = tex
+	$Front.material_override = mat

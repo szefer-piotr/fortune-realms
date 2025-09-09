@@ -34,8 +34,8 @@ func _ready() -> void:
 
 func _build_deck() -> void:
 	for c in deck:
-			if is_instance_valid(c):
-					c.queue_free()
+		if is_instance_valid(c):
+			c.queue_free()
 	deck.clear()
 	next_target_idx = 0
 	current_score = 0
