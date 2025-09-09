@@ -42,15 +42,17 @@ func _build_deck() -> void:
 		score_label.text = "CURRENT SCORE: 0"
 	
 	var base := deck_spawn.global_transform
-	for i in range(deck_size):
-		var card := card_scene.instantiate() as Node3D
-		deck_root.add_child(card)
-		card.global_transform = base
-		card.translate(stack_offset * float(i) + _random_offset(deck_jitter))
-		card.rotate_y(deg_to_rad(randf_range(-3.0, 3.0)))
-		if "show_back" in card:
-			card.call_deferred("show_back")
-		deck.push_front(card)
+        for i in range(deck_size):
+                var card := card_scene.instantiate() as Node3D
+                deck_root.add_child(card)
+                card.global_transform = base
+                card.translate(stack_offset * float(i) + _random_offset(deck_jitter))
+                card.rotate_y(deg_to_rad(randf_range(-3.0, 3.0)))
+                var chosen_tex: Texture2D = card.face_textures[randi_range(0, card.face_textures.size() - 1)]
+                card.set_face_texture(chosen_tex)
+                if "show_back" in card:
+                        card.call_deferred("show_back")
+                deck.push_front(card)
 		
 func _on_draw_pressed() -> void:
 	if deck.is_empty():
