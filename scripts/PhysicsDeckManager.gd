@@ -32,14 +32,17 @@ func _on_draw_pressed() -> void:
 
 	var tex = card.face_textures[randi_range(0, card.face_textures.size() - 1)]
 	card.set_face_texture(tex)
-
-        var pos := deck_spawn.global_transform.origin
-        pos.y += spawn_height
-        # Offset to center deck between the 5th and 6th cards when drawing up to MAX_CARDS
-        pos.x += row_spacing * (card_count - (MAX_CARDS - 1) / 2.0)
-        card.global_transform.origin = pos
+	var pos := deck_spawn.global_transform.origin
+	pos.y += spawn_height
+	
+	# Offset to center deck between the 5th and 6th cards when drawing up to MAX_CARDS
+	pos.x += row_spacing * (card_count - (MAX_CARDS - 1) / 2.0)
+	pos.z = 0
+	print(pos)
+	card.global_transform.origin = pos
 	card.rotation = Vector3(0.0, randf_range(-0.1*PI, 0.1*PI), 0.0)
 	card.linear_velocity = Vector3(0.5, -6.0, -throw_strength)
+	
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
