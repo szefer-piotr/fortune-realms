@@ -1,5 +1,4 @@
-res://scenes/PhysicsTable.tscn
-res://scripts/PhysicsDeckManager.gd
-res://scripts/Card3D.gd
-res://scripts/DeckManager.gd
 res://scenes/Card3D.tscn
+res://scenes/PhysicsTable.tscn
+res://scripts/DeckManager.gd
+res://scripts/PhysicsDeckManager.gd

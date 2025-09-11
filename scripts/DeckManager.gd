@@ -2,8 +2,8 @@ extends Node3D
 
 @export var card_scene: PackedScene
 @export var deal_flip_after_move := true
-@export var deal_time := 0.35
-@export var flip_time := 0.2
+@export var deal_time := 0.15
+@export var flip_time := 0.1
 @export var deck_size := 24
 @export var stack_offset := Vector3(0.0, 0.03, 0.02)
 @export var deck_jitter := Vector3(0.02, 0.02, 0.02)
