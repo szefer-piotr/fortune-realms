@@ -12,8 +12,8 @@ var card_count := 0
 @export var flip_strength := TAU * 1
 
 @onready var deck_spawn: Marker3D = $DeckSpawn
-@onready var draw_button: Button = $UI/DrawButton
-@onready var hold_button: Button = $UI/HoldButton
+@onready var draw_button: TextureButton = $UI/DrawButton
+@onready var hold_button: TextureButton = $UI/HoldButton
 var cards: Array[RigidBody3D] = []
 
 func _ready() -> void:
@@ -60,3 +60,5 @@ func _on_hold_pressed() -> void:
 			card.queue_free()
 	cards.clear()
 	card_count = 0
+	draw_button.disabled = false
+	hold_button.disabled = false

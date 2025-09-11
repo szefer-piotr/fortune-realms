@@ -1,3 +1,4 @@
+TextureButton
 MeshInstance3D
 DirectionalLight3D
 OmniLight3D
@@ -11,5 +12,3 @@ CanvasLayer
 Camera3D
 RigidBody3D
 CollisionShape3D
-Sprite3D
-Sprite2D
