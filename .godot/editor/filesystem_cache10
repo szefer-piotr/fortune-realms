@@ -43,12 +43,14 @@ thief.png::CompressedTexture2D/CompressedTexture2D::56658762259605163::175710265
 21. The World.png::CompressedTexture2D/CompressedTexture2D::8538805643762077287::1756529683::1756529685::1::::<><><>0<>0<>ad99e1e9ab4593d7ca3f3525913ecc23<>res://.godot/imported/21. The World.png-cceefa9fdcfe2b578ac02a72e536d6e6.ctex::
 ::res://assets/sounds/::1757564453
 ::res://assets/sounds/music/::1757564447
-::res://assets/ui/::1757585179
-button_draw_transparent.png::CompressedTexture2D::7403043322935322603::1757573504::1757585323::1::::<><><>0<>0<>50ba710eb66b1fc0788f401cdafeb0e0<>res://.godot/imported/button_draw_transparent.png-c8c02b545e3dc377036e7f36093b8dc4.ctex::
+::res://assets/ui/::1757592345
+button_draw_pressed_transparent.png::CompressedTexture2D::8512074556427075982::1757592051::1757592096::1::::<><><>0<>0<>531830fb4558c873a3c47b4a0115c81f<>res://.godot/imported/button_draw_pressed_transparent.png-6b868504f85502d2b11ff80a11fffa5e.ctex::
+button_draw_transparent.png::CompressedTexture2D::7403043322935322603::1757589162::1757592096::1::::<><><>0<>0<>50ba710eb66b1fc0788f401cdafeb0e0<>res://.godot/imported/button_draw_transparent.png-c8c02b545e3dc377036e7f36093b8dc4.ctex::
+button_hold_pressed_transparent.png::CompressedTexture2D::7289022644936018524::1757592315::1757592367::1::::<><><>0<>0<>ee4ded2334437d66bd3b75c9111ba68f<>res://.godot/imported/button_hold_pressed_transparent.png-f29e3fcfcc8053d808de958bbec5c03f.ctex::
 button_hold_transparent.png::CompressedTexture2D::6158188633352061455::1757573655::1757585323::1::::<><><>0<>0<>3e197b5e4863927094e04bd714317fcb<>res://.godot/imported/button_hold_transparent.png-a28ab528db528656ba9ae7018e7f0981.ctex::
-::res://scenes/::1757572952
-Card3D.tscn::PackedScene::2637741773608707711::1757572952::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
-PhysicsTable.tscn::PackedScene::8598312027378855211::1757572952::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd
-::res://scripts/::1757572949
+::res://scenes/::1757592108
+Card3D.tscn::PackedScene::2637741773608707711::1757592108::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
+PhysicsTable.tscn::PackedScene::8598312027378855211::1757592108::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png
+::res://scripts/::1757586718
 Card3D.gd::GDScript/GDScript::2566478727186920856::1757400438::0::1::::<>RigidBody3D<><>0<>0<><>::
-PhysicsDeckManager.gd::GDScript::1587753973317066913::1757572949::0::1::::<>Node3D<><>0<>0<><>::
+PhysicsDeckManager.gd::GDScript::1587753973317066913::1757586718::0::1::::<>Node3D<><>0<>0<><>::
