@@ -2,7 +2,7 @@ extends Node3D
 
 @export var card_scene: PackedScene = preload("res://scenes/Card3D.tscn")
 @export var spawn_height := 2.0
-@export var throw_strength := 5.0
+@export var throw_strength := 2.0
 const MAX_CARDS := 10
 @export var row_spacing := 0.5
 var card_count := 0
@@ -38,7 +38,7 @@ func _on_draw_pressed() -> void:
 	pos.x += row_spacing * card_count
 	card.global_transform.origin = pos
 	card.rotation = Vector3(0.0, randf_range(-0.1*PI, 0.1*PI), 0.0)
-	card.linear_velocity = Vector3(0.5, -2.0, -throw_strength)
+	card.linear_velocity = Vector3(0.5, -6.0, -throw_strength)
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)

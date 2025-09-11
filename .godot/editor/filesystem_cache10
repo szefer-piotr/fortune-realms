@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1757563859
+::res://::1757569748
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
-::res://assets/::1756529663
+::res://assets/::1757564439
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
 ::res://assets/cards_png/::1756796101
 ::res://assets/cards_png/gpt_game_assets/::1757099665
@@ -41,9 +41,11 @@ thief.png::CompressedTexture2D/CompressedTexture2D::56658762259605163::175710265
 19. The Sun.png::CompressedTexture2D/CompressedTexture2D::7927307972153282030::1756529683::1756529685::1::::<><><>0<>0<>168da81f8d13c8c70e6ba82da3867992<>res://.godot/imported/19. The Sun.png-b6d93cb82bd438e69c567cc516b70363.ctex::
 20. Judgement.png::CompressedTexture2D/CompressedTexture2D::1051445267234111275::1756529683::1756529685::1::::<><><>0<>0<>ea8771c18d6128bb0a7b05bbda07379e<>res://.godot/imported/20. Judgement.png-760ee5b753b41f6616e91b4429f65ecc.ctex::
 21. The World.png::CompressedTexture2D/CompressedTexture2D::8538805643762077287::1756529683::1756529685::1::::<><><>0<>0<>ad99e1e9ab4593d7ca3f3525913ecc23<>res://.godot/imported/21. The World.png-cceefa9fdcfe2b578ac02a72e536d6e6.ctex::
-::res://scenes/::1757563826
-Card3D.tscn::PackedScene::2637741773608707711::1757563150::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
-PhysicsTable.tscn::PackedScene::8598312027378855211::1757563150::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd
-::res://scripts/::1757563826
+::res://assets/sounds/::1757564453
+::res://assets/sounds/music/::1757564447
+::res://scenes/::1757565289
+Card3D.tscn::PackedScene::2637741773608707711::1757565289::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
+PhysicsTable.tscn::PackedScene::8598312027378855211::1757565289::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd
+::res://scripts/::1757565271
 Card3D.gd::GDScript/GDScript::2566478727186920856::1757400438::0::1::::<>RigidBody3D<><>0<>0<><>::
-PhysicsDeckManager.gd::GDScript::1587753973317066913::1757563127::0::1::::<>Node3D<><>0<>0<><>::
+PhysicsDeckManager.gd::GDScript::1587753973317066913::1757565271::0::1::::<>Node3D<><>0<>0<><>::
