@@ -17,18 +17,18 @@ var card_count := 0
 var cards: Array[RigidBody3D] = []
 
 func _ready() -> void:
-                randomize()
-                if draw_button:
-                                draw_button.pressed.connect(_on_draw_pressed)
-                if hold_button:
-                                hold_button.pressed.connect(_on_hold_pressed)
+	randomize()
+	if draw_button:
+		draw_button.pressed.connect(_on_draw_pressed)
+	if hold_button:
+		hold_button.pressed.connect(_on_hold_pressed)
 
 func _on_draw_pressed() -> void:
-        if card_count >= MAX_CARDS:
-                return
-        var card := card_scene.instantiate() as RigidBody3D
-        add_child(card)
-        cards.append(card)
+	if card_count >= MAX_CARDS:
+		return
+	var card := card_scene.instantiate() as RigidBody3D
+	add_child(card)
+	cards.append(card)
 
 	var tex = card.face_textures[randi_range(0, card.face_textures.size() - 1)]
 	card.set_face_texture(tex)
@@ -41,18 +41,18 @@ func _on_draw_pressed() -> void:
 	card.linear_velocity = Vector3(0.5, -2.0, -throw_strength)
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
-        card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
-        card_count += 1
+	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
+	card_count += 1
 
 func _on_hold_pressed() -> void:
-        draw_button.disabled = true
-        hold_button.disabled = true
-        for card in cards:
-                card.linear_velocity = Vector3(5.0, 2.0, 0.0)
-                card.angular_velocity = Vector3(0.0, 5.0, 0.0)
-        await get_tree().create_timer(0.5).timeout
-        for card in cards:
-                if card:
-                        card.queue_free()
-        cards.clear()
-        card_count = 0
+	draw_button.disabled = true
+	hold_button.disabled = true
+	for card in cards:
+		card.linear_velocity = Vector3(5.0, 2.0, 0.0)
+		card.angular_velocity = Vector3(0.0, 5.0, 0.0)
+	await get_tree().create_timer(0.5).timeout
+	for card in cards:
+		if card:
+			card.queue_free()
+	cards.clear()
+	card_count = 0
