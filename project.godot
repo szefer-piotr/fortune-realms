@@ -11,12 +11,9 @@ config_version=5
 [application]
 
 config/name="Fortune Realms"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/PhysicsTable.tscn"
 config/features=PackedStringArray("4.4")
 
-[autoload]
-
-Mousebrain="*res://scripts/MouseBrain.gd"
 
 [input]
 
