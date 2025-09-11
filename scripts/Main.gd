@@ -14,6 +14,7 @@ var deck: Array[Control] = []
 var next_target_idx := 0
 
 func _ready() -> void:
+        randomize()
         for c in targets_parent.get_children():
                 if c is Control:
                         targets.append(c as Control)
@@ -30,6 +31,10 @@ func _build_deck() -> void:
                 var card := card_scene.instantiate() as Control
                 add_child(card)
                 card.global_position = deck_spawn.global_position + stack_offset * float(i)
+                if "face_textures" in card and "set_face_texture" in card:
+                        var textures: Array = card.face_textures
+                        if textures.size() > 0:
+                                card.set_face_texture(textures[randi() % textures.size()])
                 if "show_back" in card:
                         card.call_deferred("show_back")
                 deck.push_front(card)

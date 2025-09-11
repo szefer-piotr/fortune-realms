@@ -4,6 +4,7 @@ extends Control
 @onready var back: TextureRect = $Back
 
 @export var flip_time := 0.2
+@export var face_textures: Array[Texture2D] = []
 var _face_up: bool = false
 var _base_scale: Vector2
 
@@ -13,12 +14,15 @@ func _ready() -> void:
 	resized.connect(_center_pivot)
 
 func _center_pivot() -> void:
-	pivot_offset = size / 2
+        pivot_offset = size / 2
+
+func set_face_texture(tex: Texture2D) -> void:
+        front.texture = tex
 
 func show_front() -> void:
-	front.visible = true
-	back.visible = false
-	_face_up = true
+        front.visible = true
+        back.visible = false
+        _face_up = true
 
 func show_back() -> void:
 	front.visible = false
