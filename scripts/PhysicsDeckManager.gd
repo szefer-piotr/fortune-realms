@@ -25,6 +25,7 @@ func _ready() -> void:
 		draw_button.pressed.connect(_on_draw_pressed)
 	if hold_button:
 		hold_button.pressed.connect(_on_hold_pressed)
+	score_bar.step = 0
 
 func _on_draw_pressed() -> void:
 	if card_count >= MAX_CARDS:
@@ -52,7 +53,9 @@ func _on_draw_pressed() -> void:
 	card_count += 1
 	total_score += card.number_value
 	score_label.text = str(total_score)
-	score_bar.value = clamp(total_score, 0, 21)
+	var target = clamp(total_score, 0, 21)
+	var tween = create_tween()
+	tween.tween_property(score_bar, "value", target, 0.5)
 
 func _on_hold_pressed() -> void:
 	draw_button.disabled = true
