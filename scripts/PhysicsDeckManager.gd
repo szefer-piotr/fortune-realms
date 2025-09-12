@@ -6,6 +6,7 @@ extends Node3D
 const MAX_CARDS := 10
 @export var row_spacing := 0.5
 var card_count := 0
+var total_score := 0
 
 # Amount of rotation in radians performed during the fall. A default of 270
 # degrees makes the card land face up when dropped from the spawn height.
@@ -14,6 +15,7 @@ var card_count := 0
 @onready var deck_spawn: Marker3D = $DeckSpawn
 @onready var draw_button: TextureButton = $UI/DrawButton
 @onready var hold_button: TextureButton = $UI/HoldButton
+@onready var score_label: Label = $UI/ScoreLabel
 var cards: Array[RigidBody3D] = []
 
 func _ready() -> void:
@@ -45,8 +47,10 @@ func _on_draw_pressed() -> void:
 	
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
-	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
-	card_count += 1
+        card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
+        card_count += 1
+        total_score += card.number_value
+        score_label.text = str(total_score)
 
 func _on_hold_pressed() -> void:
 	draw_button.disabled = true
@@ -58,7 +62,9 @@ func _on_hold_pressed() -> void:
 	for card in cards:
 		if card:
 			card.queue_free()
-	cards.clear()
-	card_count = 0
-	draw_button.disabled = false
-	hold_button.disabled = false
+        cards.clear()
+        card_count = 0
+        total_score = 0
+        score_label.text = "0"
+        draw_button.disabled = false
+        hold_button.disabled = false

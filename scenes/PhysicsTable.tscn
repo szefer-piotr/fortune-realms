@@ -76,6 +76,14 @@ scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("4_dl2mo")
 texture_pressed = ExtResource("6_kxug7")
 
+[node name="ScoreLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+text = "0"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i431q")
 
