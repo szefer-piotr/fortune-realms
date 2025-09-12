@@ -121,6 +121,25 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "0"
 horizontal_alignment = 1
 
+[node name="TotalScoreLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -282.0
+offset_right = -20.0
+offset_bottom = -254.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme = SubResource("Theme_teiip")
+theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Total: 0"
+horizontal_alignment = 1
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i431q")
 
