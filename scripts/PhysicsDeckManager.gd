@@ -11,7 +11,6 @@ var total_score := 0
 # Amount of rotation in radians performed during the fall. A default of 270
 # degrees makes the card land face up when dropped from the spawn height.
 @export var flip_strength := TAU * 1
-const FLIP_DURATION := 0.2
 
 @onready var deck_spawn: Marker3D = $DeckSpawn
 @onready var draw_button: TextureButton = $UI/DrawButton
@@ -48,25 +47,21 @@ func _on_draw_pressed() -> void:
 	card.rotation = Vector3(0.0, randf_range(-0.1*PI, 0.1*PI), 0.0)
 	card.linear_velocity = Vector3(0.5, -6.0, -throw_strength)
 	
-        var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
-        var fall_time := sqrt((2.0 * spawn_height) / gravity)
-        late_flip(card, fall_time)
-        card_count += 1
-        total_score += card.number_value
-        score_label.text = str(total_score)
-        var target = clamp(total_score, 0, 21)
-        var tween = create_tween()
-        tween.tween_property(score_bar, "value", target, 0.5)
-
-func late_flip(card: RigidBody3D, fall_time: float) -> void:
-        await get_tree().create_timer(fall_time - FLIP_DURATION).timeout
-        card.angular_velocity = Vector3(0.0, 0.0, flip_strength / FLIP_DURATION)
+	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
+	var fall_time := sqrt((2.0 * spawn_height) / gravity)
+	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
+	card_count += 1
+	total_score += card.number_value
+	score_label.text = str(total_score)
+	var target = clamp(total_score, 0, 21)
+	var tween = create_tween()
+	tween.tween_property(score_bar, "value", target, 0.5)
 
 func _on_hold_pressed() -> void:
-        draw_button.disabled = true
-        hold_button.disabled = true
-        for card in cards:
-                card.linear_velocity = Vector3(5.0, 2.0, 0.0)
+	draw_button.disabled = true
+	hold_button.disabled = true
+	for card in cards:
+		card.linear_velocity = Vector3(5.0, 2.0, 0.0)
 		card.angular_velocity = Vector3(0.0, 5.0, 0.0)
 	await get_tree().create_timer(0.5).timeout
 	for card in cards:
