@@ -1,3 +1,2 @@
-res://scenes/PhysicsTable.tscn
 res://scenes/Card3D.tscn
-res://scripts/PhysicsDeckManager.gd
+res://scenes/PhysicsTable.tscn
