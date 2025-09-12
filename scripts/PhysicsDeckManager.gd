@@ -16,6 +16,7 @@ var total_score := 0
 @onready var draw_button: TextureButton = $UI/DrawButton
 @onready var hold_button: TextureButton = $UI/HoldButton
 @onready var score_label: Label = $UI/ScoreLabel
+@onready var score_bar: TextureProgressBar = $UI/ScoreBar
 var cards: Array[RigidBody3D] = []
 
 func _ready() -> void:
@@ -48,9 +49,10 @@ func _on_draw_pressed() -> void:
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
-	card_count += 1
-	total_score += card.number_value
-	score_label.text = str(total_score)
+       card_count += 1
+       total_score += card.number_value
+       score_label.text = str(total_score)
+       score_bar.value = clamp(total_score, 0, 21)
 
 func _on_hold_pressed() -> void:
 	draw_button.disabled = true
@@ -63,8 +65,9 @@ func _on_hold_pressed() -> void:
 		if card:
 			card.queue_free()
 	cards.clear()
-	card_count = 0
-	total_score = 0
-	score_label.text = "0"
+       card_count = 0
+       total_score = 0
+       score_label.text = "0"
+       score_bar.value = 0
 	draw_button.disabled = false
 	hold_button.disabled = false

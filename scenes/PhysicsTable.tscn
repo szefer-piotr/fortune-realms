@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://durc7b7iguq8j"]
+[gd_scene load_steps=15 format=3 uid="uid://durc7b7iguq8j"]
 
 [ext_resource type="Texture2D" uid="uid://b4g3082mkfsxo" path="res://assets/cards_png/gpt_game_assets/background_2.png" id="1"]
 [ext_resource type="Script" uid="uid://wvect22etct2" path="res://scripts/PhysicsDeckManager.gd" id="2"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ct0cp46wx6qg2" path="res://assets/ui/button_hold_transparent.png" id="4_dl2mo"]
 [ext_resource type="Texture2D" uid="uid://dtjkvhycg8h7k" path="res://assets/ui/button_draw_pressed_transparent.png" id="4_kxug7"]
 [ext_resource type="Texture2D" uid="uid://db34exs3rskxg" path="res://assets/ui/button_hold_pressed_transparent.png" id="6_kxug7"]
+[ext_resource type="Texture2D" path="res://assets/ui/bars/progres_bar_underlay_wooden.png" id="7_lqfcu"]
+[ext_resource type="Texture2D" path="res://assets/ui/bars/progres_bar_gold_fill.png" id="8_zd8al"]
+[ext_resource type="Texture2D" path="res://assets/ui/bars/progres bar_overlay_wooden.png" id="9_mzh22"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.2
@@ -90,6 +93,25 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
 text = "0"
+
+[node name="ScoreBar" type="TextureProgressBar" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -220.0
+offset_right = 100.0
+offset_bottom = -190.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 0.0
+max_value = 21.0
+value = 0.0
+texture_under = ExtResource("7_lqfcu")
+texture_progress = ExtResource("8_zd8al")
+texture_over = ExtResource("9_mzh22")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i431q")
