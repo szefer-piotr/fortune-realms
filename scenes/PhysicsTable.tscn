@@ -23,7 +23,7 @@ albedo_texture = ExtResource("1")
 size = Vector2(6, 6)
 
 [sub_resource type="Theme" id="Theme_teiip"]
-default_font_size = 20
+default_font_size = 21
 
 [sub_resource type="Environment" id="Environment_i431q"]
 
@@ -88,10 +88,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -165.0
-offset_top = -296.0
-offset_right = 750.0
-offset_bottom = -71.0
+offset_left = -154.0
+offset_top = -232.0
+offset_right = 761.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.4, 0.4)
@@ -101,16 +101,35 @@ texture_under = ExtResource("7_lqfcu")
 texture_over = ExtResource("9_mzh22")
 texture_progress = ExtResource("8_zd8al")
 
+[node name="TotalScoreLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -299.0
+offset_right = 33.0
+offset_bottom = -269.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme = SubResource("Theme_teiip")
+theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Total: 0"
+horizontal_alignment = 1
+
 [node name="ScoreLabel" type="Label" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -141.0
-offset_top = -282.0
-offset_right = -121.0
-offset_bottom = -254.0
+offset_left = -119.0
+offset_top = -201.4
+offset_right = -99.0
+offset_bottom = -171.4
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -119,25 +138,6 @@ theme = SubResource("Theme_teiip")
 theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "0"
-horizontal_alignment = 1
-
-[node name="TotalScoreLabel" type="Label" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -282.0
-offset_right = -20.0
-offset_bottom = -254.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-theme = SubResource("Theme_teiip")
-theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "Total: 0"
 horizontal_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
