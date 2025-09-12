@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8ogs8v0atwig"
-path="res://.godot/imported/knight.png-aa6efb0e48d3cfa3101fb34d583172bb.ctex"
+uid="uid://big5sfe263tq1"
+path="res://.godot/imported/warrior.png-e0a4092067a65b6911ade54993213817.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards_png/gpt_game_assets/cards/knight.png"
-dest_files=["res://.godot/imported/knight.png-aa6efb0e48d3cfa3101fb34d583172bb.ctex"]
+source_file="res://assets/cards_png/gpt_game_assets/cards_simple/warrior.png"
+dest_files=["res://.godot/imported/warrior.png-e0a4092067a65b6911ade54993213817.ctex"]
 
 [params]
 
