@@ -34,7 +34,7 @@ func start_round() -> void:
 	draw_button.disabled = true
 	hold_button.disabled = true
 	while round_score <= 15:
-		_deal_card()
+		await _deal_card()
 		await get_tree().create_timer(0.5).timeout
 		if round_score >= 21:
 			break
@@ -63,6 +63,7 @@ func _deal_card() -> void:
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
 	card_count += 1
+	await get_tree().create_timer(fall_time).timeout
 	round_score += card.number_value
 	score_label.text = str(round_score)
 	var target = clamp(round_score, 0, 21)
@@ -79,7 +80,7 @@ func _evaluate_round() -> void:
 		hold_button.disabled = round_score < 18
 		
 func _on_draw_pressed() -> void:
-	_deal_card()
+	await _deal_card()
 	_evaluate_round()
 
 func _on_hold_pressed() -> void:
