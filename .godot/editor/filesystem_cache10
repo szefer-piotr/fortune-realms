@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1757702649
+::res://::1757744738
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
 ::res://assets/::1757585159
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
@@ -48,9 +48,9 @@ progres bar_overlay_wooden.png::CompressedTexture2D/CompressedTexture2D::1889974
 progres_bar_gold_fill.png::CompressedTexture2D/CompressedTexture2D::6948339299081564346::1757680953::1757681019::1::::<><><>0<>0<>8af26adcc69c455e798634c3f3c70cf5<>res://.godot/imported/progres_bar_gold_fill.png-fa7ee3c149c197e4b8dbf08632715b7f.ctex::
 progres_bar_underlay_wooden.png::CompressedTexture2D/CompressedTexture2D::3729453626804238714::1757680967::1757681019::1::::<><><>0<>0<>8cd94692cb0b8b3f997731e455cc43cd<>res://.godot/imported/progres_bar_underlay_wooden.png-f595cfaa056c649351a2543cab948927.ctex::
 ::res://assets/ui/icons/::1757679185
-::res://scenes/::1757682106
-Card3D.tscn::PackedScene::2637741773608707711::1757682106::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
-PhysicsTable.tscn::PackedScene::8598312027378855211::1757682106::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png
-::res://scripts/::1757682105
+::res://scenes/::1757706142
+Card3D.tscn::PackedScene::2637741773608707711::1757706142::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
+PhysicsTable.tscn::PackedScene::8598312027378855211::1757706142::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png
+::res://scripts/::1757703813
 Card3D.gd::GDScript/GDScript::2566478727186920856::1757400438::0::1::::<>RigidBody3D<><>0<>0<><>::
-PhysicsDeckManager.gd::GDScript::1587753973317066913::1757682105::0::1::::<>Node3D<><>0<>0<><>::
+PhysicsDeckManager.gd::GDScript::1587753973317066913::1757703813::0::1::::<>Node3D<><>0<>0<><>::

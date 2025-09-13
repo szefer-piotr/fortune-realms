@@ -6,6 +6,7 @@ extends Node3D
 const MAX_CARDS := 10
 @export var row_spacing := 0.5
 var card_count := 0
+var round_score := 0
 var total_score := 0
 
 # Amount of rotation in radians performed during the fall. A default of 270
@@ -17,6 +18,7 @@ var total_score := 0
 @onready var hold_button: TextureButton = $UI/HoldButton
 @onready var score_label: Label = $UI/ScoreLabel
 @onready var score_bar: TextureProgressBar = $UI/ScoreBar
+@onready var total_score_label: Label = $UI/TotalScoreLabel
 var cards: Array[RigidBody3D] = []
 
 func _ready() -> void:
@@ -26,8 +28,19 @@ func _ready() -> void:
 	if hold_button:
 		hold_button.pressed.connect(_on_hold_pressed)
 	score_bar.step = 0
+	start_round()
 
-func _on_draw_pressed() -> void:
+func start_round() -> void:
+	draw_button.disabled = true
+	hold_button.disabled = true
+	while round_score <= 15:
+		_deal_card()
+		await get_tree().create_timer(0.5).timeout
+		if round_score >= 21:
+			break
+	_evaluate_round()
+
+func _deal_card() -> void:
 	if card_count >= MAX_CARDS:
 		return
 	var card := card_scene.instantiate() as RigidBody3D
@@ -42,7 +55,6 @@ func _on_draw_pressed() -> void:
 	# Offset to center deck between the 5th and 6th cards when drawing up to MAX_CARDS
 	pos.x += row_spacing * (card_count - (MAX_CARDS - 1) / 2.0)
 	pos.z = 0
-	print(pos)
 	card.global_transform.origin = pos
 	card.rotation = Vector3(0.0, randf_range(-0.1*PI, 0.1*PI), 0.0)
 	card.linear_velocity = Vector3(0.5, -6.0, -throw_strength)
@@ -51,15 +63,35 @@ func _on_draw_pressed() -> void:
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
 	card_count += 1
-	total_score += card.number_value
-	score_label.text = str(total_score)
-	var target = clamp(total_score, 0, 21)
+	round_score += card.number_value
+	score_label.text = str(round_score)
+	var target = clamp(round_score, 0, 21)
 	var tween = create_tween()
 	tween.tween_property(score_bar, "value", target, 0.5)
 
+func _evaluate_round() -> void:
+	if round_score == 21:
+		_end_round("JACKPOT", 100)
+	elif round_score > 21:
+		_end_round("BUST", 0)
+	else:
+		draw_button.disabled = false
+		hold_button.disabled = round_score < 18
+		
+func _on_draw_pressed() -> void:
+	_deal_card()
+	_evaluate_round()
+
 func _on_hold_pressed() -> void:
+	_end_round("", round_score)
+	
+func _end_round(message: String, points: int) -> void:
 	draw_button.disabled = true
 	hold_button.disabled = true
+	if message != "":
+		score_label.text = message
+	total_score += points
+	total_score_label.text = "Total: %d" % total_score
 	for card in cards:
 		card.linear_velocity = Vector3(5.0, 2.0, 0.0)
 		card.angular_velocity = Vector3(0.0, 5.0, 0.0)
@@ -69,8 +101,7 @@ func _on_hold_pressed() -> void:
 			card.queue_free()
 	cards.clear()
 	card_count = 0
-	total_score = 0
+	round_score = 0
 	score_label.text = "0"
 	score_bar.value = 0
-	draw_button.disabled = false
-	hold_button.disabled = false
+	start_round()
