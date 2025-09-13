@@ -4,7 +4,7 @@ extends Node3D
 @export var spawn_height := 2.0
 @export var throw_strength := 2.0
 const MAX_CARDS := 10
-const DEAL_DELAY := 0.25
+const DEAL_DELAY := 0.0001
 const SCORE_UPDATE_DELAY := 0.1
 @export var row_spacing := 0.5
 var card_count := 0
@@ -85,9 +85,9 @@ func _deal_card() -> void:
 func _process_score_queue() -> void:
 	processing_scores = true
 	while score_update_queue.size() > 0:
-		var next_score := score_update_queue.pop_front()
+		var next_score: int = score_update_queue.pop_front()
 		score_label.text = str(next_score)
-		var target := clamp(next_score, 0, 21)
+		var target: int = clamp(next_score, 0, 21)
 		var tween := create_tween()
 		tween.tween_property(score_bar, "value", target, 0.5)
 		await get_tree().create_timer(SCORE_UPDATE_DELAY).timeout
