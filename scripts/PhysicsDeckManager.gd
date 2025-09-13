@@ -4,6 +4,7 @@ extends Node3D
 @export var spawn_height := 2.0
 @export var throw_strength := 2.0
 const MAX_CARDS := 10
+const DEAL_DELAY := 0.25
 @export var row_spacing := 0.5
 var card_count := 0
 var round_score := 0
@@ -33,9 +34,9 @@ func _ready() -> void:
 func start_round() -> void:
 	draw_button.disabled = true
 	hold_button.disabled = true
-	while round_score <= 15:
+	while round_score < 15:
 		await _deal_card()
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(DEAL_DELAY).timeout
 		if round_score >= 21:
 			break
 	_evaluate_round()
