@@ -84,7 +84,7 @@ func _deal_card() -> void:
 
 func _process_score_queue() -> void:
 	processing_scores = true
-	while score_update_queue.size() > 0:
+	while score_update_queue.size() and score_update_queue.size() > 0:
 		var next_score: int = score_update_queue.pop_front()
 		score_label.text = str(next_score)
 		var target: int = clamp(next_score, 0, 21)
@@ -112,6 +112,8 @@ func _on_hold_pressed() -> void:
 func _end_round(message: String, points: int) -> void:
 	draw_button.disabled = true
 	hold_button.disabled = true
+	score_update_queue.clear()
+	processing_scores = false
 	if message != "":
 		score_label.text = message
 	total_score += points
@@ -126,6 +128,7 @@ func _end_round(message: String, points: int) -> void:
 	cards.clear()
 	card_count = 0
 	round_score = 0
-	score_label.text = "0"
 	score_bar.value = 0
+	await get_tree().create_timer(1.0).timeout
+	score_label.text = "0"
 	start_round()
