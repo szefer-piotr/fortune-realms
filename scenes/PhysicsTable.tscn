@@ -29,6 +29,11 @@ default_font_size = 21
 
 [node name="PhysicsTable" type="Node3D"]
 script = ExtResource("2")
+card_scene = null
+spawn_height = null
+throw_strength = null
+row_spacing = null
+flip_strength = null
 
 [node name="Table" type="StaticBody3D" parent="."]
 transform = Transform3D(1.67017, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

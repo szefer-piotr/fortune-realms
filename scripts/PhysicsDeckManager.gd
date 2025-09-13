@@ -5,10 +5,13 @@ extends Node3D
 @export var throw_strength := 2.0
 const MAX_CARDS := 10
 const DEAL_DELAY := 0.25
+const SCORE_UPDATE_DELAY := 0.1
 @export var row_spacing := 0.5
 var card_count := 0
 var round_score := 0
 var total_score := 0
+var score_update_queue: Array[int] = []
+var processing_scores := false
 
 # Amount of rotation in radians performed during the fall. A default of 270
 # degrees makes the card land face up when dropped from the spawn height.
@@ -62,14 +65,33 @@ func _deal_card() -> void:
 	
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
+	
+	#card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
+	#card_count += 1
+	#await get_tree().create_timer(fall_time).timeout
+	#round_score += card.number_value
+	#score_label.text = str(round_score)
+	#var target = clamp(round_score, 0, 21)
+	#var tween = create_tween()
+	#tween.tween_property(score_bar, "value", target, 0.5)
 	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
 	card_count += 1
 	await get_tree().create_timer(fall_time).timeout
 	round_score += card.number_value
-	score_label.text = str(round_score)
-	var target = clamp(round_score, 0, 21)
-	var tween = create_tween()
-	tween.tween_property(score_bar, "value", target, 0.5)
+	score_update_queue.push_back(round_score)
+	if !processing_scores:
+		async _process_score_queue()
+
+func _process_score_queue() -> void:
+	processing_scores = true
+	while score_update_queue.size() > 0:
+		var next_score := score_update_queue.pop_front()
+		score_label.text = str(next_score)
+		var target := clamp(next_score, 0, 21)
+		var tween := create_tween()
+		tween.tween_property(score_bar, "value", target, 0.5)
+		await get_tree().create_timer(SCORE_UPDATE_DELAY).timeout
+	processing_scores = false
 
 func _evaluate_round() -> void:
 	if round_score == 21:
