@@ -80,7 +80,7 @@ func _deal_card() -> void:
 	round_score += card.number_value
 	score_update_queue.push_back(round_score)
 	if !processing_scores:
-		async _process_score_queue()
+		_process_score_queue.call_deferred()
 
 func _process_score_queue() -> void:
 	processing_scores = true
