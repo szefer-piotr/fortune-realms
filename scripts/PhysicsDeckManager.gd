@@ -4,8 +4,8 @@ extends Node3D
 @export var spawn_height := 2.0
 @export var throw_strength := 2.0
 const MAX_CARDS := 10
-const DEAL_DELAY := 0.001
-const SCORE_UPDATE_DELAY := 0.1
+const DEAL_DELAY := 0.15
+const SCORE_UPDATE_DELAY := 0.01
 @export var row_spacing := 0.5
 var card_count := 0
 var round_score := 0
@@ -42,7 +42,7 @@ func _auto_draw_round() -> void:
 	var first := true
 	while first or round_score < 15:
 		first = false
-		await _deal_card()
+		_deal_card()
 		await get_tree().create_timer(DEAL_DELAY).timeout
 		if round_score >= 21:
 			break
@@ -74,12 +74,17 @@ func _deal_card() -> void:
 	
 	card.angular_velocity = Vector3(0.0, 0.0, -flip_strength / fall_time)
 	card_count += 1
-	await get_tree().create_timer(fall_time).timeout
 	round_score += card.number_value
-	score_update_queue.push_back(round_score)
-	if !processing_scores:
-		_process_score_queue.call_deferred()
+	_queue_score_update(round_score, fall_time)
 
+func _queue_score_update(value: int, delay: float) -> void:
+	var timer := get_tree().create_timer(delay)
+	timer.timeout.connect(func():
+		score_update_queue.push_back(value)
+		if !processing_scores:
+			_process_score_queue.call_deferred()
+	)
+	
 func _process_score_queue() -> void:
 	processing_scores = true
 	while score_update_queue.size() > 0:
