@@ -39,12 +39,13 @@ func start_round() -> void:
 	hold_button.disabled = true
 	
 func _auto_draw_round() -> void:
-	while round_score < 15:
+	var first := true
+	while first or round_score < 15:
+		first = false
 		await _deal_card()
 		await get_tree().create_timer(DEAL_DELAY).timeout
 		if round_score >= 21:
 			break
-	#await _evaluate_round()
 
 func _deal_card() -> void:
 	draw_button.disabled = true
