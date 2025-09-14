@@ -4,7 +4,7 @@ extends Node3D
 @export var spawn_height := 2.0
 @export var throw_strength := 2.0
 const MAX_CARDS := 10
-const DEAL_DELAY := 0.0001
+const DEAL_DELAY := 0.001
 const SCORE_UPDATE_DELAY := 0.1
 @export var row_spacing := 0.5
 var card_count := 0
@@ -35,16 +35,20 @@ func _ready() -> void:
 	start_round()
 
 func start_round() -> void:
-	draw_button.disabled = true
+	draw_button.disabled = false
 	hold_button.disabled = true
+	
+func _auto_draw_round() -> void:
 	while round_score < 15:
 		await _deal_card()
 		await get_tree().create_timer(DEAL_DELAY).timeout
 		if round_score >= 21:
 			break
-	_evaluate_round()
+	#await _evaluate_round()
 
 func _deal_card() -> void:
+	draw_button.disabled = true
+	hold_button.disabled = true
 	if card_count >= MAX_CARDS:
 		return
 	var card := card_scene.instantiate() as RigidBody3D
@@ -61,19 +65,11 @@ func _deal_card() -> void:
 	pos.z = 0
 	card.global_transform.origin = pos
 	card.rotation = Vector3(0.0, randf_range(-0.1*PI, 0.1*PI), 0.0)
-	card.linear_velocity = Vector3(0.5, -6.0, -throw_strength)
+	card.linear_velocity = Vector3(0.5, -10.0, -throw_strength)
 	
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	
-	#card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
-	#card_count += 1
-	#await get_tree().create_timer(fall_time).timeout
-	#round_score += card.number_value
-	#score_label.text = str(round_score)
-	#var target = clamp(round_score, 0, 21)
-	#var tween = create_tween()
-	#tween.tween_property(score_bar, "value", target, 0.5)
 	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
 	card_count += 1
 	await get_tree().create_timer(fall_time).timeout
@@ -84,16 +80,19 @@ func _deal_card() -> void:
 
 func _process_score_queue() -> void:
 	processing_scores = true
-	while score_update_queue.size() and score_update_queue.size() > 0:
+	while score_update_queue.size() > 0:
 		var next_score: int = score_update_queue.pop_front()
 		score_label.text = str(next_score)
 		var target: int = clamp(next_score, 0, 21)
 		var tween := create_tween()
 		tween.tween_property(score_bar, "value", target, 0.5)
+		await tween.finished
 		await get_tree().create_timer(SCORE_UPDATE_DELAY).timeout
 	processing_scores = false
 
 func _evaluate_round() -> void:
+	while processing_scores:
+		await get_tree().process_frame
 	if round_score == 21:
 		_end_round("JACKPOT", 100)
 	elif round_score > 21:
@@ -103,7 +102,8 @@ func _evaluate_round() -> void:
 		hold_button.disabled = round_score < 18
 		
 func _on_draw_pressed() -> void:
-	await _deal_card()
+	draw_button.disabled = true
+	await _auto_draw_round()
 	_evaluate_round()
 
 func _on_hold_pressed() -> void:
