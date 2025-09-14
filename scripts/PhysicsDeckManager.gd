@@ -66,12 +66,13 @@ func _deal_card() -> void:
 	pos.z = 0
 	card.global_transform.origin = pos
 	card.rotation = Vector3(0.0, randf_range(-0.1*PI, 0.1*PI), 0.0)
-	card.linear_velocity = Vector3(0.5, -10.0, -throw_strength)
+	
+	card.linear_velocity = Vector3(0.5, -8.0, -throw_strength)
 	
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	
-	card.angular_velocity = Vector3(0.0, 0.0, flip_strength / fall_time)
+	card.angular_velocity = Vector3(0.0, 0.0, -flip_strength / fall_time)
 	card_count += 1
 	await get_tree().create_timer(fall_time).timeout
 	round_score += card.number_value
@@ -120,7 +121,7 @@ func _end_round(message: String, points: int) -> void:
 	total_score += points
 	total_score_label.text = "Total: %d" % total_score
 	for card in cards:
-		card.linear_velocity = Vector3(5.0, 2.0, 0.0)
+		card.linear_velocity = Vector3(-5.0, 2.0, 0.0)
 		card.angular_velocity = Vector3(0.0, 5.0, 0.0)
 	await get_tree().create_timer(0.5).timeout
 	for card in cards:
