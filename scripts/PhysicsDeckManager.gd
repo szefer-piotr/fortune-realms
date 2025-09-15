@@ -19,12 +19,14 @@ var processing_scores := false
 @export var flip_strength := TAU * 1
 
 @onready var deck_spawn: Marker3D = $DeckSpawn
+@onready var camera: Camera3D = $Camera3D
 @onready var draw_button: TextureButton = $UI/DrawButton
 @onready var hold_button: TextureButton = $UI/HoldButton
 @onready var score_label: Label = $UI/ScoreLabel
 @onready var score_bar: TextureProgressBar = $UI/ScoreBar
 @onready var total_score_label: Label = $UI/TotalScoreLabel
 var cards: Array[RigidBody3D] = []
+var jackpot_card: RigidBody3D = null
 
 func _ready() -> void:
 	randomize()
@@ -64,19 +66,55 @@ func _deal_card() -> void:
 	
 	# Offset to center deck between the 5th and 6th cards when drawing up to MAX_CARDS
 	pos.x += row_spacing * (card_count - (MAX_CARDS - 1) / 2.0)
-	pos.z = 0
+	pos.z = 0.5
 	card.global_transform.origin = pos
-	card.rotation = Vector3(0.0, randf_range(-0.1*PI, 0.1*PI), 0.0)
+	#var rotation = (card_count-5.0)*PI/20.0
+	#var rotation = ((7+(card_count/5))*PI)/4
+	#var rotation = (9*PI)/4
+
+	card.rotation = Vector3(0.0, 0, 0.0)
 	
-	card.linear_velocity = Vector3(0.5, -8.0, -throw_strength)
-	
+	var new_score = round_score + card.number_value
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	
-	card.angular_velocity = Vector3(0.0, 0.0, -flip_strength / fall_time)
+	if new_score == 21:
+		_show_jackpot_card(card)
+	else:
+		card.linear_velocity = Vector3(0.5, -8.0, -throw_strength)
+		card.angular_velocity = Vector3(0.0, 0.0, -flip_strength / fall_time)
+	
 	card_count += 1
 	round_score += card.number_value
+	var delay := fall_time
+	if new_score == 21:
+		delay = 0.0
 	_queue_score_update(round_score, fall_time)
+	
+func _show_jackpot_card(card: RigidBody3D) -> void:
+	jackpot_card = card
+	card.linear_velocity = Vector3.ZERO
+	card.angular_velocity = Vector3.ZERO
+	var cam_transform := camera.global_transform
+	var distance := 2.0
+	var target_pos := cam_transform.origin - cam_transform.basis.z * distance
+	#card.global_transform.origin = target_pos
+	
+	print(target_pos)
+	print(cam_transform.origin)
+	print(Vector3.MODEL_BOTTOM)
+	card.look_at(cam_transform.origin, Vector3(0,-1,0), true)
+	
+	print(cam_transform.origin)
+	
+	var base_rot := card.rotation
+	var offset := 0.1
+	var tween := create_tween()
+	for i in range(3):
+		tween.tween_property(card, "rotation", base_rot + Vector3(0.0, offset, 0.0), 0.1)
+		tween.tween_property(card, "rotation", base_rot - Vector3(0.0, offset, 0.0), 0.1)
+	tween.tween_property(card, "rotation", base_rot, 0.1)
+
 
 func _queue_score_update(value: int, delay: float) -> void:
 	var timer := get_tree().create_timer(delay)
@@ -127,8 +165,11 @@ func _end_round(message: String, points: int) -> void:
 	total_score += points
 	total_score_label.text = "Total: %d" % total_score
 	for card in cards:
+		if card == jackpot_card:
+			continue
 		card.linear_velocity = Vector3(-5.0, 2.0, 0.0)
 		card.angular_velocity = Vector3(0.0, 5.0, 0.0)
+	score_bar.value = 0
 	await get_tree().create_timer(0.5).timeout
 	for card in cards:
 		if card:
@@ -136,7 +177,6 @@ func _end_round(message: String, points: int) -> void:
 	cards.clear()
 	card_count = 0
 	round_score = 0
-	score_bar.value = 0
 	await get_tree().create_timer(1.0).timeout
 	score_label.text = "0"
 	start_round()
