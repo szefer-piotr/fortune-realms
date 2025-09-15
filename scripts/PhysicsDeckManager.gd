@@ -78,8 +78,8 @@ func _deal_card() -> void:
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	
-	if new_score > 18:
-		_show_jackpot_card(card, fall_time)
+	if new_score == 21:
+		await _show_jackpot_card(card, fall_time)
 	else:
 		card.linear_velocity = Vector3(0.5, -8.0, -throw_strength)
 		card.angular_velocity = Vector3(0.0, 0.0, -flip_strength / fall_time)
@@ -112,6 +112,7 @@ func _show_jackpot_card(card: RigidBody3D, fall_time: float) -> void:
 		tween.tween_property(card, "rotation", base_rot + Vector3(0.0, offset, 0.0), 0.1)
 		tween.tween_property(card, "rotation", base_rot - Vector3(0.0, offset, 0.0), 0.1)
 	tween.tween_property(card, "rotation", base_rot, 0.1)
+	await tween.finished
 
 
 func _queue_score_update(value: int, delay: float) -> void:
