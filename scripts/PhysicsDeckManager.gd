@@ -13,6 +13,7 @@ var round_score := 0
 var total_score := 0
 var score_update_queue: Array[int] = []
 var processing_scores := false
+var bars_started := false
 
 # Amount of rotation in radians performed during the fall. A default of 270
 # degrees makes the card land face up when dropped from the spawn height.
@@ -25,6 +26,8 @@ var processing_scores := false
 @onready var score_label: Label = $UI/ScoreLabel
 @onready var score_bar: TextureProgressBar = $UI/ScoreBar
 @onready var total_score_label: Label = $UI/TotalScoreLabel
+@onready var draw_bar = get_node_or_null("$UI/DrawBar")
+@onready var hold_bar = get_node_or_null("$UI/HoldBar")
 var cards: Array[RigidBody3D] = []
 var jackpot_card: RigidBody3D = null
 
@@ -34,17 +37,29 @@ func _ready() -> void:
 		draw_button.pressed.connect(_on_draw_pressed)
 	if hold_button:
 		hold_button.pressed.connect(_on_hold_pressed)
+	if not draw_bar:
+		draw_bar = get_node_or_null("UI/DrawButton/DrawBar")
+	if not hold_bar:
+		hold_bar = get_node_or_null("UI/HoldButton/HoldBar")
 	score_bar.step = 0
 	start_round()
 
 func start_round() -> void:
 	draw_button.disabled = false
 	hold_button.disabled = true
+	bars_started = false
 	
 func _auto_draw_round() -> void:
 	var first := true
 	while first or round_score < 15:
-		first = false
+		if first:
+			if not bars_started:
+				if draw_bar:
+					draw_bar.start()
+				if hold_bar:
+					hold_bar.start()
+				bars_started = true
+			first = false
 		_deal_card()
 		await get_tree().create_timer(DEAL_DELAY).timeout
 		if round_score >= 21:
