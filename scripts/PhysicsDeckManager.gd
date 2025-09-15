@@ -78,7 +78,7 @@ func _deal_card() -> void:
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	
-	if new_score == 21:
+	if new_score > 18:
 		_show_jackpot_card(card)
 	else:
 		card.linear_velocity = Vector3(0.5, -8.0, -throw_strength)
@@ -103,7 +103,7 @@ func _show_jackpot_card(card: RigidBody3D) -> void:
 	print(target_pos)
 	print(cam_transform.origin)
 	print(Vector3.MODEL_BOTTOM)
-	card.look_at(cam_transform.origin, Vector3(0,-1,0), true)
+	card.look_at(cam_transform.origin, Vector3(0, 0, 0), true)
 	
 	print(cam_transform.origin)
 	
