@@ -7,6 +7,7 @@ const MAX_CARDS := 10
 const DEAL_DELAY := 0.15
 const SCORE_UPDATE_DELAY := 0.01
 @export var row_spacing := 0.5
+@export var score_tween_duration := 0.25
 var card_count := 0
 var round_score := 0
 var total_score := 0
@@ -91,8 +92,8 @@ func _process_score_queue() -> void:
 		var next_score: int = score_update_queue.pop_front()
 		score_label.text = str(next_score)
 		var target: int = clamp(next_score, 0, 21)
-		var tween := create_tween()
-		tween.tween_property(score_bar, "value", target, 0.5)
+                var tween := create_tween()
+                tween.tween_property(score_bar, "value", target, score_tween_duration)
 		await tween.finished
 		await get_tree().create_timer(SCORE_UPDATE_DELAY).timeout
 	processing_scores = false
