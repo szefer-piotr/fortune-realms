@@ -92,8 +92,8 @@ func _process_score_queue() -> void:
 		var next_score: int = score_update_queue.pop_front()
 		score_label.text = str(next_score)
 		var target: int = clamp(next_score, 0, 21)
-                var tween := create_tween()
-                tween.tween_property(score_bar, "value", target, score_tween_duration)
+		var tween := create_tween()
+		tween.tween_property(score_bar, "value", target, score_tween_duration)
 		await tween.finished
 		await get_tree().create_timer(SCORE_UPDATE_DELAY).timeout
 	processing_scores = false
