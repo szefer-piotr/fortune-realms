@@ -101,8 +101,10 @@ func _show_jackpot_card(card: RigidBody3D, fall_time: float) -> void:
 	var cam_transform := camera.global_transform
 	var distance := 2.0
 	var target_pos := cam_transform.origin - cam_transform.basis.z * distance
-	#card.global_transform.origin = target_pos
 	card.look_at(cam_transform.origin, Vector3(0, 0, 0), true)
+	var slide := create_tween()
+	slide.tween_property(card, "global_transform:origin", target_pos, 0.3)
+	await slide.finished
 	var base_rot := card.rotation
 	var offset := 0.1
 	var tween := create_tween()
