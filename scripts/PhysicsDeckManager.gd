@@ -79,7 +79,7 @@ func _deal_card() -> void:
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	
 	if new_score > 18:
-		_show_jackpot_card(card)
+		_show_jackpot_card(card, fall_time)
 	else:
 		card.linear_velocity = Vector3(0.5, -8.0, -throw_strength)
 		card.angular_velocity = Vector3(0.0, 0.0, -flip_strength / fall_time)
@@ -91,22 +91,18 @@ func _deal_card() -> void:
 		delay = 0.0
 	_queue_score_update(round_score, fall_time)
 	
-func _show_jackpot_card(card: RigidBody3D) -> void:
+func _show_jackpot_card(card: RigidBody3D, fall_time: float) -> void:
 	jackpot_card = card
+	card.linear_velocity = Vector3(0.5, -8.0, -throw_strength)
+	card.angular_velocity = Vector3(0.0, 0.0, -flip_strength / fall_time)
+	await get_tree().create_timer(fall_time).timeout
 	card.linear_velocity = Vector3.ZERO
 	card.angular_velocity = Vector3.ZERO
 	var cam_transform := camera.global_transform
 	var distance := 2.0
 	var target_pos := cam_transform.origin - cam_transform.basis.z * distance
 	#card.global_transform.origin = target_pos
-	
-	print(target_pos)
-	print(cam_transform.origin)
-	print(Vector3.MODEL_BOTTOM)
 	card.look_at(cam_transform.origin, Vector3(0, 0, 0), true)
-	
-	print(cam_transform.origin)
-	
 	var base_rot := card.rotation
 	var offset := 0.1
 	var tween := create_tween()
