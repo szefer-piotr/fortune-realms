@@ -7,7 +7,11 @@ extends Node3D
 @export var flip_strength := TAU * 1
 @export var score_tween_duration := 0.14
 const MAX_CARDS := 10
-const DEAL_DELAY := 0.05
+const DEAL_DELAY := 0.1
+const SCORE_TWEEN_BASE := 0.6
+const SCORE_TWEEN_PER_POINT := 0.015
+const UI_LAG_MIN := 0.06
+const UI_LAG_MAX := 0.2
 const DISCARD_ANIMATION_DURATION := 0.5
 const SCORE_UPDATE_DELAY := 0.01
 const LAND_FALLBACK_PAD := 0.2 
@@ -34,6 +38,7 @@ var last_fall_time := 0.0
 var card_count := 0
 var round_score := 0
 var total_score := 0
+var displayed_score := 0
 
 var score_update_queue: Array[int] = []
 var processing_scores := false
@@ -43,6 +48,8 @@ var is_animating := false
 func _ready() -> void:
 	randomize()
 	score_bar.step = 0
+	score_bar.max_value = 21
+	displayed_score = 0
 	_wire_ui()
 	_start_round()
 	
@@ -108,21 +115,22 @@ func _deal_card() -> void:
 	var gravity := ProjectSettings.get_setting("physics/3d/default_gravity") as float
 	var fall_time := sqrt((2.0 * spawn_height) / gravity)
 	last_fall_time = fall_time
+	var ui_delay : float = clamp(fall_time * 0.35, UI_LAG_MIN, UI_LAG_MAX)
 	
 	var new_score : int = round_score + card.number_value
 	
 	# Regular toss
 	card.linear_velocity = Vector3(0.5, -8.0, -throw_strength)
-	card.angular_velocity = Vector3(0.0, 0.0, -flip_strength / fall_time)
+	card.angular_velocity = Vector3(0.0, 0.0, -flip_strength / max(fall_time, 0.05))
 	
 	card_count += 1
-	round_score += card.number_value
+	round_score = new_score
 	
 	if new_score == 21:
 		jackpot_card = card
 	
-	_queue_score_update(round_score, fall_time)
-	await get_tree().create_timer(fall_time).timeout
+	_queue_score_update(round_score, ui_delay)
+	await get_tree().process_frame
 	
 
 # Score UI updates
@@ -138,11 +146,20 @@ func _process_score_queue() -> void:
 	processing_scores = true
 	while score_update_queue.size() > 0:
 		var next_score: int = score_update_queue.pop_front()
+		
+		# compute tween duration based on how many points were just added
+		var delta: float = abs(next_score - displayed_score)
+		var tween_duration: float = clamp(
+			SCORE_TWEEN_BASE + SCORE_TWEEN_PER_POINT * float(delta),
+			0.04, 0.22
+		)
+
 		score_label.text = str(next_score)
 		var target: int = clamp(next_score, 0, 21)
 		var tween := create_tween()
-		tween.tween_property(score_bar, "value", target, score_tween_duration)
+		tween.tween_property(score_bar, "value", target, tween_duration)
 		await tween.finished
+		displayed_score = next_score
 		await get_tree().create_timer(SCORE_UPDATE_DELAY).timeout
 	processing_scores = false
 	
@@ -189,6 +206,7 @@ func _end_round(message: String, points: int, is_jackpot: bool = false, is_bust:
 	
 	score_bar.value = 0
 	score_label.text = "0"
+	displayed_score = 0
 	
 	for card in cards:
 		if card:
@@ -226,36 +244,123 @@ func _play_bust_animation() -> void:
 	await get_tree().create_timer(0.6).timeout
 
 
+#func _play_jackpot_animation() -> void:
+	#if not jackpot_card:
+		#await get_tree().create_timer(1).timeout
+		#return
+#
+	## Stop physics from fighting the pose during the cinematic
+	#jackpot_card.linear_velocity = Vector3.ZERO
+	#jackpot_card.angular_velocity = Vector3.ZERO
+	#jackpot_card.freeze = true  # 4.x
+#
+	#var cam_xform := camera.global_transform
+	#var distance := 2.0
+	#var target_pos := cam_xform.origin - cam_xform.basis.z * distance
+#
+	## Direction from card to camera
+	#var to_cam := (cam_xform.origin - jackpot_card.global_transform.origin).normalized()
+#
+	## ✅ STATIC call, not instance:
+	#var target_basis := Basis.looking_at(to_cam, Vector3.UP)
+#
+	## If your card art faces +Z (instead of default -Z), flip 180° around Y:
+	#var flip_face := false  # set true if the face still looks away
+	#if flip_face:
+		#target_basis = target_basis * Basis(Vector3.UP, PI)
+#
+	## Slide and rotate in parallel
+	#var tw := create_tween()
+	#tw.set_parallel(true)
+	#tw.tween_property(jackpot_card, "global_transform:origin", target_pos, 0.3)
+	#tw.tween_property(jackpot_card, "global_transform:basis", target_basis, 0.3)
+	#await tw.finished
+#
+	## Friendly sway
+	#var base_rot := jackpot_card.rotation
+	#var offset := 0.12
+	#var sway := create_tween()
+	#for i in range(3):
+		#sway.tween_property(jackpot_card, "rotation", base_rot + Vector3(0.0, offset, 0.0), 0.1)
+		#sway.tween_property(jackpot_card, "rotation", base_rot - Vector3(0.0, offset, 0.0), 0.1)
+	#sway.tween_property(jackpot_card, "rotation", base_rot, 0.1)
+	#await sway.finished
+#
+	#await get_tree().create_timer(1).timeout
+#
+	## Re-enable physics after showcase
+	#jackpot_card.freeze = false
+
+# Build a Basis whose local -Y axis points along `dir` (so the card face, which is -Y, looks at the camera)
+func _basis_with_minus_y_facing(dir: Vector3, up_hint: Vector3) -> Basis:
+	var forward := dir.normalized()         # we want -Y to align with this
+	var y := -forward
+	var x := up_hint.cross(y).normalized()
+	if x.length() < 0.0001:
+		up_hint = Vector3(0, 0, 1)          # fallback if up_hint is parallel to y
+		x = up_hint.cross(y).normalized()
+	var z := x.cross(y).normalized()
+
+	var b := Basis()
+	b.x = x; b.y = y; b.z = z
+	return b.orthonormalized()
+
+# Wait until a rigid body sleeps (or timeout)
+func _await_body_sleep(body: RigidBody3D, max_wait: float = 1.5) -> void:
+	var elapsed := 0.0
+	while is_instance_valid(body) and not body.sleeping and elapsed < max_wait:
+		await get_tree().physics_frame
+		var pps := Engine.get_physics_ticks_per_second()
+		elapsed += 1.0 / max(pps, 1.0)
+
+
 func _play_jackpot_animation() -> void:
-	
 	if not jackpot_card:
-		await get_tree().create_timer(1).timeout
 		return
 
+	# 1) Wait until the jackpot card actually lands (sleeps)
+	await _await_body_sleep(jackpot_card, last_fall_time + 0.8)
+
+	# 2) Rotate in place so the card's local -Y faces the camera (reveals face)
+	var to_cam := (camera.global_transform.origin - jackpot_card.global_transform.origin).normalized()
+	var face_basis := _basis_with_minus_y_facing(to_cam, Vector3.UP)
+
+	var reveal := create_tween()
+	reveal.tween_property(jackpot_card, "global_transform:basis", face_basis, 0.18)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	await reveal.finished
+
+	# 3) Fly toward a point in front of the camera, keep the same facing
 	jackpot_card.linear_velocity = Vector3.ZERO
 	jackpot_card.angular_velocity = Vector3.ZERO
+	jackpot_card.freeze = true  # stop physics from fighting the pose during the cinematic
 
-	var cam_transform := camera.global_transform
+	var cam := camera.global_transform
 	var distance := 2.0
-	var target_pos := cam_transform.origin - cam_transform.basis.z * distance
-	jackpot_card.look_at(cam_transform.origin, Vector3.ZERO, true)
+	var target_pos := cam.origin - cam.basis.z * distance
 
-	var slide := create_tween()
-	slide.tween_property(jackpot_card, "global_transform:origin", target_pos, 0.3)
-	await slide.finished
+	var fly := create_tween()
+	fly.set_parallel(true)
+	fly.tween_property(jackpot_card, "global_transform:origin", target_pos, 0.30)\
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	fly.tween_property(jackpot_card, "global_transform:basis", face_basis, 0.30)
+	await fly.finished
 
+	# Optional: small sway while showcased
 	var base_rot := jackpot_card.rotation
 	var offset := 0.12
-	var t := create_tween()
+	var sway := create_tween()
 	for i in range(3):
-		t.tween_property(jackpot_card, "rotation", base_rot + Vector3(0.0, offset, 0.0), 0.1)
-		t.tween_property(jackpot_card, "rotation", base_rot - Vector3(0.0, offset, 0.0), 0.1)
-	t.tween_property(jackpot_card, "rotation", base_rot, 0.1)
-	
-	#_spawn_confetti(jackpot_card.global_transform.origin + Vector3(0, 0.1, 0))
-	await t.finished
+		sway.tween_property(jackpot_card, "rotation", base_rot + Vector3(0.0, offset, 0.0), 0.10)
+		sway.tween_property(jackpot_card, "rotation", base_rot - Vector3(0.0, offset, 0.0), 0.10)
+	sway.tween_property(jackpot_card, "rotation", base_rot, 0.10)
+	await sway.finished
 
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.0).timeout
+	jackpot_card.freeze = false  # give physics back control
+
+
+
 
 func _jiggle_progress_bar() -> void:
 	if not score_bar: return

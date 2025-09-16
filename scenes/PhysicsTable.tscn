@@ -46,7 +46,7 @@ mesh = SubResource("2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.74501)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.352952, 0.935641, 0, -0.935641, 0.352952, 0, 4, 1.17981)
+transform = Transform3D(1, 0, 0, 0, -0.00455555, 0.99999, 0, -0.99999, -0.00455555, 0, 4, -0.0141735)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
