@@ -6,6 +6,7 @@ extends Node3D
 const MAX_CARDS := 10
 const DEAL_DELAY := 0.15
 const SCORE_UPDATE_DELAY := 0.01
+const DISCARD_ANIMATION_DURATION := 0.5
 @export var row_spacing := 0.5
 @export var score_tween_duration := 0.25
 var card_count := 0
@@ -183,14 +184,13 @@ func _end_round(message: String, points: int) -> void:
 			continue
 		card.linear_velocity = Vector3(-5.0, 2.0, 0.0)
 		card.angular_velocity = Vector3(0.0, 5.0, 0.0)
+	await get_tree().create_timer(DISCARD_ANIMATION_DURATION).timeout
 	score_bar.value = 0
-	await get_tree().create_timer(0.5).timeout
+	score_label.text = "0"
 	for card in cards:
 		if card:
 			card.queue_free()
 	cards.clear()
 	card_count = 0
 	round_score = 0
-	await get_tree().create_timer(1.0).timeout
-	score_label.text = "0"
 	start_round()
