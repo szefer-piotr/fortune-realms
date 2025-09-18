@@ -125,6 +125,7 @@ func _deal_card() -> void:
 	
 	card_count += 1
 	round_score = new_score
+	_update_combo_effects()
 	
 	if new_score == 21:
 		jackpot_card = card
