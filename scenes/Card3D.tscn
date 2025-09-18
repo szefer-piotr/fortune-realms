@@ -68,3 +68,5 @@ transform = Transform3D(-1, -8.74228e-08, -5.03734e-15, 0, 5.76205e-08, -1, 8.74
 pixel_size = 0.004
 double_sided = false
 text = "0"
+
+[node name="ComboFX" type="CPUParticles3D" parent="."]

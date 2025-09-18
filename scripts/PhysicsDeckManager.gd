@@ -132,6 +132,17 @@ func _deal_card() -> void:
 	_queue_score_update(round_score, ui_delay)
 	await get_tree().process_frame
 	
+	
+func _update_combo_effects() -> void:
+	var counts := {}
+	for c in cards:
+		if is_instance_valid(c):
+			counts[c.icon_type] = int(counts.get(c.icon_type, 0)) + 1
+
+	for c in cards:
+		if is_instance_valid(c):
+			c.set_highlight(counts.get(c.icon_type, 0) >= 3)
+			
 
 # Score UI updates
 func _queue_score_update(value: int, delay: float) -> void:
@@ -228,6 +239,8 @@ func _play_bust_animation() -> void:
 
 	# 2) Scatter all cards
 	for c in cards:
+		if is_instance_valid(c):
+			c.set_highlight(false)
 		if not is_instance_valid(c): continue
 		var dir := Vector3(
 			randf_range(-1.0, 1.0),
