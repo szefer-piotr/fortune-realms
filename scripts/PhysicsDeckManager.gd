@@ -142,7 +142,7 @@ func _update_combo_effects() -> void:
 
 	for c in cards:
 		if is_instance_valid(c):
-			c.set_highlight(counts.get(c.icon_type, 0) >= 3)
+			c.set_highlight(counts.get(c.icon_type, 0) >= 4)
 			
 
 # Score UI updates

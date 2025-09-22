@@ -41,6 +41,7 @@ continuous_cd = true
 linear_damp = 0.15
 angular_damp = 0.25
 script = ExtResource("3")
+highlight_emission_color = Color(1, 1, 0.94, 0.34902)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-15, 1.31134e-06, 0, -1.31134e-06, -15, 0, 0, 0, 15, -0.00254793, -0.0055762, 0.000905614)

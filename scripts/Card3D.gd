@@ -8,18 +8,27 @@ extends RigidBody3D
 
 # Auto-filled when you set the texture
 @export var icon_type: String = "unknown"
-@export var glow_color: Color = Color(1.0, 0.9, 0.4)
-@export var glow_energy := 1.8
+@export var highlight_emission_color: Color = Color(1.0, 1.0, 0.94)
+@export var highlight_emission_min := 0.1
+@export var highlight_emission_max := 0.5
+@export var highlight_scale_multiplier := 1.08
+@export var highlight_pulse_duration := 0.8
 
 var number_value: int = 0
 var _is_highlighted := false
 
-@onready var number_label: Label3D = $NumberLabel
+@onready var edge: MeshInstance3D = $Edge
 @onready var front: MeshInstance3D = $Front
+@onready var back: MeshInstance3D = $Back
+@onready var number_label: Label3D = $NumberLabel
 @onready var combo_fx: CPUParticles3D = $ComboFX
+
 
 var _base_mat: StandardMaterial3D
 var _glow_mat: StandardMaterial3D
+var _visual_nodes: Array[Node3D] = []
+var _baseline_scales: Dictionary = {}
+var _highlight_tween: Tween
 
 func _ready() -> void:
 	number_value = randi_range(1, 6)
@@ -34,8 +43,8 @@ func _ready() -> void:
 
 	_glow_mat = _base_mat.duplicate()
 	_glow_mat.emission_enabled = true
-	_glow_mat.emission = glow_color
-	_glow_mat.emission_energy_multiplier = glow_energy
+	_glow_mat.emission = highlight_emission_color
+	_glow_mat.emission_energy_multiplier = highlight_emission_min
 
 	# Start with base material
 	front.material_override = _base_mat
@@ -44,6 +53,11 @@ func _ready() -> void:
 	if not combo_fx:
 		combo_fx = _make_combo_fx()
 		add_child(combo_fx)
+		
+	for node in [edge, front, back, number_label, combo_fx]:
+		if node:
+			_visual_nodes.append(node)
+			_baseline_scales[node] = node.scale
 
 func set_face_texture(tex: Texture2D) -> void:
 	# Assign to both base & glow so switching is instant
@@ -58,9 +72,63 @@ func set_highlight(on: bool) -> void:
 	if _is_highlighted == on:
 		return
 	_is_highlighted = on
-	front.material_override = _glow_mat if on else _base_mat
-	if combo_fx:
-		combo_fx.emitting = on
+	if on:
+		front.material_override = _glow_mat
+		_start_highlight_tween()
+		if combo_fx:
+			combo_fx.emitting = false
+			if combo_fx.has_method("restart"):
+				combo_fx.restart()
+			combo_fx.emitting = true
+	else:
+		_stop_highlight_tween()
+		front.material_override = _base_mat
+		if combo_fx:
+			combo_fx.emitting = false
+			
+func _start_highlight_tween() -> void:
+	_stop_highlight_tween()
+	_glow_mat.emission_energy_multiplier = highlight_emission_min
+	var duration : float = max(highlight_pulse_duration, 0.01)
+	var half_duration := duration * 0.5
+	_highlight_tween = create_tween()
+	_highlight_tween.set_loops()
+	var energy_up := _highlight_tween.tween_property(
+		_glow_mat,
+		"emission_energy_multiplier",
+		highlight_emission_max,
+		half_duration
+	)
+	energy_up.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	for node in _visual_nodes:
+		_highlight_tween.parallel().tween_property(
+			node,
+			"scale",
+			(_baseline_scales.get(node, node.scale) as Vector3) * highlight_scale_multiplier,
+			half_duration
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	var energy_down := _highlight_tween.tween_property(
+		_glow_mat,
+		"emission_energy_multiplier",
+		highlight_emission_min,
+		half_duration
+	)
+	energy_down.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	for node in _visual_nodes:
+		_highlight_tween.parallel().tween_property(
+			node,
+			"scale",
+			_baseline_scales.get(node, node.scale),
+			half_duration
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _stop_highlight_tween() -> void:
+	if _highlight_tween:
+		_highlight_tween.kill()
+		_highlight_tween = null
+	for node in _visual_nodes:
+		node.scale = _baseline_scales.get(node, node.scale)
+	_glow_mat.emission_energy_multiplier = highlight_emission_min
 
 func _infer_icon_from_texture(tex: Texture2D) -> String:
 	var p := tex.resource_path
