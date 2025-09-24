@@ -43,8 +43,12 @@ transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
 mesh = SubResource("PlaneMesh_h5qp7")
 surface_material_override/0 = SubResource("StandardMaterial3D_fl14s")
 
+[node name="DirectionalLight" type="DirectionalLight3D" parent="LevelRoot"]
+transform = Transform3D(-0.223592, 0.872583, -0.434288, 0.149987, 0.471064, 0.869254, 0.963073, 0.129221, -0.236203, -41.6312, 21.4373, 24.1697)
+shadow_enabled = true
+
 [node name="IsoCamera" type="Camera3D" parent="LevelRoot"]
-transform = Transform3D(0.704907, -0.478833, 0.523284, 0.0476709, 0.768061, 0.6386, -0.707696, -0.425208, 0.564238, 19.9447, 20, 29.276)
+transform = Transform3D(-0.543254, 0.668129, -0.508407, 0.000334382, 0.60573, 0.79567, 0.839568, 0.432081, -0.329289, -36.7838, 38.8347, -21.1955)
 fov = 54.9
 
 [node name="Building1" type="MeshInstance3D" parent="LevelRoot"]
@@ -67,6 +71,3 @@ mesh = SubResource("CylinderMesh_plnuo")
 [node name="Building5" type="MeshInstance3D" parent="LevelRoot"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 9.53284, 1.69214, 0)
 mesh = SubResource("PrismMesh_je0v2")
-
-[node name="DirectionalLight" type="DirectionalLight3D" parent="LevelRoot"]
-transform = Transform3D(1, 0, 0, 0, 0.877297, 0.479948, 0, -0.479948, 0.877297, -21.7937, 21.4373, 24.1697)
