@@ -25,6 +25,7 @@ const SCATTER_SPEED := 12.0
 @onready var camera: Camera3D = $Camera3D
 @onready var draw_button: TextureButton = $UI/DrawButton
 @onready var hold_button: TextureButton = $UI/HoldButton
+@onready var build_button: TextureButton = $UI/BuildButton
 @onready var score_label: Label = $UI/ScoreLabel
 @onready var score_bar: TextureProgressBar = $UI/ScoreBar
 @onready var total_score_label: Label = $UI/TotalScoreLabel
@@ -58,6 +59,8 @@ func _wire_ui() -> void:
 		draw_button.pressed.connect(_on_draw_pressed)
 	if hold_button and not hold_button.pressed.is_connected(_on_hold_pressed):
 		hold_button.pressed.connect(_on_hold_pressed)
+	if build_button and not build_button.pressed.is_connected(_on_build_pressed):
+		build_button.pressed.connect(_on_build_pressed)
 
 func _start_round() -> void:
 	is_dealing = false
@@ -399,6 +402,9 @@ func _on_hold_pressed() -> void:
 	if is_dealing or is_animating:
 		return
 	await _end_round("", round_score)  # no message, just score add
+
+func _on_build_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Kingdom.tscn")
 
 #func _spawn_confetti(at: Vector3) -> void:
 	#var p := CPUParticles3D.new()

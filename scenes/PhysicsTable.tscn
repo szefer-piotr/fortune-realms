@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://durc7b7iguq8j"]
+[gd_scene load_steps=18 format=3 uid="uid://durc7b7iguq8j"]
 
 [ext_resource type="Texture2D" uid="uid://b4g3082mkfsxo" path="res://assets/cards_png/gpt_game_assets/background_2.png" id="1"]
 [ext_resource type="Script" uid="uid://wvect22etct2" path="res://scripts/PhysicsDeckManager.gd" id="2"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://btets6e6f5bcs" path="res://assets/ui/bars/progres_bar_underlay_wooden.png" id="7_lqfcu"]
 [ext_resource type="Texture2D" uid="uid://c583er4aa15m1" path="res://assets/ui/bars/progres_bar_gold_fill.png" id="8_zd8al"]
 [ext_resource type="Texture2D" uid="uid://16ruswnnpyla" path="res://assets/ui/bars/progres bar_overlay_wooden.png" id="9_mzh22"]
+[ext_resource type="Texture2D" uid="uid://brb1yke7h151h" path="res://assets/ui/buttons/build.png" id="10_hp780"]
+[ext_resource type="Texture2D" uid="uid://drcpd0a3cupvf" path="res://assets/ui/buttons/build_pressed.png" id="11_0sh32"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.2
@@ -126,10 +128,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -119.0
-offset_top = -201.4
-offset_right = -99.0
-offset_bottom = -171.4
+offset_left = -130.0
+offset_top = -218.0
+offset_right = -110.0
+offset_bottom = -188.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -139,6 +141,15 @@ theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "0"
 horizontal_alignment = 1
+
+[node name="BuildButton" type="TextureButton" parent="UI"]
+offset_left = 978.0
+offset_top = 468.0
+offset_right = 2002.0
+offset_bottom = 1492.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("10_hp780")
+texture_pressed = ExtResource("11_0sh32")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i431q")

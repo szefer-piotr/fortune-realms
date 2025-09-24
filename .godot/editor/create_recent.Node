@@ -1,5 +1,6 @@
-CPUParticles3D
 TextureButton
+CanvasLayer
+CPUParticles3D
 MeshInstance3D
 DirectionalLight3D
 OmniLight3D
@@ -9,7 +10,5 @@ Control
 Marker3D
 Node3D
 Button
-CanvasLayer
 Camera3D
 RigidBody3D
-CollisionShape3D
