@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1758879535
+::res://::1758910635
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
 ::res://assets/::1758519728
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
@@ -63,14 +63,14 @@ build_pressed.png::CompressedTexture2D/CompressedTexture2D::8357518575066607179:
 play.png::CompressedTexture2D/CompressedTexture2D::5602709073882854802::1758680310::1758680762::1::::<><><>0<>0<>34edb1d64a77b7991a8ffd78596bb18a<>res://.godot/imported/play.png-2c57c68333edac9ae5c26065242592a5.ctex::
 play_pressed.png::CompressedTexture2D/CompressedTexture2D::798594546141345912::1758680704::1758680763::1::::<><><>0<>0<>4c059f29c4e542d57b1057cf59515d0a<>res://.godot/imported/play_pressed.png-b234aa0dd10caa37eae27296b777cc4d.ctex::
 ::res://assets/ui/icons/::1757679185
-::res://scenes/::1758879498
-Card3D.tscn::PackedScene/PackedScene::2637741773608707711::1758696661::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
-Kingdom.gd::GDScript::8500289415207395714::1758879498::0::1::::<>Node3D<><>0<>0<><>::
-Kingdom.tscn::PackedScene::396668103293350027::1758879498::0::1::::<><><>0<>0<><>::uid://cl282gwrr1o4a::::res://assets/ui/buttons/play.png<>uid://dtdur3vgsfwc5::::res://scenes/Kingdom.gd<>uid://lm30aibs7ft5::::res://assets/ui/buttons/play_pressed.png<>res://scenes/ui/BuildingTile.tscn
-PhysicsTable.tscn::PackedScene/PackedScene::8598312027378855211::1758696661::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png<>uid://brb1yke7h151h::::res://assets/ui/buttons/build.png<>uid://drcpd0a3cupvf::::res://assets/ui/buttons/build_pressed.png
-::res://scenes/ui/::1758879498
-BuildingTile.gd::GDScript::4932587899192627872::1758879498::0::1::::<>Control<><>0<>0<><>::
-BuildingTile.tscn::PackedScene::5401379565212799902::1758879498::0::1::::<><><>0<>0<><>::uid://bd8mrhvc1uvm::::res://assets/ui/buildings/building_tile.png<>uid://bx0nl05xwi7el::::res://assets/ui/buildings/building_tile_button.png<>res://scenes/ui/BuildingTile.gd
+::res://scenes/::1758880074
+Card3D.tscn::PackedScene::2637741773608707711::1758880074::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
+Kingdom.gd::GDScript::8500289415207395714::1758879652::0::1::::<>Node3D<><>0<>0<><>::
+Kingdom.tscn::PackedScene::396668103293350027::1758880074::0::1::::<><><>0<>0<><>::uid://cl282gwrr1o4a::::res://assets/ui/buttons/play.png<>uid://dtdur3vgsfwc5::::res://scenes/Kingdom.gd<>uid://lm30aibs7ft5::::res://assets/ui/buttons/play_pressed.png
+PhysicsTable.tscn::PackedScene::8598312027378855211::1758880074::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png<>uid://brb1yke7h151h::::res://assets/ui/buttons/build.png<>uid://drcpd0a3cupvf::::res://assets/ui/buttons/build_pressed.png
+::res://scenes/ui/::1758880074
+BuildingTile.gd::GDScript::4932587899192627872::1758879726::0::1::::<>Control<><>0<>0<><>::
+BuildingTile.tscn::PackedScene::5401379565212799902::1758880074::0::1::::<><><>0<>0<><>::uid://bdboum11konu3::::res://assets/ui/buildings/building_tile.png<>uid://cbf5sq8llhhse::::res://assets/ui/buildings/building_tile_button.png<>uid://ccjnacmftx4t5::::res://scenes/ui/BuildingTile.gd
 ::res://scripts/::1758681229
 Card3D.gd::GDScript/GDScript::2566478727186920856::1758258419::0::1::::<>RigidBody3D<><>0<>0<><>::
 PhysicsDeckManager.gd::GDScript/GDScript::1587753973317066913::1758681229::0::1::::<>Node3D<><>0<>0<><>::

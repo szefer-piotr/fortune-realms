@@ -25,7 +25,7 @@ func _populate_preview() -> void:
 	preview_instance.visible = true
 	preview_instance.transform = Transform3D.IDENTITY
 	preview_instance.scale = Vector3.ONE * 0.2
-	preview_root.add_child(preview_instance)
+	#preview_root.add_child(preview_instance)
 
 
 func _on_spawn_pressed() -> void:
