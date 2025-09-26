@@ -5,10 +5,10 @@
 [ext_resource type="Script" uid="uid://ccjnacmftx4t5" path="res://scenes/ui/BuildingTile.gd" id="3_g7g2i"]
 
 [node name="BuildingTile" type="Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_minimum_size = Vector2(256, 256)
-layout_mode = 3
-anchors_preset = 0
-scale = Vector2(0.387281, 0.374161)
 script = ExtResource("3_g7g2i")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -16,27 +16,40 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_fr0tu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="SpawnButton" type="TextureButton" parent="."]
+[node name="Content" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 69.0
-offset_top = -66.0
-offset_right = 365.0
-offset_bottom = 191.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.212533, 0.195205)
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="IconContainer" type="CenterContainer" parent="Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="Content/IconContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch_mode = 4
+
+[node name="SpawnButton" type="TextureButton" parent="Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_minimum_size = Vector2(0, 96)
+expand = true
 texture_normal = ExtResource("2_sg6mu")

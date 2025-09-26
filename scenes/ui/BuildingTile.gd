@@ -1,31 +1,39 @@
 extends Control
 
-@onready var preview_root: Node3D = $ViewportContainer/SubViewport/PreviewRoot
-@onready var spawn_button: TextureButton = $SpawnButton
+const BUILDING_ICON_PATHS := {
+	"Building1": "res://assets/kingdoms/kingdom1/icons/b1.png",
+	"Building2": "res://assets/kingdoms/kingdom1/icons/b2.png",
+	"Building3": "res://assets/kingdoms/kingdom1/icons/b3.png",
+	"Building4": "res://assets/kingdoms/kingdom1/icons/b4.png",
+	"Building5": "res://assets/kingdoms/kingdom1/icons/b5.png",
+}
+
+@onready var icon_rect: TextureRect = $Content/IconContainer/Icon
+@onready var spawn_button: TextureButton = $Content/SpawnButton
 
 var building_node: Node3D
-var preview_instance: Node3D = null
 
 func setup(building: Node3D) -> void:
 	building_node = building
 	if building_node:
 		building_node.visible = false
-	_populate_preview()
+	_update_icon()
 	if not spawn_button.pressed.is_connected(_on_spawn_pressed):
 		spawn_button.pressed.connect(_on_spawn_pressed)
 
 
-func _populate_preview() -> void:
-	if preview_instance:
-		preview_instance.queue_free()
-		preview_instance = null
-	if not building_node:
+func _update_icon() -> void:
+	if not icon_rect:
 		return
-	preview_instance = building_node.duplicate()
-	preview_instance.visible = true
-	preview_instance.transform = Transform3D.IDENTITY
-	preview_instance.scale = Vector3.ONE * 0.2
-	#preview_root.add_child(preview_instance)
+	var texture: Texture2D = null
+	if building_node:
+		var key := building_node.name
+		if BUILDING_ICON_PATHS.has(key):
+			var icon_path: String = BUILDING_ICON_PATHS[key]
+			if ResourceLoader.exists(icon_path, "Texture2D"):
+				texture = load(icon_path)
+	icon_rect.texture = texture
+	icon_rect.visible = texture != null
 
 
 func _on_spawn_pressed() -> void:
