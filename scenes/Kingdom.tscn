@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://fwfch7tbk6j4"]
+[gd_scene load_steps=13 format=3 uid="uid://fwfch7tbk6j4"]
 
 [ext_resource type="Texture2D" uid="uid://cl282gwrr1o4a" path="res://assets/ui/buttons/play.png" id="1_cj0vx"]
 [ext_resource type="Script" uid="uid://dtdur3vgsfwc5" path="res://scenes/Kingdom.gd" id="1_h5qp7"]
 [ext_resource type="Texture2D" uid="uid://lm30aibs7ft5" path="res://assets/ui/buttons/play_pressed.png" id="2_h5qp7"]
+[ext_resource type="PackedScene" path="res://scenes/ui/BuildingTile.tscn" id="3_y2dt7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h5qp7"]
 
@@ -35,6 +36,19 @@ offset_bottom = 1484.0
 scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("1_cj0vx")
 texture_pressed = ExtResource("2_h5qp7")
+
+[node name="BuildingTileContainer" type="MarginContainer" parent="UI"]
+offset_left = 240.0
+offset_top = 920.0
+offset_right = 1720.0
+offset_bottom = 1400.0
+
+[node name="TileList" type="HBoxContainer" parent="UI/BuildingTileContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+theme_override_constants/separation = 24
 
 [node name="LevelRoot" type="Node3D" parent="."]
 
