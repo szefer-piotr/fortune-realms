@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 inherits="res://scenes/KingdomBase.tscn"]
+
+[ext_resource type="PackedScene" path="res://scenes/environments/ForestKingdomEnvironment.tscn" id="1_environment"]
+
+[node name="Kingdom" parent="."]
+environment_scene = ExtResource("1_environment")
+
