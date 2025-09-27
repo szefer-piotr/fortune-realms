@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
+albedo_color = Color(0.184314, 0.486275, 0.239216, 1)
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_trunk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trunk"]
+albedo_color = Color(0.278431, 0.129412, 0.0588235, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_foliage"]
+
+[node name="ForestKingdomEnvironment" type="Node3D"]
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ground")
+surface_material_override/0 = SubResource("StandardMaterial3D_ground")
+
+[node name="DirectionalLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.307146, 0.878727, -0.366366, 0.126822, 0.426892, 0.895477, 0.943077, 0.214448, -0.255182, -36, 40, 30)
+energy = 1.1
+shadow_enabled = true
+
+[node name="IsoCamera" type="Camera3D" parent="."]
+transform = Transform3D(-0.543254, 0.668129, -0.508407, 0.000334382, 0.60573, 0.79567, 0.839568, 0.432081, -0.329289, -36.7838, 38.8347, -21.1955)
+fov = 54.9
+
+[node name="BuildingTree" type="Node3D" parent="."]
+
+[node name="BuildingTrunk" type="MeshInstance3D" parent="BuildingTree"]
+transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("BoxMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_trunk")
+
+[node name="BuildingCanopy" type="MeshInstance3D" parent="BuildingTree"]
+transform = Transform3D(6, 0, 0, 0, 4, 0, 0, 0, 6, 0, 8, 0)
+mesh = SubResource("SphereMesh_foliage")
+
+[node name="BuildingCabin" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 3, 0, 0, 0, 4, -10, 3, -6)
+mesh = SubResource("BoxMesh_trunk")
+surface_material_override/0 = SubResource("StandardMaterial3D_trunk")
+
