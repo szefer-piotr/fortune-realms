@@ -54,3 +54,4 @@ custom_minimum_size = Vector2(0, 96)
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("2_sg6mu")
+ignore_texture_size = true
