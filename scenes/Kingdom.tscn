@@ -1,29 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://fwfch7tbk6j4"]
+[gd_scene load_steps=5 format=3 uid="uid://fwfch7tbk6j4"]
 
 [ext_resource type="Texture2D" uid="uid://cl282gwrr1o4a" path="res://assets/ui/buttons/play.png" id="1_cj0vx"]
 [ext_resource type="Script" uid="uid://dtdur3vgsfwc5" path="res://scenes/Kingdom.gd" id="1_h5qp7"]
 [ext_resource type="Texture2D" uid="uid://lm30aibs7ft5" path="res://assets/ui/buttons/play_pressed.png" id="2_h5qp7"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_h5qp7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl14s"]
-albedo_color = Color(1.83859e-05, 0.656866, 0.101932, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ow33k"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_7rbdv"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_3e21f"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5qp7"]
-albedo_color = Color(0.544974, 0.544974, 0.544974, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_plnuo"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_je0v2"]
+[ext_resource type="PackedScene" uid="uid://bjo4ee8nf0157" path="res://scenes/environments/KingdomEnvironment.tscn" id="3_lqhuc"]
 
 [node name="Kingdom" type="Node3D"]
 script = ExtResource("1_h5qp7")
+environment_scene = ExtResource("3_lqhuc")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -41,10 +25,10 @@ anchors_preset = -1
 anchor_top = 0.75
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 35.0
-offset_top = -158.0
-offset_right = -29.0
-offset_bottom = -190.0
+offset_left = 37.0
+offset_top = -109.0
+offset_right = -27.0
+offset_bottom = -141.0
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 24
@@ -58,37 +42,3 @@ theme_override_constants/separation = 24
 alignment = 1
 
 [node name="LevelRoot" type="Node3D" parent="."]
-
-[node name="Ground" type="MeshInstance3D" parent="LevelRoot"]
-transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
-mesh = SubResource("PlaneMesh_h5qp7")
-surface_material_override/0 = SubResource("StandardMaterial3D_fl14s")
-
-[node name="DirectionalLight" type="DirectionalLight3D" parent="LevelRoot"]
-transform = Transform3D(-0.223592, 0.872583, -0.434288, 0.149987, 0.471064, 0.869254, 0.963073, 0.129221, -0.236203, -41.6312, 21.4373, 24.1697)
-shadow_enabled = true
-
-[node name="IsoCamera" type="Camera3D" parent="LevelRoot"]
-transform = Transform3D(-0.543254, 0.668129, -0.508407, 0.000334382, 0.60573, 0.79567, 0.839568, 0.432081, -0.329289, -36.7838, 38.8347, -21.1955)
-fov = 54.9
-
-[node name="Building1" type="MeshInstance3D" parent="LevelRoot"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -12.8805, 2, 8.17621)
-mesh = SubResource("BoxMesh_ow33k")
-
-[node name="Building2" type="MeshInstance3D" parent="LevelRoot"]
-transform = Transform3D(4.36378, 0, 0, 0, 9.2, 0, 0, 0, 3.90321, -3.37805, 4.5, -10.8704)
-mesh = SubResource("BoxMesh_7rbdv")
-
-[node name="Building3" type="MeshInstance3D" parent="LevelRoot"]
-transform = Transform3D(-1.1941e-07, 0, 5.73349, 0, 9.23908, 0, -2.73178, 0, -2.50619e-07, -20.959, 4.61938, -1.21265)
-mesh = SubResource("BoxMesh_3e21f")
-surface_material_override/0 = SubResource("StandardMaterial3D_h5qp7")
-
-[node name="Building4" type="MeshInstance3D" parent="LevelRoot"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 4.99158, 5.95514)
-mesh = SubResource("CylinderMesh_plnuo")
-
-[node name="Building5" type="MeshInstance3D" parent="LevelRoot"]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 9.53284, 1.69214, 0)
-mesh = SubResource("PrismMesh_je0v2")
