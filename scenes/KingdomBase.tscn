@@ -3,11 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://cl282gwrr1o4a" path="res://assets/ui/buttons/play.png" id="1_cj0vx"]
 [ext_resource type="Script" uid="uid://dtdur3vgsfwc5" path="res://scenes/Kingdom.gd" id="1_h5qp7"]
 [ext_resource type="Texture2D" uid="uid://lm30aibs7ft5" path="res://assets/ui/buttons/play_pressed.png" id="2_h5qp7"]
-[ext_resource type="PackedScene" uid="uid://bjo4ee8nf0157" path="res://scenes/environments/KingdomEnvironment.tscn" id="3_lqhuc"]
+[ext_resource type="Resource" path="res://assets/kingdoms/kingdom1/KingdomConfig.tres" id="3_kwx2l"]
 
 [node name="Kingdom" type="Node3D"]
 script = ExtResource("1_h5qp7")
-environment_scene = ExtResource("3_lqhuc")
+kingdom_config = ExtResource("3_kwx2l")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

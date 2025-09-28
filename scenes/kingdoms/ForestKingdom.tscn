@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 inherits="res://scenes/KingdomBase.tscn"]
 
-[ext_resource type="PackedScene" path="res://scenes/environments/ForestKingdomEnvironment.tscn" id="1_environment"]
+[ext_resource type="Resource" path="res://assets/kingdoms/kingdom1/KingdomConfig.tres" id="1_kingdom_config"]
 
 [node name="Kingdom" parent="."]
-environment_scene = ExtResource("1_environment")
+kingdom_config = ExtResource("1_kingdom_config")
 
