@@ -45,3 +45,14 @@ transform = Transform3D(4, 0, 0, 0, 3, 0, 0, 0, 4, -10, 3, -6)
 mesh = SubResource("BoxMesh_trunk")
 surface_material_override/0 = SubResource("StandardMaterial3D_trunk")
 
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="Home" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6)
+
+[node name="Market" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8)
+
+[node name="Tower" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
