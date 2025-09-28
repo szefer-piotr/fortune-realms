@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://x2ye7o7nd6mm"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ground"]
 
@@ -22,7 +22,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ground")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.307146, 0.878727, -0.366366, 0.126822, 0.426892, 0.895477, 0.943077, 0.214448, -0.255182, -36, 40, 30)
-energy = 1.1
 shadow_enabled = true
 
 [node name="IsoCamera" type="Camera3D" parent="."]
@@ -55,4 +54,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8)
 
 [node name="Tower" type="Node3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-

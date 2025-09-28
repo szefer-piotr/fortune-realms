@@ -2,3 +2,6 @@ res://scenes/Card3D.tscn
 res://scenes/PhysicsTable.tscn
 res://scenes/ui/BuildingTile.tscn
 res://scenes/environments/KingdomEnvironment.tscn
+res://scenes/Kingdom.gd
+res://scenes/ui/BuildingTile.gd
+res://scenes/environments/ForestKingdomEnvironment.tscn

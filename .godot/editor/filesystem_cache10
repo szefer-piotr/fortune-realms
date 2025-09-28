@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1758982589
+::res://::1759060303
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
 ::res://assets/::1758957230
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
@@ -85,21 +85,21 @@ play_pressed.png::CompressedTexture2D/CompressedTexture2D::798594546141345912::1
 ::res://kingdoms/k1/::1758957204
 ::res://kingdoms/k1/icons/::1758957199
 ::res://kingdoms/k1/models/::1758957194
-::res://scenes/::1758982503
-Card3D.tscn::PackedScene::2637741773608707711::1758962477::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
-Kingdom.gd::GDScript::8500289415207395714::1758960956::0::1::::<>Node3D<><>0<>0<><>::
-KingdomBase.tscn::PackedScene::396668103293350027::1758982503::0::1::::<><><>0<>0<><>::uid://cl282gwrr1o4a::::res://assets/ui/buttons/play.png<>uid://dtdur3vgsfwc5::::res://scenes/Kingdom.gd<>uid://lm30aibs7ft5::::res://assets/ui/buttons/play_pressed.png<>uid://bjo4ee8nf0157::::res://scenes/environments/KingdomEnvironment.tscn
-PhysicsTable.tscn::PackedScene::8598312027378855211::1758962477::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png<>uid://brb1yke7h151h::::res://assets/ui/buttons/build.png<>uid://drcpd0a3cupvf::::res://assets/ui/buttons/build_pressed.png
-::res://scenes/environments/::1758982503
-DesertKingdomEnvironment.tscn::PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::
-ForestKingdomEnvironment.tscn::PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::
-KingdomEnvironment.tscn::PackedScene::3048789762628378620::1758962478::0::1::::<><><>0<>0<><>::
+::res://scenes/::1758982615
+Card3D.tscn::PackedScene::2637741773608707711::1758982615::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
+Kingdom.gd::GDScript/GDScript::8500289415207395714::1758960956::0::1::::<>Node3D<><>0<>0<><>::
+KingdomBase.tscn::PackedScene/PackedScene::396668103293350027::1758982503::0::1::::<><><>0<>0<><>::uid://cl282gwrr1o4a::::res://assets/ui/buttons/play.png<>uid://dtdur3vgsfwc5::::res://scenes/Kingdom.gd<>uid://lm30aibs7ft5::::res://assets/ui/buttons/play_pressed.png<>uid://bjo4ee8nf0157::::res://scenes/environments/KingdomEnvironment.tscn
+PhysicsTable.tscn::PackedScene::8598312027378855211::1758982615::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png<>uid://brb1yke7h151h::::res://assets/ui/buttons/build.png<>uid://drcpd0a3cupvf::::res://assets/ui/buttons/build_pressed.png
+::res://scenes/environments/::1758982616
+DesertKingdomEnvironment.tscn::PackedScene/PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::
+ForestKingdomEnvironment.tscn::PackedScene/PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::
+KingdomEnvironment.tscn::PackedScene::3048789762628378620::1758982616::0::1::::<><><>0<>0<><>::
 ::res://scenes/kingdoms/::1758982503
-DesertKingdom.tscn::PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::res://scenes/environments/DesertKingdomEnvironment.tscn
-ForestKingdom.tscn::PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::res://scenes/environments/ForestKingdomEnvironment.tscn
-::res://scenes/ui/::1758962477
+DesertKingdom.tscn::PackedScene/PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::res://scenes/environments/DesertKingdomEnvironment.tscn
+ForestKingdom.tscn::PackedScene/PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::res://scenes/environments/ForestKingdomEnvironment.tscn
+::res://scenes/ui/::1758982615
 BuildingTile.gd::GDScript/GDScript::4932587899192627872::1758915270::0::1::::<>Control<><>0<>0<><>::
-BuildingTile.tscn::PackedScene::5401379565212799902::1758962477::0::1::::<><><>0<>0<><>::uid://bdboum11konu3::::res://assets/ui/buildings/building_tile.png<>uid://cbf5sq8llhhse::::res://assets/ui/buildings/building_tile_button.png<>uid://ccjnacmftx4t5::::res://scenes/ui/BuildingTile.gd
+BuildingTile.tscn::PackedScene::5401379565212799902::1758982615::0::1::::<><><>0<>0<><>::uid://bdboum11konu3::::res://assets/ui/buildings/building_tile.png<>uid://cbf5sq8llhhse::::res://assets/ui/buildings/building_tile_button.png<>uid://ccjnacmftx4t5::::res://scenes/ui/BuildingTile.gd
 ::res://scripts/::1758982503
 Card3D.gd::GDScript/GDScript::2566478727186920856::1758258419::0::1::::<>RigidBody3D<><>0<>0<><>::
-PhysicsDeckManager.gd::GDScript::1587753973317066913::1758982503::0::1::::<>Node3D<><>0<>0<><>::
+PhysicsDeckManager.gd::GDScript/GDScript::1587753973317066913::1758982503::0::1::::<>Node3D<><>0<>0<><>::
