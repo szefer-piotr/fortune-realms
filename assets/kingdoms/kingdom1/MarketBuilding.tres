@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/BuildingConfig.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/config/BuildingLevelConfig.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/models/kingdom1/hexagons_medieval.png" id="3"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/building_market_blue.gltf" id="4"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/building_tavern_blue.gltf" id="5"]
+
+[sub_resource type="Resource" id="Level1"]
+script = ExtResource("2")
+cost = 180
+icon = ExtResource("3")
+scene = ExtResource("4")
+
+[sub_resource type="Resource" id="Level2"]
+script = ExtResource("2")
+cost = 420
+icon = ExtResource("3")
+scene = ExtResource("5")
+
+[resource]
+script = ExtResource("1")
+display_name = "Marketplace"
+spawn_point_path = NodePath("SpawnPoints/Market")
+levels = Array[Resource]([SubResource("Level1"), SubResource("Level2")])

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/BuildingConfig.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/config/BuildingLevelConfig.gd" id="2"]
+[ext_resource type="Texture2D" path="res://assets/models/kingdom1/hexagons_medieval.png" id="3"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/building_tower_A_blue.gltf" id="4"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/building_tower_B_blue.gltf" id="5"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/building_tower_catapult_blue.gltf" id="6"]
+
+[sub_resource type="Resource" id="Level1"]
+script = ExtResource("2")
+cost = 220
+icon = ExtResource("3")
+scene = ExtResource("4")
+
+[sub_resource type="Resource" id="Level2"]
+script = ExtResource("2")
+cost = 520
+icon = ExtResource("3")
+scene = ExtResource("5")
+
+[sub_resource type="Resource" id="Level3"]
+script = ExtResource("2")
+cost = 940
+icon = ExtResource("3")
+scene = ExtResource("6")
+
+[resource]
+script = ExtResource("1")
+display_name = "Watchtower"
+spawn_point_path = NodePath("SpawnPoints/Tower")
+levels = Array[Resource]([SubResource("Level1"), SubResource("Level2"), SubResource("Level3")])
