@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/config/KingdomConfig.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/environments/DesertKingdomEnvironment.tscn" id="2"]
+
+[resource]
+script = ExtResource("1")
+kingdom_name = "Desert Kingdom"
+environment_scene = ExtResource("2")
+buildings = Array[Resource]([])

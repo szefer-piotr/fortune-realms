@@ -2,7 +2,7 @@ extends Node3D
 
 const BUILDING_TILE_SCENE := preload("res://scenes/ui/BuildingTile.tscn")
 
-@export var environment_scene: PackedScene
+@export var kingdom_config: KingdomConfig
 
 var active_environment: Node3D
 
@@ -16,51 +16,61 @@ func _ready() -> void:
 	_create_building_tiles()
 
 func _instance_environment() -> void:
-	if not level_root:
-		return
-		
-	if not environment_scene:
-		push_warning("No environment scene assigned to Kingdom.")
-		return
-		
-	if active_environment:
-		active_environment.queue_free()
-		active_environment = null
-	
-	active_environment = environment_scene.instantiate()
-	level_root.add_child(active_environment)
+        if not level_root:
+                return
+
+        if not kingdom_config:
+                push_warning("No kingdom config assigned to Kingdom.")
+                return
+
+        if not kingdom_config.environment_scene:
+                push_warning("No environment scene assigned in the KingdomConfig resource.")
+                return
+
+        if active_environment:
+                active_environment.queue_free()
+                active_environment = null
+
+        active_environment = kingdom_config.environment_scene.instantiate()
+        level_root.add_child(active_environment)
 
 func _wire_ui() -> void:
 	if play_button and not play_button.pressed.is_connected(_on_play_pressed):
 		play_button.pressed.connect(_on_play_pressed)
 
 func _create_building_tiles() -> void:
-	if not building_tile_container or not level_root:
-		return
+        if not building_tile_container or not level_root:
+                return
 
-	for child in building_tile_container.get_children():
-		child.queue_free()
+        for child in building_tile_container.get_children():
+                child.queue_free()
 
-	var buildings:= _find_building_nodes(level_root)
-	
-	for building in buildings:
-		var tile := BUILDING_TILE_SCENE.instantiate()
-		building_tile_container.add_child(tile)
-		tile.setup(building)
-		
-func _find_building_nodes(root: Node) -> Array[Node3D]:
-	var buildings: Array[Node3D] = []
-	
-	if not root:
-		return buildings
-		
-	for child in root.get_children():
-		if child is Node3D:
-			if child.name.begins_with("Building"):
-				buildings.append(child)
-			buildings.append_array(_find_building_nodes(child))
-	
-	return buildings
+        if not kingdom_config:
+                return
+
+        if not active_environment:
+                push_warning("Cannot create building tiles without an active environment instance.")
+                return
+
+        for building_config in kingdom_config.buildings:
+                if building_config == null:
+                        continue
+
+                var spawn_point: Node3D = null
+
+                if not building_config.spawn_point_path.is_empty():
+                        spawn_point = active_environment.get_node_or_null(building_config.spawn_point_path)
+                        if not spawn_point:
+                                push_warning("Spawn point '%s' not found for building '%s'." % [
+                                        String(building_config.spawn_point_path),
+                                        building_config.display_name
+                                ])
+                else:
+                        push_warning("Building '%s' is missing a spawn point path." % building_config.display_name)
+
+                var tile := BUILDING_TILE_SCENE.instantiate()
+                building_tile_container.add_child(tile)
+                tile.setup(building_config, spawn_point)
 		
 	
 func _on_play_pressed() -> void:
