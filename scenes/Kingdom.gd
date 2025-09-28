@@ -56,21 +56,9 @@ func _create_building_tiles() -> void:
                 if building_config == null:
                         continue
 
-                var spawn_point: Node3D = null
-
-                if not building_config.spawn_point_path.is_empty():
-                        spawn_point = active_environment.get_node_or_null(building_config.spawn_point_path)
-                        if not spawn_point:
-                                push_warning("Spawn point '%s' not found for building '%s'." % [
-                                        String(building_config.spawn_point_path),
-                                        building_config.display_name
-                                ])
-                else:
-                        push_warning("Building '%s' is missing a spawn point path." % building_config.display_name)
-
                 var tile := BUILDING_TILE_SCENE.instantiate()
                 building_tile_container.add_child(tile)
-                tile.setup(building_config, spawn_point)
+                tile.setup(building_config, active_environment)
 		
 	
 func _on_play_pressed() -> void:
