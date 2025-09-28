@@ -1,6 +1,4 @@
-res://scenes/ui/BuildingTile.tscn
 res://scenes/Card3D.tscn
 res://scenes/PhysicsTable.tscn
-res://scenes/Kingdom.tscn
-res://scenes/Kingdom.gd
+res://scenes/ui/BuildingTile.tscn
 res://scenes/environments/KingdomEnvironment.tscn
