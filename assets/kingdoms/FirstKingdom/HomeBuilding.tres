@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="BuildingConfig" load_steps=8 format=3 uid="uid://8qj8d37sylrk"]
+[gd_resource type="Resource" script_class="BuildingConfig" load_steps=9 format=3 uid="uid://8qj8d37sylrk"]
 
 [ext_resource type="Script" uid="uid://blcm4k05x3wip" path="res://scripts/config/BuildingLevelConfig.gd" id="1_0qum7"]
-[ext_resource type="Texture2D" uid="uid://df8os0pwl3yk6" path="res://assets/models/kingdom1/hexagons_medieval.png" id="2_371wl"]
-[ext_resource type="PackedScene" uid="uid://c3m168gd4pxpc" path="res://assets/models/kingdom1/building_home_A_blue.gltf" id="3_6hadk"]
-[ext_resource type="PackedScene" uid="uid://bdovroy541o7y" path="res://assets/models/kingdom1/building_home_B_blue.gltf" id="4_c31sj"]
+[ext_resource type="Texture2D" path="res://assets/icons/kingdom1/home_level1.svg" id="2_371wl"]
+[ext_resource type="Texture2D" path="res://assets/icons/kingdom1/home_level2.svg" id="6_q4m8y"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/home_level1.tscn" id="3_6hadk"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/home_level2.tscn" id="4_c31sj"]
 [ext_resource type="Script" uid="uid://g3l4vfe6x8e" path="res://scripts/config/BuildingConfig.gd" id="5_bx7mg"]
 
 [sub_resource type="Resource" id="Level1"]
@@ -15,7 +16,7 @@ scene = ExtResource("3_6hadk")
 [sub_resource type="Resource" id="Level2"]
 script = ExtResource("1_0qum7")
 cost = 250
-icon = ExtResource("2_371wl")
+icon = ExtResource("6_q4m8y")
 scene = ExtResource("4_c31sj")
 
 [resource]
