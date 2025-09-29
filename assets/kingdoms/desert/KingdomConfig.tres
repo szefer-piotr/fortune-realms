@@ -1,10 +1,19 @@
-[gd_resource type="Resource" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="KingdomConfig" load_steps=6 format=3 uid="uid://q8hfgwlnho3q"]
 
-[ext_resource type="Script" path="res://scripts/config/KingdomConfig.gd" id="1"]
+[ext_resource type="Script" uid="uid://c5vk3uff0hxou" path="res://scripts/config/KingdomConfig.gd" id="1"]
+[ext_resource type="Script" uid="uid://g3l4vfe6x8e" path="res://scripts/config/BuildingConfig.gd" id="1_hc6xr"]
 [ext_resource type="PackedScene" path="res://scenes/environments/DesertKingdomEnvironment.tscn" id="2"]
+[ext_resource type="Script" uid="uid://blcm4k05x3wip" path="res://scripts/config/BuildingLevelConfig.gd" id="2_6y1le"]
+
+[sub_resource type="Resource" id="Resource_pio11"]
+script = ExtResource("1_hc6xr")
+display_name = ""
+spawn_point_path = NodePath("")
+levels = Array[ExtResource("2_6y1le")]([])
+metadata/_custom_type_script = "uid://g3l4vfe6x8e"
 
 [resource]
 script = ExtResource("1")
-kingdom_name = "Desert Kingdom"
+kingdom_name = "First Kingdom"
 environment_scene = ExtResource("2")
-buildings = Array[Resource]([])
+buildings = Array[ExtResource("1_hc6xr")]([SubResource("Resource_pio11"), null])

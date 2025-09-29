@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b54u7po3fagkr"]
+[gd_scene load_steps=3 format=3 uid="uid://b54u7po3fagkr"]
 
 [ext_resource type="PackedScene" uid="uid://fwfch7tbk6j4" path="res://scenes/KingdomBase.tscn" id="1_8tsbu"]
+[ext_resource type="Resource" uid="uid://dkhiknc0g4v6w" path="res://assets/kingdoms/FirstKingdom/KingdomConfig.tres" id="2_bmlg4"]
 
 [node name="Kingdom" instance=ExtResource("1_8tsbu")]
+kingdom_config = ExtResource("2_bmlg4")

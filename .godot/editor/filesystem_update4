@@ -10,3 +10,10 @@ res://assets/kingdoms/kingdom1/KingdomConfig.tres
 res://scenes/kingdoms/FirstKingdom.tscn
 res://scripts/PhysicsDeckManager.gd
 res://scenes/ui/BuildingTile.gd
+res://assets/kingdoms/desert/KingdomConfig.tres
+res://scenes/environments/DesertKingdomEnvironment.tscn
+res://assets/kingdoms/Kingdom1/MarketBuilding.tres
+res://assets/kingdoms/Kingdom1/TowerBuilding.tres
+res://assets/kingdoms/FirstKingdom/KingdomConfig.tres
+res://assets/kingdoms/FirstKingdom/HomeBuilding.tres
+res://scenes/KingdomBase.tscn
