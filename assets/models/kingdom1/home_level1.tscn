@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3]
+
+[sub_resource type="BoxMesh" id="BoxMesh_body"]
+size = Vector3(4, 2.5, 4)
+
+[sub_resource type="StandardMaterial3D" id="Material_body"]
+albedo_color = Color(0.88, 0.57, 0.36, 1)
+roughness = 0.45
+
+[sub_resource type="BoxMesh" id="BoxMesh_roof"]
+size = Vector3(4.8, 1.6, 4.8)
+
+[sub_resource type="StandardMaterial3D" id="Material_roof"]
+albedo_color = Color(0.57, 0.2, 0.17, 1)
+metallic = 0.05
+
+[node name="HomeLevel1" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_body")
+material_override = SubResource("Material_body")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+
+[node name="Roof" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_roof")
+material_override = SubResource("Material_roof")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0)
+scale = Vector3(1, 0.5, 1)

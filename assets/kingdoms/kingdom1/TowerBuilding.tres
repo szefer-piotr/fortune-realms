@@ -1,29 +1,31 @@
-[gd_resource type="Resource" script_class="BuildingConfig" load_steps=10 format=3 uid="uid://6g5igc0q1dh2"]
+[gd_resource type="Resource" script_class="BuildingConfig" load_steps=12 format=3 uid="uid://6g5igc0q1dh2"]
 
 [ext_resource type="Script" uid="uid://g3l4vfe6x8e" path="res://scripts/config/BuildingConfig.gd" id="1"]
 [ext_resource type="Script" uid="uid://blcm4k05x3wip" path="res://scripts/config/BuildingLevelConfig.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://df8os0pwl3yk6" path="res://assets/models/kingdom1/hexagons_medieval.png" id="3"]
-[ext_resource type="PackedScene" uid="uid://payk04jejjs6" path="res://assets/models/kingdom1/building_tower_A_blue.gltf" id="4"]
-[ext_resource type="PackedScene" uid="uid://cxot4m306aiao" path="res://assets/models/kingdom1/building_tower_B_blue.gltf" id="5"]
-[ext_resource type="PackedScene" uid="uid://b6ig5rse6thoh" path="res://assets/models/kingdom1/building_tower_catapult_blue.gltf" id="6"]
+[ext_resource type="Texture2D" path="res://assets/icons/kingdom1/tower_level1.svg" id="3"]
+[ext_resource type="Texture2D" path="res://assets/icons/kingdom1/tower_level2.svg" id="4"]
+[ext_resource type="Texture2D" path="res://assets/icons/kingdom1/tower_level3.svg" id="5"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/tower_level1.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/tower_level2.tscn" id="7"]
+[ext_resource type="PackedScene" path="res://assets/models/kingdom1/tower_level3.tscn" id="8"]
 
 [sub_resource type="Resource" id="Level1"]
 script = ExtResource("2")
 cost = 220
 icon = ExtResource("3")
-scene = ExtResource("4")
+scene = ExtResource("6")
 
 [sub_resource type="Resource" id="Level2"]
 script = ExtResource("2")
 cost = 520
-icon = ExtResource("3")
-scene = ExtResource("5")
+icon = ExtResource("4")
+scene = ExtResource("7")
 
 [sub_resource type="Resource" id="Level3"]
 script = ExtResource("2")
 cost = 940
-icon = ExtResource("3")
-scene = ExtResource("6")
+icon = ExtResource("5")
+scene = ExtResource("8")
 
 [resource]
 script = ExtResource("1")
