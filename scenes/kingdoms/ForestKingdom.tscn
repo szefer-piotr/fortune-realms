@@ -2,6 +2,6 @@
 
 [ext_resource type="Resource" path="res://assets/kingdoms/kingdom1/KingdomConfig.tres" id="1_kingdom_config"]
 
-[node name="Kingdom" parent="."]
+[node name="Kingdom"]
 kingdom_config = ExtResource("1_kingdom_config")
 
