@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3]
+
+[sub_resource type="BoxMesh" id="BoxMesh_body"]
+size = Vector3(4.4, 3, 4.4)
+
+[sub_resource type="StandardMaterial3D" id="Material_body"]
+albedo_color = Color(0.82, 0.5, 0.28, 1)
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_roof"]
+size = Vector3(5.2, 1.8, 5.2)
+
+[sub_resource type="StandardMaterial3D" id="Material_roof"]
+albedo_color = Color(0.46, 0.16, 0.12, 1)
+metallic = 0.08
+
+[sub_resource type="BoxMesh" id="BoxMesh_chimney"]
+size = Vector3(1, 2.4, 1)
+
+[sub_resource type="StandardMaterial3D" id="Material_chimney"]
+albedo_color = Color(0.55, 0.55, 0.55, 1)
+roughness = 0.6
+
+[node name="HomeLevel2" type="Node3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_body")
+material_override = SubResource("Material_body")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Roof" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_roof")
+material_override = SubResource("Material_roof")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 0)
+scale = Vector3(1, 0.45, 1)
+
+[node name="Chimney" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_chimney")
+material_override = SubResource("Material_chimney")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 4.1, -1.1)
+scale = Vector3(0.6, 1, 0.6)

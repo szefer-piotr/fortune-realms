@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3]
+
+[sub_resource type="BoxMesh" id="BoxMesh_stall"]
+size = Vector3(6, 1.2, 4.5)
+
+[sub_resource type="StandardMaterial3D" id="Material_stall"]
+albedo_color = Color(0.3, 0.22, 0.16, 1)
+roughness = 0.55
+
+[sub_resource type="BoxMesh" id="BoxMesh_canopy"]
+size = Vector3(6.4, 1.1, 5)
+
+[sub_resource type="StandardMaterial3D" id="Material_canopy"]
+albedo_color = Color(0.2, 0.55, 0.45, 1)
+emission_enabled = true
+emission = Color(0.04, 0.18, 0.16, 1)
+
+[sub_resource type="CylinderMesh" id="Mesh_pole"]
+radius = 0.22
+height = 3.8
+
+[sub_resource type="StandardMaterial3D" id="Material_pole"]
+albedo_color = Color(0.7, 0.6, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="Mesh_crate"]
+size = Vector3(1.2, 1.2, 1.2)
+
+[sub_resource type="StandardMaterial3D" id="Material_crate"]
+albedo_color = Color(0.54, 0.39, 0.22, 1)
+
+[node name="MarketLevel2" type="Node3D"]
+
+[node name="Stall" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_stall")
+material_override = SubResource("Material_stall")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="Canopy" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_canopy")
+material_override = SubResource("Material_canopy")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+scale = Vector3(1, 0.45, 1)
+
+[node name="PoleLeft" type="MeshInstance3D" parent="."]
+mesh = SubResource("Mesh_pole")
+material_override = SubResource("Material_pole")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 1.9, -1.8)
+
+[node name="PoleRight" type="MeshInstance3D" parent="."]
+mesh = SubResource("Mesh_pole")
+material_override = SubResource("Material_pole")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, 1.9, -1.8)
+
+[node name="CrateA" type="MeshInstance3D" parent="."]
+mesh = SubResource("Mesh_crate")
+material_override = SubResource("Material_crate")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0.6, 2)
+
+[node name="CrateB" type="MeshInstance3D" parent="."]
+mesh = SubResource("Mesh_crate")
+material_override = SubResource("Material_crate")
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 1.6, 0.6, 2.3)
