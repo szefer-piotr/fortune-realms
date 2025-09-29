@@ -29,8 +29,8 @@ func setup(config: BuildingConfig, environment: Node = null, spawn_override: Nod
 	_ensure_spawn_point()
 	_update_ui()
 
-	if spawn_button:
-		spawn_button.hint_tooltip = building_config.display_name if building_config else ""
+        if spawn_button:
+                spawn_button.tooltip_text = building_config.display_name if building_config else ""
 		if not spawn_button.pressed.is_connected(_on_spawn_pressed):
 			spawn_button.pressed.connect(_on_spawn_pressed)
 
