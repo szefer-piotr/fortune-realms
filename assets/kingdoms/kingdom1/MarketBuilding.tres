@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://g3l4vfe6x8e" path="res://scripts/config/BuildingConfig.gd" id="1"]
 [ext_resource type="Script" uid="uid://blcm4k05x3wip" path="res://scripts/config/BuildingLevelConfig.gd" id="2"]
-[ext_resource type="Texture2D" path="res://assets/icons/kingdom1/market_level1.svg" id="3"]
-[ext_resource type="Texture2D" path="res://assets/icons/kingdom1/market_level2.svg" id="4"]
+[ext_resource type="Texture2D" uid="uid://ck4f5qmujb8il" path="res://assets/icons/kingdom1/market_level1.svg" id="3"]
+[ext_resource type="Texture2D" uid="uid://de5wxnbor5tvd" path="res://assets/icons/kingdom1/market_level2.svg" id="4"]
 [ext_resource type="PackedScene" path="res://assets/models/kingdom1/market_level1.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://assets/models/kingdom1/market_level2.tscn" id="6"]
 
