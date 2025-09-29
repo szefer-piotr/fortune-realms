@@ -66,11 +66,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="SpawnButton" type="TextureButton" parent="Content"]
-custom_minimum_size = Vector2(0, 96)
+custom_minimum_size = Vector2(192, 64)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture_normal = ExtResource("2_sg6mu")
-ignore_texture_size = true
+ignore_texture_size = false
 
 [node name="Label" type="Label" parent="Content/SpawnButton"]
 layout_mode = 1
