@@ -404,7 +404,7 @@ func _on_hold_pressed() -> void:
 	await _end_round("", round_score)  # no message, just score add
 
 func _on_build_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/kingdoms/ForestKingdom.tscn")
+	get_tree().change_scene_to_file("res://scenes/kingdoms/FirstKingdom.tscn")
 
 #func _spawn_confetti(at: Vector3) -> void:
 	#var p := CPUParticles3D.new()

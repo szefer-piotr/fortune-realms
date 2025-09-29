@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1759060303
+::res://::1759135634
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
-::res://assets/::1758957230
+::res://assets/::1759060638
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
 ::res://assets/cards_png/::1756796101
 ::res://assets/cards_png/gpt_game_assets/::1757677240
@@ -36,6 +36,14 @@ warrior.png::CompressedTexture2D/CompressedTexture2D::2962171623460275126::17576
 19. The Sun.png::CompressedTexture2D/CompressedTexture2D::7927307972153282030::1756529683::1756529685::1::::<><><>0<>0<>168da81f8d13c8c70e6ba82da3867992<>res://.godot/imported/19. The Sun.png-b6d93cb82bd438e69c567cc516b70363.ctex::
 20. Judgement.png::CompressedTexture2D/CompressedTexture2D::1051445267234111275::1756529683::1756529685::1::::<><><>0<>0<>ea8771c18d6128bb0a7b05bbda07379e<>res://.godot/imported/20. Judgement.png-760ee5b753b41f6616e91b4429f65ecc.ctex::
 21. The World.png::CompressedTexture2D/CompressedTexture2D::8538805643762077287::1756529683::1756529685::1::::<><><>0<>0<>ad99e1e9ab4593d7ca3f3525913ecc23<>res://.godot/imported/21. The World.png-cceefa9fdcfe2b578ac02a72e536d6e6.ctex::
+::res://assets/kingdoms/::1759126532
+::res://assets/kingdoms/desert/::1759082319
+KingdomConfig.tres::Resource/Resource::-1::1759082319::0::1::::<><><>0<>0<><>::res://scripts/config/KingdomConfig.gd<>res://scenes/environments/DesertKingdomEnvironment.tscn
+::res://assets/kingdoms/Kingdom1/::1759128604
+HomeBuilding.tres::Resource/Resource::-1::1759128604::0::1::::<><><>0<>0<><>::res://scripts/config/BuildingConfig.gd<>res://scripts/config/BuildingLevelConfig.gd<>res://assets/models/kingdom1/hexagons_medieval.png<>res://assets/models/kingdom1/building_home_A_blue.gltf<>res://assets/models/kingdom1/building_home_B_blue.gltf
+KingdomConfig.tres::Resource/Resource::-1::1759128604::0::1::::<><><>0<>0<><>::res://scripts/config/KingdomConfig.gd<>res://scenes/environments/ForestKingdomEnvironment.tscn<>res://assets/kingdoms/kingdom1/HomeBuilding.tres<>res://assets/kingdoms/kingdom1/MarketBuilding.tres<>res://assets/kingdoms/kingdom1/TowerBuilding.tres
+MarketBuilding.tres::Resource/Resource::-1::1759128604::0::1::::<><><>0<>0<><>::res://scripts/config/BuildingConfig.gd<>res://scripts/config/BuildingLevelConfig.gd<>res://assets/models/kingdom1/hexagons_medieval.png<>res://assets/models/kingdom1/building_market_blue.gltf<>res://assets/models/kingdom1/building_tavern_blue.gltf
+TowerBuilding.tres::Resource/Resource::-1::1759128604::0::1::::<><><>0<>0<><>::res://scripts/config/BuildingConfig.gd<>res://scripts/config/BuildingLevelConfig.gd<>res://assets/models/kingdom1/hexagons_medieval.png<>res://assets/models/kingdom1/building_tower_A_blue.gltf<>res://assets/models/kingdom1/building_tower_B_blue.gltf<>res://assets/models/kingdom1/building_tower_catapult_blue.gltf
 ::res://assets/models/::1758957444
 ::res://assets/models/kingdom1/::1758960316
 building_archeryrange_blue.gltf::PackedScene/PackedScene::1069232374166072294::1758957439::1758960314::1::::<><><>0<>0<>cfc5b7fa7ba07db72000b7957d7f8c58<>res://.godot/imported/building_archeryrange_blue.gltf-31fc08b4e831cb1d1afdde2276e57b6d.scn::uid://df8os0pwl3yk6::::res://assets/models/kingdom1/hexagons_medieval.png
@@ -85,21 +93,26 @@ play_pressed.png::CompressedTexture2D/CompressedTexture2D::798594546141345912::1
 ::res://kingdoms/k1/::1758957204
 ::res://kingdoms/k1/icons/::1758957199
 ::res://kingdoms/k1/models/::1758957194
-::res://scenes/::1758982615
-Card3D.tscn::PackedScene::2637741773608707711::1758982615::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
-Kingdom.gd::GDScript/GDScript::8500289415207395714::1758960956::0::1::::<>Node3D<><>0<>0<><>::
-KingdomBase.tscn::PackedScene/PackedScene::396668103293350027::1758982503::0::1::::<><><>0<>0<><>::uid://cl282gwrr1o4a::::res://assets/ui/buttons/play.png<>uid://dtdur3vgsfwc5::::res://scenes/Kingdom.gd<>uid://lm30aibs7ft5::::res://assets/ui/buttons/play_pressed.png<>uid://bjo4ee8nf0157::::res://scenes/environments/KingdomEnvironment.tscn
-PhysicsTable.tscn::PackedScene::8598312027378855211::1758982615::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png<>uid://brb1yke7h151h::::res://assets/ui/buttons/build.png<>uid://drcpd0a3cupvf::::res://assets/ui/buttons/build_pressed.png
-::res://scenes/environments/::1758982616
-DesertKingdomEnvironment.tscn::PackedScene/PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::
-ForestKingdomEnvironment.tscn::PackedScene/PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::
-KingdomEnvironment.tscn::PackedScene::3048789762628378620::1758982616::0::1::::<><><>0<>0<><>::
-::res://scenes/kingdoms/::1758982503
-DesertKingdom.tscn::PackedScene/PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::res://scenes/environments/DesertKingdomEnvironment.tscn
-ForestKingdom.tscn::PackedScene/PackedScene::-1::1758982503::0::1::::<><><>0<>0<><>::res://scenes/environments/ForestKingdomEnvironment.tscn
-::res://scenes/ui/::1758982615
-BuildingTile.gd::GDScript/GDScript::4932587899192627872::1758915270::0::1::::<>Control<><>0<>0<><>::
-BuildingTile.tscn::PackedScene::5401379565212799902::1758982615::0::1::::<><><>0<>0<><>::uid://bdboum11konu3::::res://assets/ui/buildings/building_tile.png<>uid://cbf5sq8llhhse::::res://assets/ui/buildings/building_tile_button.png<>uid://ccjnacmftx4t5::::res://scenes/ui/BuildingTile.gd
-::res://scripts/::1758982503
+::res://scenes/::1759128604
+Card3D.tscn::PackedScene/PackedScene::2637741773608707711::1759128604::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
+Kingdom.gd::GDScript/GDScript::8500289415207395714::1759090389::0::1::::<>Node3D<><>0<>0<><>::
+KingdomBase.tscn::PackedScene/PackedScene::396668103293350027::1759128604::0::1::::<><><>0<>0<><>::uid://cl282gwrr1o4a::::res://assets/ui/buttons/play.png<>uid://dtdur3vgsfwc5::::res://scenes/Kingdom.gd<>uid://lm30aibs7ft5::::res://assets/ui/buttons/play_pressed.png<>res://assets/kingdoms/kingdom1/KingdomConfig.tres
+PhysicsTable.tscn::PackedScene/PackedScene::8598312027378855211::1759128604::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png<>uid://brb1yke7h151h::::res://assets/ui/buttons/build.png<>uid://drcpd0a3cupvf::::res://assets/ui/buttons/build_pressed.png
+::res://scenes/environments/::1759128604
+DesertKingdomEnvironment.tscn::PackedScene/PackedScene::-1::1759128604::0::1::::<><><>0<>0<><>::
+ForestKingdomEnvironment.tscn::PackedScene/PackedScene::1671547657882300040::1759128604::0::1::::<><><>0<>0<><>::
+Kingdom1.tscn::PackedScene/PackedScene::3171311560140885222::1759126382::0::1::::<><><>0<>0<><>::
+KingdomEnvironment.tscn::PackedScene/PackedScene::3048789762628378620::1759128604::0::1::::<><><>0<>0<><>::
+::res://scenes/kingdoms/::1759135594
+DesertKingdom.tscn::PackedScene::244588336396408217::1759135594::0::1::::<><><>0<>0<><>::res://assets/kingdoms/desert/KingdomConfig.tres
+ForestKingdom.tscn::PackedScene::86361947588788225::1759135594::0::1::::<><><>0<>0<><>::res://assets/kingdoms/kingdom1/KingdomConfig.tres
+::res://scenes/ui/::1759128604
+BuildingTile.gd::GDScript/GDScript::4932587899192627872::1759090677::0::1::::<>Control<><>0<>0<><>::
+BuildingTile.tscn::PackedScene/PackedScene::5401379565212799902::1759128604::0::1::::<><><>0<>0<><>::uid://bdboum11konu3::::res://assets/ui/buildings/building_tile.png<>uid://cbf5sq8llhhse::::res://assets/ui/buildings/building_tile_button.png<>uid://ccjnacmftx4t5::::res://scenes/ui/BuildingTile.gd
+::res://scripts/::1759128604
 Card3D.gd::GDScript/GDScript::2566478727186920856::1758258419::0::1::::<>RigidBody3D<><>0<>0<><>::
-PhysicsDeckManager.gd::GDScript/GDScript::1587753973317066913::1758982503::0::1::::<>Node3D<><>0<>0<><>::
+PhysicsDeckManager.gd::GDScript/GDScript::1587753973317066913::1759128604::0::1::::<>Node3D<><>0<>0<><>::
+::res://scripts/config/::1759061234
+BuildingConfig.gd::GDScript/GDScript::14107541906589018::1759060638::0::1::::BuildingConfig<>Resource<><>0<>0<><>::
+BuildingLevelConfig.gd::GDScript/GDScript::3163407676404552903::1759060638::0::1::::BuildingLevelConfig<>Resource<><>0<>0<><>::
+KingdomConfig.gd::GDScript/GDScript::6922516839971343348::1759060638::0::1::::KingdomConfig<>Resource<><>0<>0<><>::

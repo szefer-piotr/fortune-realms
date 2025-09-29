@@ -1,13 +1,14 @@
-[gd_resource type="Resource" load_steps=6 format=3]
+[gd_resource type="Resource" script_class="KingdomConfig" load_steps=7 format=3 uid="uid://dgj0ijn5a6mxi"]
 
-[ext_resource type="Script" path="res://scripts/config/KingdomConfig.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/environments/ForestKingdomEnvironment.tscn" id="2"]
-[ext_resource type="Resource" path="res://assets/kingdoms/kingdom1/HomeBuilding.tres" id="3"]
-[ext_resource type="Resource" path="res://assets/kingdoms/kingdom1/MarketBuilding.tres" id="4"]
-[ext_resource type="Resource" path="res://assets/kingdoms/kingdom1/TowerBuilding.tres" id="5"]
+[ext_resource type="Script" uid="uid://c5vk3uff0hxou" path="res://scripts/config/KingdomConfig.gd" id="1"]
+[ext_resource type="Script" uid="uid://g3l4vfe6x8e" path="res://scripts/config/BuildingConfig.gd" id="1_ufxb7"]
+[ext_resource type="PackedScene" uid="uid://x2ye7o7nd6mm" path="res://scenes/environments/ForestKingdomEnvironment.tscn" id="2"]
+[ext_resource type="Resource" uid="uid://bbuwmy7ohjj8m" path="res://assets/kingdoms/kingdom1/HomeBuilding.tres" id="3"]
+[ext_resource type="Resource" uid="uid://cwr8r1kxfuscn" path="res://assets/kingdoms/kingdom1/MarketBuilding.tres" id="4"]
+[ext_resource type="Resource" uid="uid://6g5igc0q1dh2" path="res://assets/kingdoms/kingdom1/TowerBuilding.tres" id="5"]
 
 [resource]
 script = ExtResource("1")
 kingdom_name = "Forest Kingdom"
 environment_scene = ExtResource("2")
-buildings = Array[Resource]([ExtResource("3"), ExtResource("4"), ExtResource("5")])
+buildings = Array[ExtResource("1_ufxb7")]([ExtResource("3"), ExtResource("4"), ExtResource("5")])
