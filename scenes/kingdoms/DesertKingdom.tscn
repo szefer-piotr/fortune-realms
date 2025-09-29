@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 inherits="res://scenes/KingdomBase.tscn"]
+[gd_scene load_steps=2 format=3 base="res://scenes/KingdomBase.tscn" uid="uid://dqqlmkbt2d4l"]
 
 [ext_resource type="Resource" path="res://assets/kingdoms/desert/KingdomConfig.tres" id="1_kingdom_config"]
 
