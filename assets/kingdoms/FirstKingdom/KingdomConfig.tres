@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="KingdomConfig" load_steps=5 format=3 uid="uid://dkhiknc0g4v6w"]
+[gd_resource type="Resource" script_class="KingdomConfig" load_steps=7 format=3 uid="uid://dkhiknc0g4v6w"]
 
 [ext_resource type="Script" uid="uid://c5vk3uff0hxou" path="res://scripts/config/KingdomConfig.gd" id="1"]
 [ext_resource type="Script" uid="uid://g3l4vfe6x8e" path="res://scripts/config/BuildingConfig.gd" id="1_whwfi"]
-[ext_resource type="PackedScene" uid="uid://m3jtdqansu6b" path="res://scenes/environments/DesertKingdomEnvironment.tscn" id="2"]
 [ext_resource type="Resource" uid="uid://8qj8d37sylrk" path="res://assets/kingdoms/FirstKingdom/HomeBuilding.tres" id="2_u1uar"]
+[ext_resource type="Resource" uid="uid://030e1q7hsjix" path="res://assets/kingdoms/FirstKingdom/MarketBuilding.tres" id="3_61pdx"]
+[ext_resource type="Resource" uid="uid://dltdfeo6yseft" path="res://assets/kingdoms/FirstKingdom/TowerBuilding.tres" id="4_5sjxx"]
+[ext_resource type="PackedScene" uid="uid://blghbj87olx15" path="res://scenes/environments/FirstKingdom.tscn" id="5_kfspc"]
 
 [resource]
 script = ExtResource("1")
-kingdom_name = "Desert Kingdom"
-environment_scene = ExtResource("2")
-buildings = Array[ExtResource("1_whwfi")]([ExtResource("2_u1uar")])
+kingdom_name = "Snow Kingdom"
+environment_scene = ExtResource("5_kfspc")
+buildings = Array[ExtResource("1_whwfi")]([ExtResource("2_u1uar"), ExtResource("3_61pdx"), ExtResource("4_5sjxx")])

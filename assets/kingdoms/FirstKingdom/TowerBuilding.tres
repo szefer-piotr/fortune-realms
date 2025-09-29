@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="BuildingConfig" load_steps=7 format=3 uid="uid://dltdfeo6yseft"]
+
+[ext_resource type="Script" uid="uid://blcm4k05x3wip" path="res://scripts/config/BuildingLevelConfig.gd" id="1_x14uc"]
+[ext_resource type="PackedScene" uid="uid://payk04jejjs6" path="res://assets/models/kingdom1/building_tower_A_blue.gltf" id="2_454m8"]
+[ext_resource type="PackedScene" uid="uid://c17ri2xmt38dw" path="res://assets/models/kingdom1/building_castle_blue.gltf" id="3_ow6ek"]
+[ext_resource type="Script" uid="uid://g3l4vfe6x8e" path="res://scripts/config/BuildingConfig.gd" id="6_kev1n"]
+
+[sub_resource type="Resource" id="Resource_x14uc"]
+script = ExtResource("1_x14uc")
+cost = 300
+scene = ExtResource("2_454m8")
+metadata/_custom_type_script = "uid://blcm4k05x3wip"
+
+[sub_resource type="Resource" id="Resource_mqixc"]
+script = ExtResource("1_x14uc")
+cost = 500
+scene = ExtResource("3_ow6ek")
+metadata/_custom_type_script = "uid://blcm4k05x3wip"
+
+[resource]
+script = ExtResource("6_kev1n")
+display_name = "Tower"
+spawn_point_path = NodePath("SpawnPoints/Home")
+levels = Array[ExtResource("1_x14uc")]([SubResource("Resource_x14uc"), SubResource("Resource_mqixc")])

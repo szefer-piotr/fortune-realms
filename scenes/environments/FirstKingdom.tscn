@@ -3,7 +3,6 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_h5qp7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl14s"]
-albedo_color = Color(1.83859e-05, 0.656866, 0.101932, 1)
 
 [node name="KingdomEnvironment" type="Node3D"]
 
@@ -14,10 +13,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fl14s")
 
 [node name="DirectionalLight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.223592, 0.872583, -0.434288, 0.149987, 0.471064, 0.869254, 0.963073, 0.129221, -0.236203, -41.6312, 21.4373, 24.1697)
+light_color = Color(1, 0.742827, 0.992937, 1)
 shadow_enabled = true
 
 [node name="IsoCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.543254, 0.668129, -0.508407, 0.000334382, 0.60573, 0.79567, 0.839568, 0.432081, -0.329289, -36.7838, 38.8347, -21.1955)
+transform = Transform3D(0.886124, 0.355071, -0.297842, 0.275581, 0.113005, 0.954612, 0.372613, -0.927984, 0.00228597, -15.0411, 35.7667, -18.405)
 fov = 54.9
 
 [node name="SpawnPoints" type="Node3D" parent="."]

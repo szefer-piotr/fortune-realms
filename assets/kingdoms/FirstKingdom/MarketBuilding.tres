@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="BuildingConfig" load_steps=9 format=3 uid="uid://030e1q7hsjix"]
+
+[ext_resource type="Script" uid="uid://blcm4k05x3wip" path="res://scripts/config/BuildingLevelConfig.gd" id="1_0447f"]
+[ext_resource type="Texture2D" uid="uid://cv2uj7y6nnk0o" path="res://assets/icons/kingdom1/home_level1.svg" id="2_vw1wb"]
+[ext_resource type="PackedScene" uid="uid://c2kgfsvmepag4" path="res://assets/models/kingdom1/building_well_blue.gltf" id="3_0447f"]
+[ext_resource type="Texture2D" uid="uid://djrk4jpxkviah" path="res://assets/icons/kingdom1/home_level2.svg" id="4_6kcbt"]
+[ext_resource type="PackedScene" uid="uid://d24eki166u1ww" path="res://assets/models/kingdom1/building_watermill_blue.gltf" id="5_vw1wb"]
+[ext_resource type="Script" uid="uid://g3l4vfe6x8e" path="res://scripts/config/BuildingConfig.gd" id="6_ysg1g"]
+
+[sub_resource type="Resource" id="Level1"]
+script = ExtResource("1_0447f")
+cost = 100
+icon = ExtResource("2_vw1wb")
+scene = ExtResource("3_0447f")
+
+[sub_resource type="Resource" id="Level2"]
+script = ExtResource("1_0447f")
+cost = 250
+icon = ExtResource("4_6kcbt")
+scene = ExtResource("5_vw1wb")
+
+[resource]
+script = ExtResource("6_ysg1g")
+display_name = "Water Well"
+spawn_point_path = NodePath("SpawnPoints/Home")
+levels = Array[ExtResource("1_0447f")]([SubResource("Level1"), SubResource("Level2")])

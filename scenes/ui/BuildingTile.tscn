@@ -32,17 +32,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = -16.0
-offset_bottom = -16.0
+offset_left = 63.0
+offset_top = 52.0
+offset_right = 31.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.59175, 0.819371)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 12
 
 [node name="IconContainer" type="CenterContainer" parent="Content"]
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -71,7 +73,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_sg6mu")
-ignore_texture_size = false
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="Content/SpawnButton"]
 layout_mode = 1
