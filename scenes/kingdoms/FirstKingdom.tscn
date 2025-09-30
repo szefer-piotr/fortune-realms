@@ -8,3 +8,9 @@ kingdom_config = ExtResource("2_bmlg4")
 
 [node name="BuildingTileContainer" parent="UI" index="1"]
 anchors_preset = 12
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
