@@ -5,27 +5,33 @@
 [ext_resource type="Texture2D" uid="uid://dufrlr41xv8ym" path="res://assets/icons/kingdom1/tower_level1.svg" id="3"]
 [ext_resource type="Texture2D" uid="uid://bhcuwa0fy2vjr" path="res://assets/icons/kingdom1/tower_level2.svg" id="4"]
 [ext_resource type="Texture2D" uid="uid://b4vbogwuoob48" path="res://assets/icons/kingdom1/tower_level3.svg" id="5"]
-[ext_resource type="PackedScene" path="res://assets/models/kingdom1/tower_level1.tscn" id="6"]
-[ext_resource type="PackedScene" path="res://assets/models/kingdom1/tower_level2.tscn" id="7"]
-[ext_resource type="PackedScene" path="res://assets/models/kingdom1/tower_level3.tscn" id="8"]
+
+[sub_resource type="Resource" id="Resource_rgbae"]
+metadata/__load_path__ = "res://assets/models/kingdom1/tower_level1.tscn"
 
 [sub_resource type="Resource" id="Level1"]
 script = ExtResource("2")
 cost = 220
 icon = ExtResource("3")
-scene = ExtResource("6")
+scene = SubResource("Resource_rgbae")
+
+[sub_resource type="Resource" id="Resource_ro1yp"]
+metadata/__load_path__ = "res://assets/models/kingdom1/tower_level2.tscn"
 
 [sub_resource type="Resource" id="Level2"]
 script = ExtResource("2")
 cost = 520
 icon = ExtResource("4")
-scene = ExtResource("7")
+scene = SubResource("Resource_ro1yp")
+
+[sub_resource type="Resource" id="Resource_jqrjy"]
+metadata/__load_path__ = "res://assets/models/kingdom1/tower_level3.tscn"
 
 [sub_resource type="Resource" id="Level3"]
 script = ExtResource("2")
 cost = 940
 icon = ExtResource("5")
-scene = ExtResource("8")
+scene = SubResource("Resource_jqrjy")
 
 [resource]
 script = ExtResource("1")

@@ -5,3 +5,6 @@
 
 [node name="Kingdom" instance=ExtResource("1_8tsbu")]
 kingdom_config = ExtResource("2_bmlg4")
+
+[node name="BuildingTileContainer" parent="UI" index="1"]
+anchors_preset = 12

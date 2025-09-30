@@ -4,20 +4,24 @@
 [ext_resource type="Script" uid="uid://blcm4k05x3wip" path="res://scripts/config/BuildingLevelConfig.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://ck4f5qmujb8il" path="res://assets/icons/kingdom1/market_level1.svg" id="3"]
 [ext_resource type="Texture2D" uid="uid://de5wxnbor5tvd" path="res://assets/icons/kingdom1/market_level2.svg" id="4"]
-[ext_resource type="PackedScene" path="res://assets/models/kingdom1/market_level1.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://assets/models/kingdom1/market_level2.tscn" id="6"]
+
+[sub_resource type="Resource" id="Resource_0ahtv"]
+metadata/__load_path__ = "res://assets/models/kingdom1/market_level1.tscn"
 
 [sub_resource type="Resource" id="Level1"]
 script = ExtResource("2")
 cost = 180
 icon = ExtResource("3")
-scene = ExtResource("5")
+scene = SubResource("Resource_0ahtv")
+
+[sub_resource type="Resource" id="Resource_ci0gk"]
+metadata/__load_path__ = "res://assets/models/kingdom1/market_level2.tscn"
 
 [sub_resource type="Resource" id="Level2"]
 script = ExtResource("2")
 cost = 420
 icon = ExtResource("4")
-scene = ExtResource("6")
+scene = SubResource("Resource_ci0gk")
 
 [resource]
 script = ExtResource("1")
