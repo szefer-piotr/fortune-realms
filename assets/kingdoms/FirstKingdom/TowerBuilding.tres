@@ -20,5 +20,5 @@ metadata/_custom_type_script = "uid://blcm4k05x3wip"
 [resource]
 script = ExtResource("6_kev1n")
 display_name = "Tower"
-spawn_point_path = NodePath("SpawnPoints/Home")
+spawn_point_path = NodePath("SpawnPoints/Tower")
 levels = Array[ExtResource("1_x14uc")]([SubResource("Resource_x14uc"), SubResource("Resource_mqixc")])
