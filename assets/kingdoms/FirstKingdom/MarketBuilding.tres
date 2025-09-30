@@ -18,5 +18,5 @@ scene = ExtResource("5_vw1wb")
 [resource]
 script = ExtResource("6_ysg1g")
 display_name = "Water Well"
-spawn_point_path = NodePath("SpawnPoints/Home")
+spawn_point_path = NodePath("SpawnPoints/Market")
 levels = Array[ExtResource("1_0447f")]([SubResource("Level1"), SubResource("Level2")])
