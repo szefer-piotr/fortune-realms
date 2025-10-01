@@ -32,15 +32,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 63.0
-offset_top = 52.0
-offset_right = 31.0
-offset_bottom = 20.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.59175, 0.819371)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
 theme_override_constants/separation = 12
 
 [node name="IconContainer" type="CenterContainer" parent="Content"]
