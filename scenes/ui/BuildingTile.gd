@@ -2,9 +2,9 @@ extends Control
 
 @onready var icon_rect: TextureRect = $Content/IconContainer/Icon
 @onready var name_label: Label = $Content/NameLabel
-@onready var cost_label: Label = $Content/CostLabel
+@onready var cost_label: Label = $Content/SpawnButton/CostContainer/CostLabel
+@onready var coin_icon: TextureRect = $Content/SpawnButton/CostContainer/CoinIcon
 @onready var spawn_button: TextureButton = $Content/SpawnButton
-@onready var spawn_label: Label = $Content/SpawnButton/Label
 
 var building_config: BuildingConfig
 var environment_root: Node
@@ -75,21 +75,19 @@ func _update_ui() -> void:
 	if name_label:
 		name_label.text = building_config.display_name if building_config else ""
 
-	if cost_label:
-		if next_level:
-			cost_label.text = "Cost: %d" % next_level.cost
-		elif building_config:
-			cost_label.text = "Max level reached"
-		else:
-			cost_label.text = ""
-
-	if spawn_label:
-		if next_level:
-			spawn_label.text = "Build" if active_level_index < 0 else "Upgrade"
-		elif building_config:
-			spawn_label.text = "Max Level"
-		else:
-			spawn_label.text = ""
+        if cost_label:
+                if next_level:
+                        cost_label.text = String.num_int64(next_level.cost)
+                        if coin_icon:
+                                coin_icon.visible = true
+                elif building_config:
+                        cost_label.text = "Max"
+                        if coin_icon:
+                                coin_icon.visible = false
+                else:
+                        cost_label.text = ""
+                        if coin_icon:
+                                coin_icon.visible = false
 
 	if spawn_button:
 		spawn_button.disabled = not _can_spawn()

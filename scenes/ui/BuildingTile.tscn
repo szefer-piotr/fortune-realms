@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci7p6xyvrqxxe"]
+[gd_scene load_steps=5 format=3 uid="uid://ci7p6xyvrqxxe"]
 
 [ext_resource type="Texture2D" uid="uid://bdboum11konu3" path="res://assets/ui/buildings/building_tile.png" id="1_fr0tu"]
 [ext_resource type="Texture2D" uid="uid://cbf5sq8llhhse" path="res://assets/ui/buildings/building_tile_button.png" id="2_sg6mu"]
 [ext_resource type="Script" uid="uid://ccjnacmftx4t5" path="res://scenes/ui/BuildingTile.gd" id="3_g7g2i"]
+[ext_resource type="Texture2D" uid="uid://bl61y1bu44cjo" path="res://assets/icons/coin.png" id="4_2dimu"]
 
 [node name="BuildingTile" type="Control"]
 custom_minimum_size = Vector2(256, 256)
@@ -61,12 +62,6 @@ size_flags_horizontal = 3
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CostLabel" type="Label" parent="Content"]
-layout_mode = 2
-size_flags_horizontal = 3
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="SpawnButton" type="TextureButton" parent="Content"]
 custom_minimum_size = Vector2(192, 64)
 layout_mode = 2
@@ -76,7 +71,7 @@ texture_normal = ExtResource("2_sg6mu")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Content/SpawnButton"]
+[node name="CostContainer" type="HBoxContainer" parent="Content/SpawnButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,5 +82,19 @@ offset_right = -9.24039
 offset_bottom = -1.34172
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="CoinIcon" type="TextureRect" parent="Content/SpawnButton/CostContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("4_2dimu")
+stretch_mode = 5
+
+[node name="CostLabel" type="Label" parent="Content/SpawnButton/CostContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 horizontal_alignment = 1
 vertical_alignment = 1
