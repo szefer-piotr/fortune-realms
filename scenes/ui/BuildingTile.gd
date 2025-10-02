@@ -3,12 +3,12 @@ extends Control
 const BUILD_LEVEL_ICON := preload("res://assets/icons/build.png")
 const REWARD_LEVEL_ICON := preload("res://assets/icons/reward.png")
 
-@onready var icon_rect: TextureRect = $Content/IconContainer/Icon
-@onready var name_label: Label = $Content/NameLabel
-@onready var level_icons: HBoxContainer = $Content/LevelIcons
-@onready var cost_label: Label = $Content/SpawnButton/CostContainer/CostLabel
-@onready var coin_icon: TextureRect = $Content/SpawnButton/CostContainer/CoinIcon
-@onready var spawn_button: TextureButton = $Content/SpawnButton
+@onready var icon_rect := get_node_or_null("Content/IconContainer/Icon") as TextureRect
+@onready var name_label := get_node_or_null("Content/NameLabel") as Label
+@onready var level_icons := get_node_or_null("Content/LevelIcons") as HBoxContainer
+@onready var cost_label := get_node_or_null("TextureButton/CostContainer/CostLabel") as Label
+@onready var coin_icon := get_node_or_null("TextureButton/CostContainer/CoinIcon") as TextureRect
+@onready var spawn_button := get_node_or_null("TextureButton") as TextureButton
 
 var building_config: BuildingConfig
 var environment_root: Node
@@ -33,10 +33,10 @@ func setup(config: BuildingConfig, environment: Node = null, spawn_override: Nod
 	_ensure_spawn_point()
 	_update_ui()
 
-	if spawn_button:
-		spawn_button.tooltip_text = building_config.display_name if building_config else ""
-	if not spawn_button.pressed.is_connected(_on_spawn_pressed):
-		spawn_button.pressed.connect(_on_spawn_pressed)
+        if spawn_button:
+                spawn_button.tooltip_text = building_config.display_name if building_config else ""
+                if not spawn_button.pressed.is_connected(_on_spawn_pressed):
+                        spawn_button.pressed.connect(_on_spawn_pressed)
 
 
 func _ensure_spawn_point() -> void:
@@ -77,25 +77,25 @@ func _update_ui() -> void:
 	_update_icon(display_level)
 	_update_level_icons()
 
-	if name_label:
-		name_label.text = building_config.display_name if building_config else ""
+        if name_label:
+                name_label.text = building_config.display_name if building_config else ""
 
-		if cost_label:
-				if next_level:
-						cost_label.text = String.num_int64(next_level.cost)
-						if coin_icon:
-								coin_icon.visible = true
-				elif building_config:
-						cost_label.text = "Max"
-						if coin_icon:
-								coin_icon.visible = false
-				else:
-						cost_label.text = ""
-						if coin_icon:
-								coin_icon.visible = false
+        if cost_label:
+                if next_level:
+                        cost_label.text = String.num_int64(next_level.cost)
+                        if coin_icon:
+                                coin_icon.visible = true
+                elif building_config:
+                        cost_label.text = "Max"
+                        if coin_icon:
+                                coin_icon.visible = false
+                else:
+                        cost_label.text = ""
+                        if coin_icon:
+                                coin_icon.visible = false
 
-		if spawn_button:
-				spawn_button.disabled = not _can_spawn()
+        if spawn_button:
+                spawn_button.disabled = not _can_spawn()
 
 
 func _update_icon(level_config: BuildingLevelConfig) -> void:
@@ -106,14 +106,14 @@ func _update_icon(level_config: BuildingLevelConfig) -> void:
 
 	if level_config and level_config.icon:
 		texture = level_config.icon
-	elif building_config:
-		for config_level in building_config.levels:
-			if config_level and config_level.icon:
-				texture = config_level.icon
-				break
+        elif building_config:
+                for config_level in building_config.levels:
+                        if config_level and config_level.icon:
+                                texture = config_level.icon
+                                break
 
-		icon_rect.texture = texture
-		icon_rect.visible = texture != null
+        icon_rect.texture = texture
+        icon_rect.visible = texture != null
 
 
 func _update_level_icons() -> void:
