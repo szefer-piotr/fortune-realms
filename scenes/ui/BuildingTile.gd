@@ -33,10 +33,10 @@ func setup(config: BuildingConfig, environment: Node = null, spawn_override: Nod
 	_ensure_spawn_point()
 	_update_ui()
 
-        if spawn_button:
-                spawn_button.tooltip_text = building_config.display_name if building_config else ""
-                if not spawn_button.pressed.is_connected(_on_spawn_pressed):
-                        spawn_button.pressed.connect(_on_spawn_pressed)
+	if spawn_button:
+		spawn_button.tooltip_text = building_config.display_name if building_config else ""
+		if not spawn_button.pressed.is_connected(_on_spawn_pressed):
+			spawn_button.pressed.connect(_on_spawn_pressed)
 
 
 func _ensure_spawn_point() -> void:
@@ -77,25 +77,25 @@ func _update_ui() -> void:
 	_update_icon(display_level)
 	_update_level_icons()
 
-        if name_label:
-                name_label.text = building_config.display_name if building_config else ""
+	if name_label:
+			name_label.text = building_config.display_name if building_config else ""
 
-        if cost_label:
-                if next_level:
-                        cost_label.text = String.num_int64(next_level.cost)
-                        if coin_icon:
-                                coin_icon.visible = true
-                elif building_config:
-                        cost_label.text = "Max"
-                        if coin_icon:
-                                coin_icon.visible = false
-                else:
-                        cost_label.text = ""
-                        if coin_icon:
-                                coin_icon.visible = false
+	if cost_label:
+		if next_level:
+			cost_label.text = String.num_int64(next_level.cost)
+			if coin_icon:
+				coin_icon.visible = true
+		elif building_config:
+			cost_label.text = "Max"
+			if coin_icon:
+				coin_icon.visible = false
+		else:
+			cost_label.text = ""
+			if coin_icon:
+				coin_icon.visible = false
 
-        if spawn_button:
-                spawn_button.disabled = not _can_spawn()
+	if spawn_button:
+		spawn_button.disabled = not _can_spawn()
 
 
 func _update_icon(level_config: BuildingLevelConfig) -> void:
@@ -106,51 +106,51 @@ func _update_icon(level_config: BuildingLevelConfig) -> void:
 
 	if level_config and level_config.icon:
 		texture = level_config.icon
-        elif building_config:
-                for config_level in building_config.levels:
-                        if config_level and config_level.icon:
-                                texture = config_level.icon
-                                break
+	elif building_config:
+		for config_level in building_config.levels:
+			if config_level and config_level.icon:
+				texture = config_level.icon
+				break
 
-        icon_rect.texture = texture
-        icon_rect.visible = texture != null
+	icon_rect.texture = texture
+	icon_rect.visible = texture != null
 
 
 func _update_level_icons() -> void:
-		if not level_icons:
-				return
+	if not level_icons:
+		return
 
-		for child in level_icons.get_children():
-				child.queue_free()
+	for child in level_icons.get_children():
+		child.queue_free()
 
-		if not building_config or building_config.levels.is_empty():
-				level_icons.visible = false
-				return
+	if not building_config or building_config.levels.is_empty():
+		level_icons.visible = false
+		return
 
-		level_icons.visible = true
+	level_icons.visible = true
 
-		var total_levels := building_config.levels.size()
+	var total_levels := building_config.levels.size()
 
-		for index in total_levels:
-				var icon_texture := BUILD_LEVEL_ICON if index < total_levels - 1 else REWARD_LEVEL_ICON
-				var icon_rect_instance := TextureRect.new()
-				icon_rect_instance.texture = icon_texture
-				icon_rect_instance.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	for index in total_levels:
+		var icon_texture := BUILD_LEVEL_ICON if index < total_levels - 1 else REWARD_LEVEL_ICON
+		var icon_rect_instance := TextureRect.new()
+		icon_rect_instance.texture = icon_texture
+		icon_rect_instance.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 
-				var completed := index <= active_level_index
-				var next_up := index == active_level_index + 1
+		var completed := index <= active_level_index
+		var next_up := index == active_level_index + 1
 
-				if completed:
-						icon_rect_instance.modulate = Color(1, 1, 1, 1)
-				elif next_up:
-						icon_rect_instance.modulate = Color(1, 1, 1, 0.8)
-				else:
-						icon_rect_instance.modulate = Color(1, 1, 1, 0.35)
+		if completed:
+			icon_rect_instance.modulate = Color(1, 1, 1, 1)
+		elif next_up:
+			icon_rect_instance.modulate = Color(1, 1, 1, 0.8)
+		else:
+			icon_rect_instance.modulate = Color(1, 1, 1, 0.35)
 
-				icon_rect_instance.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-				icon_rect_instance.custom_minimum_size = Vector2(24, 24)
+		icon_rect_instance.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		icon_rect_instance.custom_minimum_size = Vector2(24, 24)
 
-				level_icons.add_child(icon_rect_instance)
+		level_icons.add_child(icon_rect_instance)
 
 
 func _get_level_config(index: int) -> BuildingLevelConfig:

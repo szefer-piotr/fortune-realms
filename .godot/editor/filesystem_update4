@@ -9,3 +9,4 @@ res://assets/kingdoms/FirstKingdom/KingdomConfig.tres
 res://scenes/PhysicsTable.tscn
 res://scenes/kingdoms/FirstKingdom.tscn
 res://scenes/ui/BuildingTile.tscn
+res://scenes/ui/BuildingTile.gd
