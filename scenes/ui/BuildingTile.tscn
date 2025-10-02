@@ -62,6 +62,13 @@ size_flags_horizontal = 3
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LevelIcons" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+alignment = 1
+
 [node name="SpawnButton" type="TextureButton" parent="Content"]
 custom_minimum_size = Vector2(110, 50)
 layout_mode = 2
