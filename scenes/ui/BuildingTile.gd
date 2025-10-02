@@ -75,19 +75,19 @@ func _update_ui() -> void:
 	if name_label:
 		name_label.text = building_config.display_name if building_config else ""
 
-        if cost_label:
-                if next_level:
-                        cost_label.text = String.num_int64(next_level.cost)
-                        if coin_icon:
-                                coin_icon.visible = true
-                elif building_config:
-                        cost_label.text = "Max"
-                        if coin_icon:
-                                coin_icon.visible = false
-                else:
-                        cost_label.text = ""
-                        if coin_icon:
-                                coin_icon.visible = false
+		if cost_label:
+				if next_level:
+						cost_label.text = String.num_int64(next_level.cost)
+						if coin_icon:
+								coin_icon.visible = true
+				elif building_config:
+						cost_label.text = "Max"
+						if coin_icon:
+								coin_icon.visible = false
+				else:
+						cost_label.text = ""
+						if coin_icon:
+								coin_icon.visible = false
 
 	if spawn_button:
 		spawn_button.disabled = not _can_spawn()
