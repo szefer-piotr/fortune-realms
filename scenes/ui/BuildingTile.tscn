@@ -22,10 +22,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 2.0
+offset_right = 44.0
+offset_bottom = 156.26
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_fr0tu")
-expand_mode = 1
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Content" type="VBoxContainer" parent="."]
@@ -33,16 +37,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = 24.0
-offset_right = -24.0
-offset_bottom = -24.0
+offset_left = 68.0
+offset_top = 23.0
+offset_right = 20.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.72)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 12
-alignment = 1
 
 [node name="IconContainer" type="CenterContainer" parent="Content"]
 clip_contents = true
@@ -56,12 +60,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="Content"]
-layout_mode = 2
-size_flags_horizontal = 3
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="LevelIcons" type="HBoxContainer" parent="Content"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -69,38 +67,39 @@ size_flags_vertical = 4
 theme_override_constants/separation = 6
 alignment = 1
 
-[node name="SpawnButton" type="TextureButton" parent="Content"]
-custom_minimum_size = Vector2(110, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 300.0
+offset_right = 130.0
+offset_bottom = 340.0
+scale = Vector2(0.302478, 0.302478)
 texture_normal = ExtResource("2_sg6mu")
-ignore_texture_size = true
-stretch_mode = 0
 
-[node name="CostContainer" type="HBoxContainer" parent="Content/SpawnButton"]
+[node name="CostContainer" type="HBoxContainer" parent="TextureButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -9.0
-offset_bottom = -9.0
+offset_left = 46.2843
+offset_top = 3.30598
+offset_right = 72.2842
+offset_bottom = 192.306
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.556723, 0.556723)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="CoinIcon" type="TextureRect" parent="Content/SpawnButton/CostContainer"]
+[node name="CoinIcon" type="TextureRect" parent="TextureButton/CostContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("4_2dimu")
 stretch_mode = 5
 
-[node name="CostLabel" type="Label" parent="Content/SpawnButton/CostContainer"]
+[node name="CostLabel" type="Label" parent="TextureButton/CostContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 112
