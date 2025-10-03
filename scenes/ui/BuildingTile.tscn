@@ -17,6 +17,17 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("3_g7g2i")
 
+[node name="LevelIcons" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 53.0
+offset_top = 247.0
+offset_right = 53.0
+offset_bottom = 247.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+alignment = 1
+
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -59,13 +70,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 stretch_mode = 5
-
-[node name="LevelIcons" type="HBoxContainer" parent="Content"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 6
-alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
