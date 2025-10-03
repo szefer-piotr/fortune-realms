@@ -148,7 +148,7 @@ func _update_level_icons() -> void:
 			icon_rect_instance.modulate = Color(1, 1, 1, 0.35)
 
 		icon_rect_instance.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		icon_rect_instance.custom_minimum_size = Vector2(24, 24)
+		#icon_rect_instance.custom_minimum_size = Vector2(8, 8)
 
 		level_icons.add_child(icon_rect_instance)
 
