@@ -1,4 +1,4 @@
-res://scenes/kingdoms/FirstKingdom.tscn
+res://scenes/Card3D.tscn
 res://assets/kingdoms/Kingdom1/HomeBuilding.tres
 res://assets/kingdoms/Kingdom1/MarketBuilding.tres
 res://assets/kingdoms/Kingdom1/TowerBuilding.tres
@@ -6,7 +6,7 @@ res://assets/kingdoms/FirstKingdom/HomeBuilding.tres
 res://assets/kingdoms/FirstKingdom/MarketBuilding.tres
 res://assets/kingdoms/FirstKingdom/TowerBuilding.tres
 res://assets/kingdoms/FirstKingdom/KingdomConfig.tres
-res://scenes/Card3D.tscn
 res://scenes/PhysicsTable.tscn
+res://scenes/kingdoms/FirstKingdom.tscn
 res://scenes/ui/BuildingTile.tscn
-res://scenes/ui/BuildingTile.gd
+res://scenes/environments/FirstKingdom.tscn

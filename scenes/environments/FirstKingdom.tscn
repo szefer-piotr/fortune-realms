@@ -18,7 +18,7 @@ shadow_enabled = true
 
 [node name="IsoCamera" type="Camera3D" parent="."]
 transform = Transform3D(0.676683, -0.376871, 0.632509, 0, 0.859067, 0.511863, -0.736274, -0.346369, 0.581316, 18.007, 22.1092, 13.1935)
-fov = 36.5625
+fov = 14.2
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
