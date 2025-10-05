@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://16ruswnnpyla" path="res://assets/ui/bars/progres bar_overlay_wooden.png" id="9_mzh22"]
 [ext_resource type="Texture2D" uid="uid://brb1yke7h151h" path="res://assets/ui/buttons/build.png" id="10_hp780"]
 [ext_resource type="Texture2D" uid="uid://drcpd0a3cupvf" path="res://assets/ui/buttons/build_pressed.png" id="11_0sh32"]
-[ext_resource type="Texture2D" path="res://assets/ui/draws.png" id="12_0d1rg"]
+[ext_resource type="Texture2D" uid="uid://drawsekrgb4i8" path="res://assets/ui/draws.png" id="12_0d1rg"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.2
@@ -153,24 +153,25 @@ texture_normal = ExtResource("10_hp780")
 texture_pressed = ExtResource("11_0sh32")
 
 [node name="DrawsContainer" type="HBoxContainer" parent="UI"]
-anchors_preset = 1
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 224.0
-offset_bottom = 74.0
-grow_horizontal = 0
-grow_vertical = 0
+custom_minimum_size = Vector2(10, 10)
+offset_left = 356.0
+offset_top = 209.0
+offset_right = 731.0
+offset_bottom = 506.0
 alignment = 1
 
 [node name="DrawsIcon" type="TextureRect" parent="UI/DrawsContainer"]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
 texture = ExtResource("12_0d1rg")
 stretch_mode = 4
 
 [node name="DrawsLabel" type="Label" parent="UI/DrawsContainer"]
+layout_mode = 2
 theme = SubResource("Theme_teiip")
 theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
 text = "Draws: 100"
 vertical_alignment = 1
 
@@ -184,7 +185,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
 [node name="AttackLabel" type="Label" parent="UI/AttackOverlay"]
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -195,13 +196,13 @@ offset_right = 150.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 theme = SubResource("Theme_teiip")
 theme_override_colors/font_color = Color(1, 0.239216, 0.239216, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "ATTACK!"
 horizontal_alignment = 1
 vertical_alignment = 1
-scale = Vector2(2, 2)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i431q")

@@ -50,13 +50,13 @@ var is_dealing := false
 var is_animating := false
 
 func _ready() -> void:
-        randomize()
-        score_bar.step = 0
-        score_bar.max_value = 21
-        displayed_score = 0
-        _wire_ui()
-        _refresh_draws_ui()
-        _start_round()
+	randomize()
+	score_bar.step = 0
+	score_bar.max_value = 21
+	displayed_score = 0
+	_wire_ui()
+	_refresh_draws_ui()
+	_start_round()
 	
 func _wire_ui() -> void:
 	if draw_button and not draw_button.pressed.is_connected(_on_draw_pressed):
@@ -67,22 +67,22 @@ func _wire_ui() -> void:
 		build_button.pressed.connect(_on_build_pressed)
 
 func _start_round() -> void:
-        is_dealing = false
-        is_animating = false
-        jackpot_card = null
-        last_dealt_card = null
-        last_fall_time = 0.0
-        _refresh_draws_ui()
-        _enable_inputs(true, false)
+	is_dealing = false
+	is_animating = false
+	jackpot_card = null
+	last_dealt_card = null
+	last_fall_time = 0.0
+	_refresh_draws_ui()
+	_enable_inputs(true, false)
 
 func _enable_inputs(draw: bool, hold: bool) -> void:
-        var can_draw := draw and draws_remaining > 0 and not is_dealing and not is_animating
-        var can_hold := hold and not is_dealing and not is_animating
-        if draw_button:
-                draw_button.disabled = not can_draw
-        if hold_button:
-                hold_button.disabled = not can_hold
-        _refresh_draws_ui()
+	var can_draw := draw and draws_remaining > 0 and not is_dealing and not is_animating
+	var can_hold := hold and not is_dealing and not is_animating
+	if draw_button:
+		draw_button.disabled = not can_draw
+	if hold_button:
+		hold_button.disabled = not can_hold
+	_refresh_draws_ui()
 	
 	
 func _lock_inputs() -> void:
@@ -268,54 +268,6 @@ func _play_bust_animation() -> void:
 
 	await get_tree().create_timer(0.6).timeout
 
-
-#func _play_jackpot_animation() -> void:
-	#if not jackpot_card:
-		#await get_tree().create_timer(1).timeout
-		#return
-#
-	## Stop physics from fighting the pose during the cinematic
-	#jackpot_card.linear_velocity = Vector3.ZERO
-	#jackpot_card.angular_velocity = Vector3.ZERO
-	#jackpot_card.freeze = true  # 4.x
-#
-	#var cam_xform := camera.global_transform
-	#var distance := 2.0
-	#var target_pos := cam_xform.origin - cam_xform.basis.z * distance
-#
-	## Direction from card to camera
-	#var to_cam := (cam_xform.origin - jackpot_card.global_transform.origin).normalized()
-#
-	## ✅ STATIC call, not instance:
-	#var target_basis := Basis.looking_at(to_cam, Vector3.UP)
-#
-	## If your card art faces +Z (instead of default -Z), flip 180° around Y:
-	#var flip_face := false  # set true if the face still looks away
-	#if flip_face:
-		#target_basis = target_basis * Basis(Vector3.UP, PI)
-#
-	## Slide and rotate in parallel
-	#var tw := create_tween()
-	#tw.set_parallel(true)
-	#tw.tween_property(jackpot_card, "global_transform:origin", target_pos, 0.3)
-	#tw.tween_property(jackpot_card, "global_transform:basis", target_basis, 0.3)
-	#await tw.finished
-#
-	## Friendly sway
-	#var base_rot := jackpot_card.rotation
-	#var offset := 0.12
-	#var sway := create_tween()
-	#for i in range(3):
-		#sway.tween_property(jackpot_card, "rotation", base_rot + Vector3(0.0, offset, 0.0), 0.1)
-		#sway.tween_property(jackpot_card, "rotation", base_rot - Vector3(0.0, offset, 0.0), 0.1)
-	#sway.tween_property(jackpot_card, "rotation", base_rot, 0.1)
-	#await sway.finished
-#
-	#await get_tree().create_timer(1).timeout
-#
-	## Re-enable physics after showcase
-	#jackpot_card.freeze = false
-
 # Build a Basis whose local -Y axis points along `dir` (so the card face, which is -Y, looks at the camera)
 func _basis_with_minus_y_facing(dir: Vector3, up_hint: Vector3) -> Basis:
 	var forward := dir.normalized()         # we want -Y to align with this
@@ -400,19 +352,19 @@ func _jiggle_progress_bar() -> void:
 # UI events
 
 func _on_draw_pressed() -> void:
-        if is_dealing or is_animating or draws_remaining <= 0:
-                return
-        draws_remaining = max(draws_remaining - 1, 0)
-        _refresh_draws_ui()
-        _lock_inputs()
-        await _auto_draw_round()
-        await _evaluate_round()
+	if is_dealing or is_animating or draws_remaining <= 0:
+		return
+	draws_remaining = max(draws_remaining - 1, 0)
+	_refresh_draws_ui()
+	_lock_inputs()
+	await _auto_draw_round()
+	await _evaluate_round()
 
 func _refresh_draws_ui() -> void:
-        if draws_label:
-                draws_label.text = "Draws: %d" % max(draws_remaining, 0)
-        if attack_overlay:
-                attack_overlay.visible = draws_remaining <= 0
+	if draws_label:
+		draws_label.text = "Draws: %d" % max(draws_remaining, 0)
+	if attack_overlay:
+		attack_overlay.visible = draws_remaining <= 0
 
 func _on_hold_pressed() -> void:
 	if is_dealing or is_animating:
@@ -421,61 +373,3 @@ func _on_hold_pressed() -> void:
 
 func _on_build_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/kingdoms/FirstKingdom.tscn")
-
-#func _spawn_confetti(at: Vector3) -> void:
-	#var p := CPUParticles3D.new()
-	#p.one_shot = true
-	#p.amount = 180
-	#p.lifetime = 1.2
-	#p.local_coords = true
-	#p.emitting = false
-	#p.transform.origin = at
-	#
-	#p.color_ramp = _make_confetti_ramp()   # <-- expects GradientTexture1D
-	#add_child(p)
-	#p.emitting = true
-#
-	#var quad := QuadMesh.new()
-	#quad.size = Vector2(0.12, 0.12)
-	#p.mesh = quad
-#
-	## Particle params set directly on CPUParticles3D in Godot 4.x
-	#p.direction = Vector3(0, 1, 0)
-	#p.spread = 85.0
-	#p.initial_velocity_min = 8.0
-	#p.initial_velocity_max = 14.0
-	#p.angular_velocity_min = -8.0
-	#p.angular_velocity_max = 8.0
-	#p.gravity = Vector3(0, -7.5, 0)
-	#p.scale_min = 0.08
-	#p.scale_max = 0.16
-#
-	## Build the gradient, then wrap it in a GradientTexture1D
-	#var grad := Gradient.new()
-	#grad.add_point(0.0,  Color.html("#ff5470"))
-	#grad.add_point(0.25, Color.html("#ffd166"))
-	#grad.add_point(0.5,  Color.html("#06d6a0"))
-	#grad.add_point(0.75, Color.html("#118ab2"))
-	#grad.add_point(1.0,  Color.WHITE)
-#
-	#var ramp := GradientTexture1D.new()
-	#ramp.gradient = grad
-	#p.color_ramp = ramp   # <- expects GradientTexture1D
-#
-	#add_child(p)
-	#p.emitting = true
-	#await get_tree().create_timer(p.lifetime + 0.5).timeout
-	#if is_instance_valid(p):
-		#p.queue_free()
-#
-#func _make_confetti_ramp() -> GradientTexture1D:
-	#var grad: Gradient = Gradient.new()
-	#grad.add_point(0.00, Color.html("#ff5470"))
-	#grad.add_point(0.25, Color.html("#ffd166"))
-	#grad.add_point(0.50, Color.html("#06d6a0"))
-	#grad.add_point(0.75, Color.html("#118ab2"))
-	#grad.add_point(1.00, Color.WHITE)
-#
-	#var ramp: GradientTexture1D = GradientTexture1D.new()
-	#ramp.gradient = grad
-	#return ramp
