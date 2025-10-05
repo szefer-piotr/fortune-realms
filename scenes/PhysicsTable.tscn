@@ -153,18 +153,19 @@ texture_normal = ExtResource("10_hp780")
 texture_pressed = ExtResource("11_0sh32")
 
 [node name="DrawsContainer" type="HBoxContainer" parent="UI"]
-custom_minimum_size = Vector2(10, 10)
-offset_left = 356.0
-offset_top = 209.0
-offset_right = 731.0
-offset_bottom = 506.0
+offset_left = 77.0
+offset_top = 392.0
+offset_right = 452.0
+offset_bottom = 689.0
 alignment = 1
 
 [node name="DrawsIcon" type="TextureRect" parent="UI/DrawsContainer"]
-custom_minimum_size = Vector2(10, 10)
+custom_minimum_size = Vector2(60, 30)
 layout_mode = 2
 texture = ExtResource("12_0d1rg")
-stretch_mode = 4
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
 
 [node name="DrawsLabel" type="Label" parent="UI/DrawsContainer"]
 layout_mode = 2
