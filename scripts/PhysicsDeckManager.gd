@@ -29,6 +29,8 @@ const SCATTER_SPEED := 12.0
 @onready var score_label: Label = $UI/ScoreLabel
 @onready var score_bar: TextureProgressBar = $UI/ScoreBar
 @onready var total_score_label: Label = $UI/TotalScoreLabel
+@onready var draws_label: Label = $UI/DrawsContainer/DrawsLabel
+@onready var attack_overlay: ColorRect = $UI/AttackOverlay
 
 # Runtime
 var cards: Array[RigidBody3D] = []
@@ -40,6 +42,7 @@ var card_count := 0
 var round_score := 0
 var total_score := 0
 var displayed_score := 0
+var draws_remaining := 100
 
 var score_update_queue: Array[int] = []
 var processing_scores := false
@@ -47,12 +50,13 @@ var is_dealing := false
 var is_animating := false
 
 func _ready() -> void:
-	randomize()
-	score_bar.step = 0
-	score_bar.max_value = 21
-	displayed_score = 0
-	_wire_ui()
-	_start_round()
+        randomize()
+        score_bar.step = 0
+        score_bar.max_value = 21
+        displayed_score = 0
+        _wire_ui()
+        _refresh_draws_ui()
+        _start_round()
 	
 func _wire_ui() -> void:
 	if draw_button and not draw_button.pressed.is_connected(_on_draw_pressed):
@@ -63,18 +67,22 @@ func _wire_ui() -> void:
 		build_button.pressed.connect(_on_build_pressed)
 
 func _start_round() -> void:
-	is_dealing = false
-	is_animating = false
-	jackpot_card = null
-	last_dealt_card = null
-	last_fall_time = 0.0
-	_enable_inputs(true, false)
+        is_dealing = false
+        is_animating = false
+        jackpot_card = null
+        last_dealt_card = null
+        last_fall_time = 0.0
+        _refresh_draws_ui()
+        _enable_inputs(true, false)
 
 func _enable_inputs(draw: bool, hold: bool) -> void:
-	if draw_button:
-		draw_button.disabled = not draw or is_dealing or is_animating
-	if hold_button:
-		hold_button.disabled = not hold or is_dealing or is_animating
+        var can_draw := draw and draws_remaining > 0 and not is_dealing and not is_animating
+        var can_hold := hold and not is_dealing and not is_animating
+        if draw_button:
+                draw_button.disabled = not can_draw
+        if hold_button:
+                hold_button.disabled = not can_hold
+        _refresh_draws_ui()
 	
 	
 func _lock_inputs() -> void:
@@ -392,11 +400,19 @@ func _jiggle_progress_bar() -> void:
 # UI events
 
 func _on_draw_pressed() -> void:
-	if is_dealing or is_animating:
-		return
-	_lock_inputs()
-	await _auto_draw_round()
-	await _evaluate_round()
+        if is_dealing or is_animating or draws_remaining <= 0:
+                return
+        draws_remaining = max(draws_remaining - 1, 0)
+        _refresh_draws_ui()
+        _lock_inputs()
+        await _auto_draw_round()
+        await _evaluate_round()
+
+func _refresh_draws_ui() -> void:
+        if draws_label:
+                draws_label.text = "Draws: %d" % max(draws_remaining, 0)
+        if attack_overlay:
+                attack_overlay.visible = draws_remaining <= 0
 
 func _on_hold_pressed() -> void:
 	if is_dealing or is_animating:
