@@ -117,7 +117,7 @@ offset_right = 90.0
 offset_bottom = -260.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+scale = Vector2(1.4400002, 1.4400002)
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme = SubResource("Theme_teiip")
@@ -125,19 +125,14 @@ theme = SubResource("Theme_teiip")
 [node name="TotalScoreIcon" type="TextureRect" parent="UI/TotalScoreContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-grow_horizontal = 0
-grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 4
-scale = Vector2(0.35, 0.35)
 texture = ExtResource("13_7s1k7")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="TotalScoreLabel" type="Label" parent="UI/TotalScoreContainer"]
 layout_mode = 2
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "0"
