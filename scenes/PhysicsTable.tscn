@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://durc7b7iguq8j"]
+[gd_scene load_steps=20 format=3 uid="uid://durc7b7iguq8j"]
 
 [ext_resource type="Texture2D" uid="uid://b4g3082mkfsxo" path="res://assets/cards_png/gpt_game_assets/background_2.png" id="1"]
 [ext_resource type="Script" uid="uid://wvect22etct2" path="res://scripts/PhysicsDeckManager.gd" id="2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://brb1yke7h151h" path="res://assets/ui/buttons/build.png" id="10_hp780"]
 [ext_resource type="Texture2D" uid="uid://drcpd0a3cupvf" path="res://assets/ui/buttons/build_pressed.png" id="11_0sh32"]
 [ext_resource type="Texture2D" uid="uid://drawsekrgb4i8" path="res://assets/ui/draws.png" id="12_0d1rg"]
+[ext_resource type="Texture2D" uid="uid://de1wsvr4s1wr8" path="res://assets/ui/main_coin.png" id="13_7s1k7"]
 
 [sub_resource type="PhysicsMaterial" id="1"]
 friction = 0.2
@@ -104,15 +105,31 @@ texture_under = ExtResource("7_lqfcu")
 texture_over = ExtResource("9_mzh22")
 texture_progress = ExtResource("8_zd8al")
 
+[node name="TotalScoreIcon" type="TextureRect" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -304.0
+offset_right = -44.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("13_7s1k7")
+stretch_mode = 5
+
 [node name="TotalScoreLabel" type="Label" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -41.0
+offset_left = -16.0
 offset_top = -299.0
-offset_right = 33.0
+offset_right = 58.0
 offset_bottom = -269.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -120,7 +137,7 @@ scale = Vector2(2, 2)
 theme = SubResource("Theme_teiip")
 theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "Total: 0"
+text = "0"
 horizontal_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="UI"]
