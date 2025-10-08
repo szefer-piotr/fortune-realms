@@ -223,7 +223,7 @@ func _end_round(message: String, points: int, is_jackpot: bool = false, is_bust:
 		await _play_jackpot_animation()
 	
 	total_score += points
-	total_score_label.text = "Total: %d" % total_score
+		total_score_label.text = "%d" % total_score
 
 	await get_tree().create_timer(END_PAUSE).timeout
 	
