@@ -1,0 +1,227 @@
+[gd_scene load_steps=20 format=3 uid="uid://durc7b7iguq8j"]
+
+[ext_resource type="Texture2D" uid="uid://b4g3082mkfsxo" path="res://assets/cards_png/gpt_game_assets/background_2.png" id="1"]
+[ext_resource type="Script" uid="uid://wvect22etct2" path="res://scripts/PhysicsDeckManager.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://ddqdboqblvytn" path="res://assets/ui/button_draw_transparent.png" id="3_ynu8k"]
+[ext_resource type="Texture2D" uid="uid://ct0cp46wx6qg2" path="res://assets/ui/button_hold_transparent.png" id="4_dl2mo"]
+[ext_resource type="Texture2D" uid="uid://dtjkvhycg8h7k" path="res://assets/ui/button_draw_pressed_transparent.png" id="4_kxug7"]
+[ext_resource type="Texture2D" uid="uid://db34exs3rskxg" path="res://assets/ui/button_hold_pressed_transparent.png" id="6_kxug7"]
+[ext_resource type="Texture2D" uid="uid://btets6e6f5bcs" path="res://assets/ui/bars/progres_bar_underlay_wooden.png" id="7_lqfcu"]
+[ext_resource type="Texture2D" uid="uid://c583er4aa15m1" path="res://assets/ui/bars/progres_bar_gold_fill.png" id="8_zd8al"]
+[ext_resource type="Texture2D" uid="uid://16ruswnnpyla" path="res://assets/ui/bars/progres bar_overlay_wooden.png" id="9_mzh22"]
+[ext_resource type="Texture2D" uid="uid://brb1yke7h151h" path="res://assets/ui/buttons/build.png" id="10_hp780"]
+[ext_resource type="Texture2D" uid="uid://drcpd0a3cupvf" path="res://assets/ui/buttons/build_pressed.png" id="11_0sh32"]
+[ext_resource type="Texture2D" uid="uid://drawsekrgb4i8" path="res://assets/ui/draws.png" id="12_0d1rg"]
+[ext_resource type="Texture2D" uid="uid://de1wsvr4s1wr8" path="res://assets/ui/main_coin.png" id="13_7s1k7"]
+
+[sub_resource type="PhysicsMaterial" id="1"]
+friction = 0.2
+
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(6, 0.144849, 6)
+
+[sub_resource type="StandardMaterial3D" id="3"]
+albedo_texture = ExtResource("1")
+
+[sub_resource type="PlaneMesh" id="2"]
+size = Vector2(6, 6)
+
+[sub_resource type="Theme" id="Theme_teiip"]
+default_font_size = 21
+
+[sub_resource type="Environment" id="Environment_i431q"]
+
+[node name="PhysicsTable" type="Node3D"]
+script = ExtResource("2")
+
+[node name="Table" type="StaticBody3D" parent="."]
+transform = Transform3D(1.67017, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+physics_material_override = SubResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0224243, 0)
+shape = SubResource("4")
+
+[node name="Mesh" type="MeshInstance3D" parent="Table"]
+material_override = SubResource("3")
+mesh = SubResource("2")
+
+[node name="DeckSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.74501)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00455555, 0.99999, 0, -0.99999, -0.00455555, 0, 4, -0.0141735)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DrawButton" type="TextureButton" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -182.0
+offset_right = 884.0
+offset_bottom = 842.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("3_ynu8k")
+texture_pressed = ExtResource("4_kxug7")
+
+[node name="HoldButton" type="TextureButton" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -182.0
+offset_right = 1029.0
+offset_bottom = 842.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("4_dl2mo")
+texture_pressed = ExtResource("6_kxug7")
+
+[node name="ScoreBar" type="TextureProgressBar" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -232.0
+offset_right = 761.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+max_value = 21.0
+step = 0.0
+texture_under = ExtResource("7_lqfcu")
+texture_over = ExtResource("9_mzh22")
+texture_progress = ExtResource("8_zd8al")
+
+[node name="TotalScoreContainer" type="HBoxContainer" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -308.0
+offset_right = 90.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4400002, 1.4400002)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_teiip")
+
+[node name="TotalScoreIcon" type="TextureRect" parent="UI/TotalScoreContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("13_7s1k7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TotalScoreLabel" type="Label" parent="UI/TotalScoreContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -218.0
+offset_right = -110.0
+offset_bottom = -188.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+size_flags_vertical = 0
+theme = SubResource("Theme_teiip")
+theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="BuildButton" type="TextureButton" parent="UI"]
+offset_left = 978.0
+offset_top = 468.0
+offset_right = 2002.0
+offset_bottom = 1492.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("10_hp780")
+texture_pressed = ExtResource("11_0sh32")
+
+[node name="DrawsContainer" type="HBoxContainer" parent="UI"]
+offset_left = 77.0
+offset_top = 392.0
+offset_right = 452.0
+offset_bottom = 689.0
+alignment = 1
+
+[node name="DrawsIcon" type="TextureRect" parent="UI/DrawsContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+texture = ExtResource("12_0d1rg")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="DrawsLabel" type="Label" parent="UI/DrawsContainer"]
+layout_mode = 2
+theme = SubResource("Theme_teiip")
+theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Rounds: 100"
+vertical_alignment = 1
+
+[node name="AttackOverlay" type="ColorRect" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="AttackLabel" type="Label" parent="UI/AttackOverlay"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -40.0
+offset_right = 150.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme = SubResource("Theme_teiip")
+theme_override_colors/font_color = Color(1, 0.239216, 0.239216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "ATTACK!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i431q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -0.652059, 0.758169, 0, -0.758169, -0.652059, 0, 2.30908, -3.9879)

@@ -5,3 +5,4 @@ res://assets/kingdoms/Kingdom1/TowerBuilding.tres
 res://assets/kingdoms/FirstKingdom/HomeBuilding.tres
 res://assets/kingdoms/FirstKingdom/MarketBuilding.tres
 res://assets/kingdoms/FirstKingdom/TowerBuilding.tres
+res://scripts/PhysicsDeckManager.gd
