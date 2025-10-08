@@ -28,7 +28,7 @@ const SCATTER_SPEED := 12.0
 @onready var build_button: TextureButton = $UI/BuildButton
 @onready var score_label: Label = $UI/ScoreLabel
 @onready var score_bar: TextureProgressBar = $UI/ScoreBar
-@onready var total_score_label: Label = $UI/TotalScoreLabel
+@onready var total_score_label: Label = $UI/TotalScoreContainer/TotalScoreLabel
 @onready var draws_label: Label = $UI/DrawsContainer/DrawsLabel
 @onready var attack_overlay: ColorRect = $UI/AttackOverlay
 
