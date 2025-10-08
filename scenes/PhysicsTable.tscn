@@ -188,7 +188,7 @@ theme = SubResource("Theme_teiip")
 theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
-text = "Draws: 100"
+text = "Rounds: 100"
 vertical_alignment = 1
 
 [node name="AttackOverlay" type="ColorRect" parent="UI"]

@@ -43,6 +43,7 @@ var round_score := 0
 var total_score := 0
 var displayed_score := 0
 var draws_remaining := 100
+var is_round_active := false
 
 var score_update_queue: Array[int] = []
 var processing_scores := false
@@ -67,21 +68,23 @@ func _wire_ui() -> void:
 		build_button.pressed.connect(_on_build_pressed)
 
 func _start_round() -> void:
-	is_dealing = false
-	is_animating = false
-	jackpot_card = null
-	last_dealt_card = null
-	last_fall_time = 0.0
-	_refresh_draws_ui()
-	_enable_inputs(true, false)
+        is_dealing = false
+        is_animating = false
+        jackpot_card = null
+        last_dealt_card = null
+        last_fall_time = 0.0
+        is_round_active = false
+        _refresh_draws_ui()
+        _enable_inputs(true, false)
 
 func _enable_inputs(draw: bool, hold: bool) -> void:
-	var can_draw := draw and draws_remaining > 0 and not is_dealing and not is_animating
-	var can_hold := hold and not is_dealing and not is_animating
-	if draw_button:
-		draw_button.disabled = not can_draw
-	if hold_button:
-		hold_button.disabled = not can_hold
+        var has_rounds_available := draws_remaining > 0 or is_round_active
+        var can_draw := draw and has_rounds_available and not is_dealing and not is_animating
+        var can_hold := hold and not is_dealing and not is_animating
+        if draw_button:
+                draw_button.disabled = not can_draw
+        if hold_button:
+                hold_button.disabled = not can_hold
 	_refresh_draws_ui()
 	
 	
@@ -352,19 +355,23 @@ func _jiggle_progress_bar() -> void:
 # UI events
 
 func _on_draw_pressed() -> void:
-	if is_dealing or is_animating or draws_remaining <= 0:
-		return
-	draws_remaining = max(draws_remaining - 1, 0)
-	_refresh_draws_ui()
-	_lock_inputs()
-	await _auto_draw_round()
-	await _evaluate_round()
+        if is_dealing or is_animating:
+                return
+        if not is_round_active:
+                if draws_remaining <= 0:
+                        return
+                draws_remaining = max(draws_remaining - 1, 0)
+                is_round_active = true
+                _refresh_draws_ui()
+        _lock_inputs()
+        await _auto_draw_round()
+        await _evaluate_round()
 
 func _refresh_draws_ui() -> void:
-	if draws_label:
-		draws_label.text = "Draws: %d" % max(draws_remaining, 0)
-	if attack_overlay:
-		attack_overlay.visible = draws_remaining <= 0
+        if draws_label:
+                draws_label.text = "Rounds: %d" % max(draws_remaining, 0)
+        if attack_overlay:
+                attack_overlay.visible = draws_remaining <= 0 and not is_round_active
 
 func _on_hold_pressed() -> void:
 	if is_dealing or is_animating:
