@@ -168,10 +168,10 @@ texture_normal = ExtResource("10_hp780")
 texture_pressed = ExtResource("11_0sh32")
 
 [node name="DrawsContainer" type="HBoxContainer" parent="UI"]
-offset_left = 77.0
-offset_top = 392.0
-offset_right = 452.0
-offset_bottom = 689.0
+offset_left = -34.0
+offset_top = -95.0
+offset_right = 341.0
+offset_bottom = 202.0
 alignment = 1
 
 [node name="DrawsIcon" type="TextureRect" parent="UI/DrawsContainer"]
