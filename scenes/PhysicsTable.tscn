@@ -158,6 +158,26 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "0"
 horizontal_alignment = 1
 
+[node name="CardCountsLabel" type="Label" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -170.0
+offset_right = 220.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+theme = SubResource("Theme_teiip")
+theme_override_colors/font_color = Color(0.832235, 0.713053, 0.620879, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Card Faces: Coins 0 | Draws 0 | Thief 0 | Warrior 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BuildButton" type="TextureButton" parent="UI"]
 offset_left = 978.0
 offset_top = 468.0
