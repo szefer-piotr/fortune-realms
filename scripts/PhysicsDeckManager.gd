@@ -19,6 +19,7 @@ const BUST_JIGGLE_STRENGTH := 6.0
 const BUST_JIGGLE_REPEAT := 2
 const END_PAUSE := 0.35
 const SCATTER_SPEED := 12.0
+const Card3D := preload("res://scripts/Card3D.gd")
 
 # Nodes
 @onready var deck_spawn: Marker3D = $DeckSpawn
@@ -31,6 +32,7 @@ const SCATTER_SPEED := 12.0
 @onready var total_score_label: Label = $UI/TotalScoreContainer/TotalScoreLabel
 @onready var draws_label: Label = $UI/DrawsContainer/DrawsLabel
 @onready var attack_overlay: ColorRect = $UI/AttackOverlay
+@onready var card_counts_label: Label = $UI/CardCountsLabel
 
 # Runtime
 var cards: Array[RigidBody3D] = []
@@ -49,33 +51,56 @@ var score_update_queue: Array[int] = []
 var processing_scores := false
 var is_dealing := false
 var is_animating := false
+var card_face_counts := {}
+var card_face_names: Array[String] = []
 
 func _ready() -> void:
-	randomize()
-	score_bar.step = 0
-	score_bar.max_value = 21
-	displayed_score = 0
-	_wire_ui()
-	_refresh_draws_ui()
-	_start_round()
+        randomize()
+        score_bar.step = 0
+        score_bar.max_value = 21
+        displayed_score = 0
+        card_face_names = Card3D.default_icon_types()
+        _reset_card_face_counts()
+        _wire_ui()
+        _refresh_draws_ui()
+        _start_round()
 	
 func _wire_ui() -> void:
-	if draw_button and not draw_button.pressed.is_connected(_on_draw_pressed):
-		draw_button.pressed.connect(_on_draw_pressed)
-	if hold_button and not hold_button.pressed.is_connected(_on_hold_pressed):
-		hold_button.pressed.connect(_on_hold_pressed)
-	if build_button and not build_button.pressed.is_connected(_on_build_pressed):
-		build_button.pressed.connect(_on_build_pressed)
+        if draw_button and not draw_button.pressed.is_connected(_on_draw_pressed):
+                draw_button.pressed.connect(_on_draw_pressed)
+        if hold_button and not hold_button.pressed.is_connected(_on_hold_pressed):
+                hold_button.pressed.connect(_on_hold_pressed)
+        if build_button and not build_button.pressed.is_connected(_on_build_pressed):
+                build_button.pressed.connect(_on_build_pressed)
+
+func _reset_card_face_counts() -> void:
+        card_face_counts.clear()
+        for name in card_face_names:
+                card_face_counts[name] = 0
+        _update_card_counts_label()
+
+func _update_card_counts_label() -> void:
+        if not card_counts_label:
+                return
+        if card_face_names.size() == 0:
+                card_counts_label.text = "Card Faces: -"
+                return
+        var parts: Array[String] = []
+        for name in card_face_names:
+                var count := int(card_face_counts.get(name, 0))
+                parts.append("%s %d" % [name.capitalize(), count])
+        card_counts_label.text = "Card Faces: " + " | ".join(parts)
 
 func _start_round() -> void:
-		is_dealing = false
-		is_animating = false
-		jackpot_card = null
-		last_dealt_card = null
-		last_fall_time = 0.0
-		is_round_active = false
-		_refresh_draws_ui()
-		_enable_inputs(true, false)
+                is_dealing = false
+                is_animating = false
+                jackpot_card = null
+                last_dealt_card = null
+                last_fall_time = 0.0
+                is_round_active = false
+                _reset_card_face_counts()
+                _refresh_draws_ui()
+                _enable_inputs(true, false)
 
 func _enable_inputs(draw: bool, hold: bool) -> void:
 	var has_rounds_available := draws_remaining > 0 or is_round_active
@@ -114,12 +139,23 @@ func _deal_card() -> void:
 	last_dealt_card = card
 	
 	# Pick texture
-	var tex = card.face_textures[randi_range(0, card.face_textures.size() - 1)]
-	card.set_face_texture(tex)
-	
-	# Spawn position
-	var pos := deck_spawn.global_transform.origin
-	pos.y += spawn_height
+        var tex = card.face_textures[randi_range(0, card.face_textures.size() - 1)]
+        card.set_face_texture(tex)
+
+        var icon_name := card.icon_type
+        if icon_name == "unknown" and tex:
+                var tex_path := tex.resource_path
+                if tex_path != "":
+                        icon_name = tex_path.get_file().get_basename()
+        if icon_name != "":
+                if not card_face_names.has(icon_name):
+                        card_face_names.append(icon_name)
+                card_face_counts[icon_name] = int(card_face_counts.get(icon_name, 0)) + 1
+                _update_card_counts_label()
+
+        # Spawn position
+        var pos := deck_spawn.global_transform.origin
+        pos.y += spawn_height
 	pos.x += row_spacing * (card_count - (MAX_CARDS - 1) / 2.0)
 	pos.z = 0.5
 	card.global_transform.origin = pos
