@@ -1,10 +1,10 @@
 extends RigidBody3D
 
 const DEFAULT_FACE_TEXTURES := [
-        preload("res://assets/cards_png/gpt_game_assets/cards_simple/coins.png"),
-        preload("res://assets/cards_png/gpt_game_assets/cards_simple/draws.png"),
-        preload("res://assets/cards_png/gpt_game_assets/cards_simple/thief.png"),
-        preload("res://assets/cards_png/gpt_game_assets/cards_simple/warrior.png"),
+		preload("res://assets/cards_png/gpt_game_assets/cards_simple/coins.png"),
+		preload("res://assets/cards_png/gpt_game_assets/cards_simple/draws.png"),
+		preload("res://assets/cards_png/gpt_game_assets/cards_simple/thief.png"),
+		preload("res://assets/cards_png/gpt_game_assets/cards_simple/warrior.png"),
 ]
 
 @export var face_textures: Array[Texture2D] = DEFAULT_FACE_TEXTURES.duplicate()
@@ -134,20 +134,20 @@ func _stop_highlight_tween() -> void:
 	_glow_mat.emission_energy_multiplier = highlight_emission_min
 
 func _infer_icon_from_texture(tex: Texture2D) -> String:
-        var p := tex.resource_path
-        if p == "":
-                return "unknown"
-        # "res://.../coins.png" -> "coins"
-        return p.get_file().get_basename()
+		var p := tex.resource_path
+		if p == "":
+				return "unknown"
+		# "res://.../coins.png" -> "coins"
+		return p.get_file().get_basename()
 
 static func default_icon_types() -> Array[String]:
-        var icons: Array[String] = []
-        for tex in DEFAULT_FACE_TEXTURES:
-                if tex:
-                        var path := tex.resource_path
-                        if path != "":
-                                icons.append(path.get_file().get_basename())
-        return icons
+	var icons: Array[String] = []
+	for tex in DEFAULT_FACE_TEXTURES:
+		if tex:
+			var path : String = tex.resource_path
+			if path != "":
+				icons.append(path.get_file().get_basename())
+	return icons
 
 func _make_combo_fx() -> CPUParticles3D:
 	var p := CPUParticles3D.new()
