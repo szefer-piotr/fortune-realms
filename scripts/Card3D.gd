@@ -1,13 +1,13 @@
 extends RigidBody3D
 
-const DEFAULT_FACE_TEXTURES := [
+const DEFAULT_FACE_TEXTURES : Array[Texture2D] = [
 		preload("res://assets/cards_png/gpt_game_assets/cards_simple/coins.png"),
 		preload("res://assets/cards_png/gpt_game_assets/cards_simple/draws.png"),
 		preload("res://assets/cards_png/gpt_game_assets/cards_simple/thief.png"),
 		preload("res://assets/cards_png/gpt_game_assets/cards_simple/warrior.png"),
 ]
 
-@export var face_textures: Array[Texture2D] = DEFAULT_FACE_TEXTURES.duplicate()
+@export var face_textures: Array[Texture2D] = DEFAULT_FACE_TEXTURES.duplicate() as Array[Texture2D]
 
 # Auto-filled when you set the texture
 @export var icon_type: String = "unknown"
