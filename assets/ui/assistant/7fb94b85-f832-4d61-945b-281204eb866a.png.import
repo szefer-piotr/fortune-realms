@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sqswfoctobjf"
-path="res://.godot/imported/steal_character.png-b2c9fe0a7661456b70c70d9f7361db63.ctex"
+uid="uid://bro8dxu2uhanj"
+path="res://.godot/imported/7fb94b85-f832-4d61-945b-281204eb866a.png-56baeb9351a1f907768a02afb157d20a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/action_displays/steal_character.png"
-dest_files=["res://.godot/imported/steal_character.png-b2c9fe0a7661456b70c70d9f7361db63.ctex"]
+source_file="res://assets/ui/assistant/7fb94b85-f832-4d61-945b-281204eb866a.png"
+dest_files=["res://.godot/imported/7fb94b85-f832-4d61-945b-281204eb866a.png-56baeb9351a1f907768a02afb157d20a.ctex"]
 
 [params]
 

@@ -84,18 +84,24 @@ building_windmill_blue.gltf::PackedScene/PackedScene::2276225044005771444::17589
 hexagons_medieval.png::CompressedTexture2D/CompressedTexture2D::7579214254613683811::1758957439::1758960316::1::::<><><>0<>0<>a0fa126d1443d1db39fe91c450027f5d<>res://.godot/imported/hexagons_medieval.png-3560fea036360b381b7db8a7da043374.s3tc.ctex::
 ::res://assets/sounds/::1757564453
 ::res://assets/sounds/music/::1757564447
-::res://assets/ui/::1759646737
+::res://assets/ui/::1760386023
 button_draw_pressed_transparent.png::CompressedTexture2D/CompressedTexture2D::8512074556427075982::1757592051::1757592096::1::::<><><>0<>0<>531830fb4558c873a3c47b4a0115c81f<>res://.godot/imported/button_draw_pressed_transparent.png-6b868504f85502d2b11ff80a11fffa5e.ctex::
 button_draw_transparent.png::CompressedTexture2D/CompressedTexture2D::7403043322935322603::1757589162::1757592096::1::::<><><>0<>0<>50ba710eb66b1fc0788f401cdafeb0e0<>res://.godot/imported/button_draw_transparent.png-c8c02b545e3dc377036e7f36093b8dc4.ctex::
 button_hold_pressed_transparent.png::CompressedTexture2D/CompressedTexture2D::7289022644936018524::1757592315::1757592367::1::::<><><>0<>0<>ee4ded2334437d66bd3b75c9111ba68f<>res://.godot/imported/button_hold_pressed_transparent.png-f29e3fcfcc8053d808de958bbec5c03f.ctex::
 button_hold_transparent.png::CompressedTexture2D/CompressedTexture2D::6158188633352061455::1757573655::1757585323::1::::<><><>0<>0<>3e197b5e4863927094e04bd714317fcb<>res://.godot/imported/button_hold_transparent.png-a28ab528db528656ba9ae7018e7f0981.ctex::
 draws.png::CompressedTexture2D/CompressedTexture2D::8353840537378942125::1758876427::1758878337::1::::<><><>0<>0<>92dd8501b05871351d57318cee1b187b<>res://.godot/imported/draws.png-31ff34bb0e1955beff39944f13a73764.ctex::
 main_coin.png::CompressedTexture2D/CompressedTexture2D::7495060295962894603::1758876774::1758878337::1::::<><><>0<>0<>52125c79d5efc86adb31fe4815274293<>res://.godot/imported/main_coin.png-bcc912d905c91a3e25438a0a5a84d158.ctex::
-::res://assets/ui/action_displays/::1759652061
+::res://assets/ui/action_displays/::1760386908
 attack_character.png::CompressedTexture2D::5721359874119733785::1759649923::1759652059::1::::<><><>0<>0<>611233ff4f568a1c79255dcd09f8c619<>res://.godot/imported/attack_character.png-b895bd91da3c4a675342d30e609e031c.ctex::
 attack_label.png::CompressedTexture2D::408955656979789124::1759650169::1759652060::1::::<><><>0<>0<>f20f28e0f6547c5dfbf6287de479b644<>res://.godot/imported/attack_label.png-e00e040429c5f0dded9dd693929239af.ctex::
-steal_character.png::CompressedTexture2D::6314676377343711394::1759648025::1759652060::1::::<><><>0<>0<>c5f43884db9f1aae533a3a8d700f1d3b<>res://.godot/imported/steal_character.png-b2c9fe0a7661456b70c70d9f7361db63.ctex::
+coins.png::CompressedTexture2D::8129597725419224534::1760385394::1760385580::1::::<><><>0<>0<>c25a50deca3479a3462261cdb7107d35<>res://.godot/imported/coins.png-e3cf9a31719fc893aebbed7aa9030e05.ctex::
+draws.png::CompressedTexture2D::3486802048037121071::1760386908::1760386928::1::::<><><>0<>0<>16731ba7ea1a7dc0e748906ee1b846e3<>res://.godot/imported/draws.png-9f83672ada44bc3a67f3f4804f7e6405.ctex::
+steal_character.png::CompressedTexture2D::1297561707246068891::1760385916::1760386929::1::::<><><>0<>0<>9ec3f17e62467cc55847424ee1d857ff<>res://.godot/imported/steal_character.png-b2c9fe0a7661456b70c70d9f7361db63.ctex::
 steal_character_2.png::CompressedTexture2D::8334104661133606744::1759648038::1759652061::1::::<><><>0<>0<>4306fbcb1e649ab50ac6df6363734863<>res://.godot/imported/steal_character_2.png-c3ab2c5c0de9a6236917d53c4d84af3c.ctex::
+steal_character_3.png::CompressedTexture2D::4067691478459316412::1760385999::1760386929::1::::<><><>0<>0<>9196469605d0725c3155425301533c2c<>res://.godot/imported/steal_character_3.png-c60d716453b7f45819f3b9534daa7c78.ctex::
+::res://assets/ui/assistant/::1760386076
+7fb94b85-f832-4d61-945b-281204eb866a.png::CompressedTexture2D::3610542572426396827::1760386077::1760386928::1::::<><><>0<>0<>80bb708adeeb85f88bb2ce4a3ce4b4b4<>res://.godot/imported/7fb94b85-f832-4d61-945b-281204eb866a.png-56baeb9351a1f907768a02afb157d20a.ctex::
+character.png::CompressedTexture2D::6671032718279216815::1760386026::1760386928::1::::<><><>0<>0<>b6efffdca346d58e93e67bef0044b2b5<>res://.godot/imported/character.png-e5fea5834ba187cc224450df52b5167f.ctex::
 ::res://assets/ui/bars/::1757681019
 progres bar_overlay_wooden.png::CompressedTexture2D/CompressedTexture2D::1889974529734473150::1757680979::1757681019::1::::<><><>0<>0<>11dce450b9e1c503f8a52eb15094d211<>res://.godot/imported/progres bar_overlay_wooden.png-795cf9890c00901a30d428d41eade714.ctex::
 progres_bar_gold_fill.png::CompressedTexture2D/CompressedTexture2D::6948339299081564346::1757680953::1757681019::1::::<><><>0<>0<>8af26adcc69c455e798634c3f3c70cf5<>res://.godot/imported/progres_bar_gold_fill.png-fa7ee3c149c197e4b8dbf08632715b7f.ctex::
