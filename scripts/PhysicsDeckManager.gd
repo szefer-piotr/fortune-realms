@@ -20,6 +20,17 @@ const BUST_JIGGLE_REPEAT := 2
 const END_PAUSE := 0.35
 const SCATTER_SPEED := 12.0
 const Card3D := preload("res://scripts/Card3D.gd")
+const ACTION_DISPLAY_FADE_IN := 0.18
+const ACTION_DISPLAY_FADE_OUT := 0.22
+const ACTION_DISPLAY_HOLD := 0.8
+
+const ACTION_ICON_LABELS := {
+                "warrior": preload("res://assets/ui/action_displays/ready/attack.png"),
+                "coins": preload("res://assets/ui/action_displays/ready/coins.png"),
+                "draws": preload("res://assets/ui/action_displays/ready/draws.png"),
+                "steal": preload("res://assets/ui/action_displays/ready/steal.png"),
+                "thief": preload("res://assets/ui/action_displays/ready/steal.png"),
+}
 
 # Nodes
 @onready var deck_spawn: Marker3D = $DeckSpawn
@@ -33,6 +44,7 @@ const Card3D := preload("res://scripts/Card3D.gd")
 @onready var draws_label: Label = $UI/DrawsContainer/DrawsLabel
 @onready var attack_overlay: ColorRect = $UI/AttackOverlay
 @onready var card_counts_label: Label = $UI/CardCountsLabel
+@onready var action_display: TextureRect = $UI/ActionDisplay
 
 # Runtime
 var cards: Array[RigidBody3D] = []
@@ -53,6 +65,9 @@ var is_dealing := false
 var is_animating := false
 var card_face_counts := {}
 var card_face_names: Array[String] = []
+var card_face_action_levels := {}
+var action_queue: Array[String] = []
+var processing_actions := false
 
 func _ready() -> void:
 		randomize()
@@ -74,10 +89,11 @@ func _wire_ui() -> void:
 				build_button.pressed.connect(_on_build_pressed)
 
 func _reset_card_face_counts() -> void:
-		card_face_counts.clear()
-		for name in card_face_names:
-				card_face_counts[name] = 0
-		_update_card_counts_label()
+                card_face_counts.clear()
+                card_face_action_levels.clear()
+                for name in card_face_names:
+                                card_face_counts[name] = 0
+                _update_card_counts_label()
 
 func _update_card_counts_label() -> void:
 		if not card_counts_label:
@@ -92,15 +108,20 @@ func _update_card_counts_label() -> void:
 		card_counts_label.text = "Card Faces: " + " | ".join(parts)
 
 func _start_round() -> void:
-				is_dealing = false
-				is_animating = false
-				jackpot_card = null
-				last_dealt_card = null
-				last_fall_time = 0.0
-				is_round_active = false
-				_reset_card_face_counts()
-				_refresh_draws_ui()
-				_enable_inputs(true, false)
+                is_dealing = false
+                is_animating = false
+                jackpot_card = null
+                last_dealt_card = null
+                last_fall_time = 0.0
+                is_round_active = false
+                action_queue.clear()
+                processing_actions = false
+                _reset_card_face_counts()
+                _refresh_draws_ui()
+                _enable_inputs(true, false)
+                if action_display:
+                                action_display.visible = false
+                                action_display.modulate = Color(1, 1, 1, 0)
 
 func _enable_inputs(draw: bool, hold: bool) -> void:
 	var has_rounds_available := draws_remaining > 0 or is_round_active
@@ -147,11 +168,12 @@ func _deal_card() -> void:
 		var tex_path : String = tex.resource_path
 		if tex_path != "":
 			icon_name = tex_path.get_file().get_basename()
-	if icon_name != "":
-			if not card_face_names.has(icon_name):
-					card_face_names.append(icon_name)
-			card_face_counts[icon_name] = int(card_face_counts.get(icon_name, 0)) + 1
-			_update_card_counts_label()
+        if icon_name != "":
+                        if not card_face_names.has(icon_name):
+                                        card_face_names.append(icon_name)
+                        card_face_counts[icon_name] = int(card_face_counts.get(icon_name, 0)) + 1
+                        _maybe_queue_face_action(icon_name, int(card_face_counts[icon_name]))
+                        _update_card_counts_label()
 
 	# Spawn position
 	var pos := deck_spawn.global_transform.origin
@@ -190,9 +212,9 @@ func _update_combo_effects() -> void:
 		if is_instance_valid(c):
 			counts[c.icon_type] = int(counts.get(c.icon_type, 0)) + 1
 
-	for c in cards:
-		if is_instance_valid(c):
-			c.set_highlight(counts.get(c.icon_type, 0) >= 4)
+        for c in cards:
+                if is_instance_valid(c):
+                        c.set_highlight(counts.get(c.icon_type, 0) >= 3)
 			
 
 # Score UI updates
@@ -248,23 +270,31 @@ func _await_last_card_land() -> void:
 	await get_tree().create_timer(0.05).timeout
 
 func _end_round(message: String, points: int, is_jackpot: bool = false, is_bust: bool = false) -> void:
-	is_animating = true
-	_lock_inputs()
-	score_update_queue.clear()
-	processing_scores = false
-	
-	if message != "":
-		score_label.text = message
-	
-	if is_bust:
-		await _play_bust_animation()
-	elif is_jackpot:
-		await _play_jackpot_animation()
-	
-	total_score += points
-	total_score_label.text = "%d" % total_score
+        is_animating = true
+        _lock_inputs()
+        score_update_queue.clear()
+        processing_scores = false
 
-	await get_tree().create_timer(END_PAUSE).timeout
+        if message != "":
+                score_label.text = message
+
+        if is_bust:
+                await _play_bust_animation()
+        elif is_jackpot:
+                await _play_jackpot_animation()
+
+        if not is_bust and is_jackpot and is_instance_valid(jackpot_card):
+                _queue_face_action(jackpot_card.icon_type)
+
+        total_score += points
+        total_score_label.text = "%d" % total_score
+
+        if not is_bust:
+                await _process_action_queue()
+        else:
+                action_queue.clear()
+
+        await get_tree().create_timer(END_PAUSE).timeout
 	
 	score_bar.value = 0
 	score_label.text = "0"
@@ -273,15 +303,64 @@ func _end_round(message: String, points: int, is_jackpot: bool = false, is_bust:
 	for card in cards:
 		if card:
 			card.queue_free()
-	cards.clear()
-	
-	card_count = 0
-	round_score = 0
-	jackpot_card = null
-	last_dealt_card = null
-	is_animating = false
-	
-	_start_round()
+        cards.clear()
+
+        card_count = 0
+        round_score = 0
+        jackpot_card = null
+        last_dealt_card = null
+        is_animating = false
+
+        _start_round()
+
+
+func _queue_face_action(icon_name: String) -> void:
+                var label_key := icon_name
+                if not ACTION_ICON_LABELS.has(label_key):
+                                return
+                action_queue.append(label_key)
+
+func _maybe_queue_face_action(icon_name: String, count: int) -> void:
+                if count < 3:
+                                return
+                var trigger_level := count / 3
+                var previous_level := int(card_face_action_levels.get(icon_name, 0))
+                if trigger_level <= previous_level:
+                                return
+                card_face_action_levels[icon_name] = trigger_level
+                _queue_face_action(icon_name)
+
+func _process_action_queue() -> void:
+                if action_queue.is_empty() or not action_display:
+                                action_queue.clear()
+                                return
+                if processing_actions:
+                                return
+
+                processing_actions = true
+                for icon_name in action_queue:
+                                var tex: Texture2D = ACTION_ICON_LABELS.get(icon_name, null)
+                                if not tex:
+                                                continue
+                                action_display.texture = tex
+                                action_display.modulate = Color(1, 1, 1, 0)
+                                action_display.visible = true
+
+                                var fade_in := create_tween()
+                                fade_in.tween_property(action_display, "modulate:a", 1.0, ACTION_DISPLAY_FADE_IN)\
+                                                .set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+                                await fade_in.finished
+
+                                await get_tree().create_timer(ACTION_DISPLAY_HOLD).timeout
+
+                                var fade_out := create_tween()
+                                fade_out.tween_property(action_display, "modulate:a", 0.0, ACTION_DISPLAY_FADE_OUT)\
+                                                .set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+                                await fade_out.finished
+
+                action_display.visible = false
+                action_queue.clear()
+                processing_actions = false
 
 
 func _play_bust_animation() -> void:
