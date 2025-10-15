@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1760383599
+::res://::1760427948
 README.md::TextFile/TextFile::-1::1756448470::0::1::::<><><>0<>0<><>::
 ::res://assets/::1759161900
 placeholder.svg::CompressedTexture2D/CompressedTexture2D::8043791701214288702::1756449695::1756449821::1::::<><><>0<>0<>1b64b0fd730b587088c251af9a80ce7e<>res://.godot/imported/placeholder.svg-267f0fc17507f37efc4dcc4ac55848f1.ctex::
@@ -91,15 +91,21 @@ button_hold_pressed_transparent.png::CompressedTexture2D/CompressedTexture2D::72
 button_hold_transparent.png::CompressedTexture2D/CompressedTexture2D::6158188633352061455::1757573655::1757585323::1::::<><><>0<>0<>3e197b5e4863927094e04bd714317fcb<>res://.godot/imported/button_hold_transparent.png-a28ab528db528656ba9ae7018e7f0981.ctex::
 draws.png::CompressedTexture2D/CompressedTexture2D::8353840537378942125::1758876427::1758878337::1::::<><><>0<>0<>92dd8501b05871351d57318cee1b187b<>res://.godot/imported/draws.png-31ff34bb0e1955beff39944f13a73764.ctex::
 main_coin.png::CompressedTexture2D/CompressedTexture2D::7495060295962894603::1758876774::1758878337::1::::<><><>0<>0<>52125c79d5efc86adb31fe4815274293<>res://.godot/imported/main_coin.png-bcc912d905c91a3e25438a0a5a84d158.ctex::
-::res://assets/ui/action_displays/::1760386908
-attack_character.png::CompressedTexture2D::5721359874119733785::1759649923::1759652059::1::::<><><>0<>0<>611233ff4f568a1c79255dcd09f8c619<>res://.godot/imported/attack_character.png-b895bd91da3c4a675342d30e609e031c.ctex::
-attack_label.png::CompressedTexture2D::408955656979789124::1759650169::1759652060::1::::<><><>0<>0<>f20f28e0f6547c5dfbf6287de479b644<>res://.godot/imported/attack_label.png-e00e040429c5f0dded9dd693929239af.ctex::
-coins.png::CompressedTexture2D::8129597725419224534::1760385394::1760385580::1::::<><><>0<>0<>c25a50deca3479a3462261cdb7107d35<>res://.godot/imported/coins.png-e3cf9a31719fc893aebbed7aa9030e05.ctex::
-draws.png::CompressedTexture2D::3486802048037121071::1760386908::1760386928::1::::<><><>0<>0<>16731ba7ea1a7dc0e748906ee1b846e3<>res://.godot/imported/draws.png-9f83672ada44bc3a67f3f4804f7e6405.ctex::
-steal_character.png::CompressedTexture2D::1297561707246068891::1760385916::1760386929::1::::<><><>0<>0<>9ec3f17e62467cc55847424ee1d857ff<>res://.godot/imported/steal_character.png-b2c9fe0a7661456b70c70d9f7361db63.ctex::
-steal_character_2.png::CompressedTexture2D::8334104661133606744::1759648038::1759652061::1::::<><><>0<>0<>4306fbcb1e649ab50ac6df6363734863<>res://.godot/imported/steal_character_2.png-c3ab2c5c0de9a6236917d53c4d84af3c.ctex::
-steal_character_3.png::CompressedTexture2D::4067691478459316412::1760385999::1760386929::1::::<><><>0<>0<>9196469605d0725c3155425301533c2c<>res://.godot/imported/steal_character_3.png-c60d716453b7f45819f3b9534daa7c78.ctex::
-::res://assets/ui/assistant/::1760386076
+::res://assets/ui/action_displays/::1760423803
+::res://assets/ui/action_displays/miscs/::1760424730
+attack_character.png::CompressedTexture2D::5721359874119733785::1759649923::1760427950::1::::<><><>0<>0<>8830b880718b5c7f7ec3df8ab9080a95<>res://.godot/imported/attack_character.png-a2b7774bbabc14b42d4013ac2005f75d.ctex::
+attack_label.png::CompressedTexture2D::408955656979789124::1759650169::1760427950::1::::<><><>0<>0<>0b99c9fb839e76371203c418f63c632f<>res://.godot/imported/attack_label.png-582b3925e0444f82efb7fa3bb25709f6.ctex::
+coins.png::CompressedTexture2D::8129597725419224534::1760385394::1760427950::1::::<><><>0<>0<>5da0130f90fc8e6b78e751e731b18955<>res://.godot/imported/coins.png-2cd2a1881c6fe919eb3d119522cfd4b6.ctex::
+draws.png::CompressedTexture2D::3486802048037121071::1760386908::1760427951::1::::<><><>0<>0<>e8b7a5f90007fb66f7e9aa6b5b15bf85<>res://.godot/imported/draws.png-7bd0d3967248471c8ed739fa297a34df.ctex::
+steal_character.png::CompressedTexture2D::1297561707246068891::1760385916::1760427951::1::::<><><>0<>0<>f6ec4df89a41ca4e292828caefbf4372<>res://.godot/imported/steal_character.png-876c8b16eb5d7a551527d670f5ebab2c.ctex::
+steal_character_2.png::CompressedTexture2D::8334104661133606744::1759648038::1760427951::1::::<><><>0<>0<>c16ea1d640b2641b80bfec875b319abb<>res://.godot/imported/steal_character_2.png-6506970dfe28ba4e024b0e226aad6013.ctex::
+steal_character_3.png::CompressedTexture2D::4067691478459316412::1760385999::1760427951::1::::<><><>0<>0<>24eea9db5a6aa9c406cc596a5d9a0618<>res://.godot/imported/steal_character_3.png-64738c0abbfbc1acf5654a632ddc2e39.ctex::
+::res://assets/ui/action_displays/ready/::1760424974
+attack.png::CompressedTexture2D::3779143901577280451::1760424714::1760427952::1::::<><><>0<>0<>1e516c2668aa1534fdef8f9ae3ec0e80<>res://.godot/imported/attack.png-150840c2caeb53c7e40a35a387b02e16.ctex::
+coins.png::CompressedTexture2D::6962710836068048237::1760424690::1760427953::1::::<><><>0<>0<>2c194ef198fa9e653cec4652888c047d<>res://.godot/imported/coins.png-897867dbbe88eef4e519aae55ec58b33.ctex::
+draws.png::CompressedTexture2D::8092212649285794613::1760424891::1760427953::1::::<><><>0<>0<>1791e8776414c670fadc08fbf03a2881<>res://.godot/imported/draws.png-2be3077f2223941783f6ef19d78976f3.ctex::
+steal.png::CompressedTexture2D::1326702659423267473::1760424974::1760427953::1::::<><><>0<>0<>7c604e0d50852452d36159bef3b9b973<>res://.godot/imported/steal.png-3f5ebaa45285b8bb5f8114a77fc987cf.ctex::
+::res://assets/ui/assistant/::1760386928
 7fb94b85-f832-4d61-945b-281204eb866a.png::CompressedTexture2D::3610542572426396827::1760386077::1760386928::1::::<><><>0<>0<>80bb708adeeb85f88bb2ce4a3ce4b4b4<>res://.godot/imported/7fb94b85-f832-4d61-945b-281204eb866a.png-56baeb9351a1f907768a02afb157d20a.ctex::
 character.png::CompressedTexture2D::6671032718279216815::1760386026::1760386928::1::::<><><>0<>0<>b6efffdca346d58e93e67bef0044b2b5<>res://.godot/imported/character.png-e5fea5834ba187cc224450df52b5167f.ctex::
 ::res://assets/ui/bars/::1757681019
@@ -123,11 +129,11 @@ star.png::CompressedTexture2D::5152905811002133155::1759903804::1759904056::1:::
 ::res://kingdoms/k1/::1758957204
 ::res://kingdoms/k1/icons/::1758957199
 ::res://kingdoms/k1/models/::1758957194
-::res://scenes/::1760075466
+::res://scenes/::1760427908
 Card3D.tscn::PackedScene::2637741773608707711::1759564693::0::1::::<><><>0<>0<><>::uid://2pfq0a84pyh::::res://assets/cards_png/gpt_game_assets/cards_simple/thief.png<>uid://bwwxasdeyh3la::::res://assets/cards_png/gpt_game_assets/cards_simple/Back.png<>uid://bcthsakep3433::::res://scripts/Card3D.gd
 Kingdom.gd::GDScript/GDScript::8500289415207395714::1759090389::0::1::::<>Node3D<><>0<>0<><>::
 KingdomBase.tscn::PackedScene/PackedScene::396668103293350027::1759175426::0::1::::<><><>0<>0<><>::uid://cl282gwrr1o4a::::res://assets/ui/buttons/play.png<>uid://dtdur3vgsfwc5::::res://scenes/Kingdom.gd<>uid://lm30aibs7ft5::::res://assets/ui/buttons/play_pressed.png<>uid://dgj0ijn5a6mxi::::res://assets/kingdoms/Kingdom1/KingdomConfig.tres
-PhysicsTable.tscn::PackedScene::8598312027378855211::1760075466::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png<>uid://brb1yke7h151h::::res://assets/ui/buttons/build.png<>uid://drcpd0a3cupvf::::res://assets/ui/buttons/build_pressed.png<>uid://drawsekrgb4i8::::res://assets/ui/draws.png<>uid://de1wsvr4s1wr8::::res://assets/ui/main_coin.png
+PhysicsTable.tscn::PackedScene::8598312027378855211::1760427908::0::1::::<><><>0<>0<><>::uid://b4g3082mkfsxo::::res://assets/cards_png/gpt_game_assets/background_2.png<>uid://wvect22etct2::::res://scripts/PhysicsDeckManager.gd<>uid://ddqdboqblvytn::::res://assets/ui/button_draw_transparent.png<>uid://ct0cp46wx6qg2::::res://assets/ui/button_hold_transparent.png<>uid://dtjkvhycg8h7k::::res://assets/ui/button_draw_pressed_transparent.png<>uid://db34exs3rskxg::::res://assets/ui/button_hold_pressed_transparent.png<>uid://btets6e6f5bcs::::res://assets/ui/bars/progres_bar_underlay_wooden.png<>uid://c583er4aa15m1::::res://assets/ui/bars/progres_bar_gold_fill.png<>uid://16ruswnnpyla::::res://assets/ui/bars/progres bar_overlay_wooden.png<>uid://brb1yke7h151h::::res://assets/ui/buttons/build.png<>uid://drcpd0a3cupvf::::res://assets/ui/buttons/build_pressed.png<>uid://drawsekrgb4i8::::res://assets/ui/draws.png<>uid://de1wsvr4s1wr8::::res://assets/ui/main_coin.png
 ::res://scenes/environments/::1760072630
 DesertKingdomEnvironment.tscn::PackedScene/PackedScene::900649266094178639::1759162137::0::1::::<><><>0<>0<><>::
 FirstKingdom.tscn::PackedScene::3171311560140885222::1760072630::0::1::::<><><>0<>0<><>::
@@ -140,9 +146,9 @@ ForestKingdom.tscn::PackedScene/PackedScene::86361947588788225::1759135594::0::1
 ::res://scenes/ui/::1759564693
 BuildingTile.gd::GDScript::4932587899192627872::1759511019::0::1::::<>Control<><>0<>0<><>::
 BuildingTile.tscn::PackedScene::5401379565212799902::1759564693::0::1::::<><><>0<>0<><>::uid://bdboum11konu3::::res://assets/ui/buildings/building_tile.png<>uid://cbf5sq8llhhse::::res://assets/ui/buildings/building_tile_button.png<>uid://ccjnacmftx4t5::::res://scenes/ui/BuildingTile.gd<>uid://d1iwbdtbnbn4::::res://assets/icons/coin.png
-::res://scripts/::1760075466
+::res://scripts/::1760427908
 Card3D.gd::GDScript::2566478727186920856::1760075466::0::1::::<>RigidBody3D<><>0<>0<><>::
-PhysicsDeckManager.gd::GDScript::1587753973317066913::1760074648::0::1::::<>Node3D<><>0<>0<><>::
+PhysicsDeckManager.gd::GDScript::1587753973317066913::1760427908::0::1::::<>Node3D<><>0<>0<><>::
 ::res://scripts/config/::1759180843
 BuildingConfig.gd::GDScript/GDScript::14107541906589018::1759060638::0::1::::BuildingConfig<>Resource<><>0<>0<><>::
 BuildingLevelConfig.gd::GDScript/GDScript::3163407676404552903::1759060638::0::1::::BuildingLevelConfig<>Resource<><>0<>0<><>::

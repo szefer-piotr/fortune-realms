@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn3bj0r646o27"
-path="res://.godot/imported/coins.png-2cd2a1881c6fe919eb3d119522cfd4b6.ctex"
+uid="uid://s5wumn2gmwn6"
+path="res://.godot/imported/steal.png-3f5ebaa45285b8bb5f8114a77fc987cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/action_displays/miscs/coins.png"
-dest_files=["res://.godot/imported/coins.png-2cd2a1881c6fe919eb3d119522cfd4b6.ctex"]
+source_file="res://assets/ui/action_displays/ready/steal.png"
+dest_files=["res://.godot/imported/steal.png-3f5ebaa45285b8bb5f8114a77fc987cf.ctex"]
 
 [params]
 
