@@ -163,17 +163,18 @@ func _deal_card() -> void:
 	var tex = card.face_textures[randi_range(0, card.face_textures.size() - 1)]
 	card.set_face_texture(tex)
 
-	var icon_name: String = card.icon_type
-	if icon_name == "unknown" and tex:
-		var tex_path : String = tex.resource_path
-		if tex_path != "":
-			icon_name = tex_path.get_file().get_basename()
-		if icon_name != "":
-						if not card_face_names.has(icon_name):
-										card_face_names.append(icon_name)
-						card_face_counts[icon_name] = int(card_face_counts.get(icon_name, 0)) + 1
-						_maybe_queue_face_action(icon_name, int(card_face_counts[icon_name]))
-						_update_card_counts_label()
+        var icon_name: String = card.icon_type
+        if icon_name == "unknown" and tex:
+                var tex_path : String = tex.resource_path
+                if tex_path != "":
+                        icon_name = tex_path.get_file().get_basename()
+                        card.icon_type = icon_name
+        if icon_name != "":
+                if not card_face_names.has(icon_name):
+                        card_face_names.append(icon_name)
+                card_face_counts[icon_name] = int(card_face_counts.get(icon_name, 0)) + 1
+                _maybe_queue_face_action(icon_name, int(card_face_counts[icon_name]))
+                _update_card_counts_label()
 
 	# Spawn position
 	var pos := deck_spawn.global_transform.origin
