@@ -300,19 +300,19 @@ func _end_round(message: String, points: int, is_jackpot: bool = false, is_bust:
 	score_bar.value = 0
 	score_label.text = "0"
 	displayed_score = 0
-	
+
 	for card in cards:
 		if card:
 			card.queue_free()
-		cards.clear()
+	cards.clear()
 
-		card_count = 0
-		round_score = 0
-		jackpot_card = null
-		last_dealt_card = null
-		is_animating = false
+	card_count = 0
+	round_score = 0
+	jackpot_card = null
+	last_dealt_card = null
+	is_animating = false
 
-		_start_round()
+	_start_round()
 
 
 func _queue_face_action(icon_name: String) -> void:
