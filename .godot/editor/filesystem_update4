@@ -1,4 +1,3 @@
-res://scripts/PhysicsDeckManager.gd
 res://scenes/PhysicsTable.tscn
 res://assets/kingdoms/Kingdom1/HomeBuilding.tres
 res://assets/kingdoms/Kingdom1/MarketBuilding.tres
@@ -6,3 +5,4 @@ res://assets/kingdoms/Kingdom1/TowerBuilding.tres
 res://assets/kingdoms/FirstKingdom/HomeBuilding.tres
 res://assets/kingdoms/FirstKingdom/MarketBuilding.tres
 res://assets/kingdoms/FirstKingdom/TowerBuilding.tres
+res://scripts/PhysicsDeckManager.gd
